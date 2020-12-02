@@ -7,6 +7,9 @@ body {
 .notImplemented {
   display: none; }
 
+.hidden {
+  visibility: hidden; }
+
 .container {
   max-width: 1120px;
   margin: auto;
@@ -609,5 +612,313 @@ body {
       left: -25px; }
 
 /* /CATALOG */
+/* SERVICES */
+.services {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column; }
+  .services__wrapper {
+    background: #161C28; }
+  .services__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .services__block > .elem {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 172px;
+      text-align: center;
+      margin: 0 7px;
+      margin-bottom: 15px;
+      cursor: pointer; }
+    .services__block .rezka {
+      position: relative;
+      display: block;
+      width: 351px;
+      height: 382px; }
+      .services__block .rezka:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(38.89deg, #020B17 11.26%, rgba(0, 109, 255, 0.64) 41.25%, rgba(0, 109, 255, 0) 84.63%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .rezka__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/rezka.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 360px;
+        height: 360px;
+        top: 10px;
+        left: -10px;
+        z-index: 1; }
+      .services__block .rezka__title {
+        font-size: 30px;
+        line-height: 40px;
+        font-weight: 300;
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        z-index: 3; }
+    .services__block .metall {
+      position: relative;
+      display: block;
+      width: 376px;
+      height: 277px;
+      align-self: flex-end; }
+      .services__block .metall:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(52.73deg, #4F205E 4.3%, rgba(79, 32, 94, 0) 96.19%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .metall__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/metall.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 315px;
+        height: 152px;
+        right: 15px;
+        top: -11px;
+        z-index: 1; }
+      .services__block .metall__title {
+        text-align: left;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 20px;
+        position: absolute;
+        bottom: 50px;
+        left: 12px;
+        z-index: 3; }
+    .services__block .zink {
+      position: relative;
+      display: block;
+      width: 337px;
+      height: 343px;
+      align-self: flex-end; }
+      .services__block .zink:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(40.87deg, #142E2B 15.88%, rgba(42, 154, 143, 0.35) 56.6%, rgba(18, 88, 81, 0) 93.02%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .zink__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/zink.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 300px;
+        height: 230px;
+        right: -10px;
+        top: 20px;
+        z-index: 1; }
+      .services__block .zink__title {
+        font-size: 36px;
+        font-weight: 300;
+        line-height: 49px;
+        position: absolute;
+        bottom: 4px;
+        left: 26px;
+        z-index: 3; }
+    .services__block .shlifovka {
+      position: relative;
+      display: block;
+      width: 357px;
+      height: 317px; }
+      .services__block .shlifovka:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(243.53deg, rgba(9, 140, 117, 0) 0%, #098C75 48.8%, rgba(9, 140, 117, 0) 88.89%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .shlifovka__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/shlifovka.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 283px;
+        height: 202px;
+        right: 0;
+        top: 10px;
+        z-index: 1; }
+      .services__block .shlifovka__title {
+        width: 220px;
+        text-align: left;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 31px;
+        position: absolute;
+        bottom: 38px;
+        left: 23px;
+        z-index: 3; }
+    .services__block .ceh {
+      position: relative;
+      display: block;
+      width: 382px;
+      height: 287px; }
+      .services__block .ceh:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(250.64deg, #153968 0.61%, rgba(75, 135, 216, 0.69) 43.26%, rgba(75, 135, 216, 0) 116.99%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .ceh__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/ceh.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 318px;
+        height: 222px;
+        left: -5px;
+        bottom: 0;
+        z-index: 1; }
+      .services__block .ceh__title {
+        width: 380px;
+        text-align: left;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 27px;
+        position: absolute;
+        top: 5px;
+        right: -50px;
+        z-index: 3; }
+    .services__block .tokarnaya {
+      position: relative;
+      display: block;
+      width: 320px;
+      height: 277px; }
+      .services__block .tokarnaya:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(228.66deg, #583216 12.81%, #A06438 46.76%, rgba(160, 100, 56, 0) 87.36%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .tokarnaya__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/tokarnaya.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 320px;
+        height: 208px;
+        left: -5px;
+        bottom: 0;
+        z-index: 1; }
+      .services__block .tokarnaya__title {
+        width: 250px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 30px;
+        position: absolute;
+        top: 5px;
+        right: -106px;
+        z-index: 3; }
+
+/* /SERVICES */
+/* CALLBACK */
+.callback {
+  color: #fff;
+  font-size: 16px;
+  justify-content: space-between; }
+  .callback__wrapper {
+    background: #161C28;
+    padding-top: 50px; }
+  .callback__form {
+    width: 700px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; }
+    .callback__form ::-webkit-input-placeholder {
+      /* Chrome */
+      color: #fff; }
+    .callback__form :-ms-input-placeholder {
+      /* IE 10+ */
+      color: #fff; }
+    .callback__form ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #fff;
+      opacity: 1; }
+    .callback__form :-moz-placeholder {
+      /* Firefox 4 - 18 */
+      color: #fff;
+      opacity: 1; }
+    .callback__form h2 {
+      width: 300px;
+      height: 63px;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 49px;
+      position: relative;
+      bottom: 30px; }
+    .callback__form > * {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 20px;
+      background: transparent;
+      color: white; }
+    .callback__form > .smallBlock {
+      width: 335px;
+      height: 63px;
+      box-sizing: border-box;
+      border: 1px solid #fff;
+      padding: 15px 30px; }
+    .callback__form > .bigBlock {
+      width: 100%;
+      height: 63px;
+      box-sizing: border-box;
+      border: 1px solid #fff;
+      padding: 15px 30px; }
+    .callback__form > .submit {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end; }
+      .callback__form > .submit > * {
+        width: 220px;
+        height: 54px;
+        font-size: 20px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid #fff;
+        padding: 15px 30px;
+        color: white; }
+
+/* /CALLBACK */
 
 /*# sourceMappingURL=index.css.map */
