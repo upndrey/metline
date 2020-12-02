@@ -26,11 +26,52 @@ body {
       max-width: 100%;
       padding: 10px; } }
 
+.titleBlock {
+  align-self: center;
+  width: 1120px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .titleBlock h2 {
+    color: #E9F2FF;
+    position: relative;
+    font-size: 36px; }
+    .titleBlock h2:before {
+      content: '';
+      position: relative;
+      display: block;
+      background-image: url("../images/horizontal_line.png");
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 200px;
+      height: 2px;
+      top: 45px; }
+  .titleBlock p {
+    position: relative;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 21px;
+    width: 638px; }
+    .titleBlock p:before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url("../images/small_vertical_line.png");
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 2px;
+      height: 100px;
+      left: -10px; }
+
 /* /GLOBAL */
 /* FIRST SCREEN */
 .firstScreenWrapper {
+  position: relative;
+  z-index: 999;
   color: white;
-  background: #282E3A;
+  background: rgba(40, 46, 58, 0.9);
   padding: 0 0 130px 0;
   overflow: hidden;
   height: 1000px;
@@ -40,7 +81,7 @@ body {
       padding: 10px 0 130px 0; } }
 
 .header {
-  max-width: 1600px;
+  max-width: 1120px;
   display: flex;
   margin: 0 auto 100px auto;
   justify-content: space-between;
@@ -48,7 +89,7 @@ body {
   .header__logo {
     position: relative;
     top: 20px;
-    background-image: url("../images/logo.png");
+    background-image: url("../images/firstScreen/logo.png");
     background-size: 180px 125px;
     background-repeat: no-repeat;
     width: 250px;
@@ -78,7 +119,7 @@ body {
     .header .contacts .search {
       position: relative;
       display: block;
-      background-image: url("../images/search.png");
+      background-image: url("../images/firstScreen/icons/search.png");
       -webkit-background-size: cover;
       background-size: cover;
       width: 23px;
@@ -91,7 +132,7 @@ body {
         content: '';
         position: relative;
         display: block;
-        background-image: url("../images/phone.png");
+        background-image: url("../images/firstScreen/icons/phone.png");
         -webkit-background-size: cover;
         background-size: cover;
         width: 13px;
@@ -101,7 +142,7 @@ body {
         content: '';
         position: relative;
         display: block;
-        background-image: url("../images/arr_down.png");
+        background-image: url("../images/firstScreen/icons/arr_down.png");
         -webkit-background-size: cover;
         background-size: cover;
         width: 10px;
@@ -116,7 +157,7 @@ body {
         content: '';
         position: relative;
         display: block;
-        background-image: url("../images/location.png");
+        background-image: url("../images/firstScreen/icons/location.png");
         -webkit-background-size: cover;
         background-size: cover;
         width: 12px;
@@ -126,7 +167,7 @@ body {
         content: '';
         position: relative;
         display: block;
-        background-image: url("../images/arr_down.png");
+        background-image: url("../images/firstScreen/icons/arr_down.png");
         -webkit-background-size: cover;
         background-size: cover;
         width: 10px;
@@ -155,13 +196,13 @@ body {
     content: '';
     position: absolute;
     display: block;
-    background-image: url("../images/vertical_line.png");
+    background-image: url("../images/firstScreen/icons/vertical_line.png");
     -webkit-background-size: cover;
     background-size: cover;
     width: 2px;
     height: 180px;
     top: 13px;
-    left: -10px; }
+    left: -15px; }
   .title h1 {
     font-size: 48px;
     line-height: 60px;
@@ -196,7 +237,7 @@ body {
       border-radius: 13px; }
   .title .alertBlock {
     position: absolute;
-    right: -100px;
+    right: -175px;
     bottom: -50px;
     display: flex;
     align-items: center;
@@ -209,7 +250,7 @@ body {
     .title .alertBlock__logo {
       position: relative;
       display: block;
-      background-image: url("../images/small_logo.png");
+      background-image: url("../images/firstScreen/small_logo.png");
       -webkit-background-size: cover;
       background-size: cover;
       width: 42px;
@@ -219,7 +260,8 @@ body {
 .advantages {
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 35px; }
   .advantages .block {
     position: relative;
     display: flex;
@@ -237,7 +279,7 @@ body {
         content: '';
         position: absolute;
         display: block;
-        background-image: url("../images/triangle.png");
+        background-image: url("../images/firstScreen/icons/triangle.png");
         -webkit-background-size: cover;
         background-size: cover;
         width: 20px;
@@ -248,7 +290,7 @@ body {
       content: '';
       position: absolute;
       display: block;
-      background-image: url("../images/arr_right.png");
+      background-image: url("../images/firstScreen/icons/arr_right.png");
       -webkit-background-size: cover;
       background-size: cover;
       width: 22px;
@@ -259,7 +301,7 @@ body {
       content: '';
       position: absolute;
       display: block;
-      background-image: url("../images/arr_circle.png");
+      background-image: url("../images/firstScreen/icons/arr_circle.png");
       -webkit-background-size: cover;
       background-size: cover;
       width: 31px;
@@ -267,6 +309,305 @@ body {
       top: 10px;
       left: -35px; }
 
+.videoCtrl {
+  position: absolute;
+  right: 100px;
+  bottom: 50px;
+  width: 1120px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+  .videoCtrl__play {
+    content: '';
+    position: relative;
+    display: block;
+    background-image: url("../images/firstScreen/icons/play.png");
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    cursor: pointer; }
+  .videoCtrl__stop {
+    content: '';
+    position: relative;
+    display: block;
+    background-image: url("../images/firstScreen/icons/stop.png");
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 36px;
+    height: 35px;
+    cursor: pointer; }
+
+.bgVideo {
+  z-index: 1;
+  position: absolute;
+  display: block;
+  background-image: url("../images/firstScreen/svarka.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 1000px;
+  top: 0; }
+
 /* /FIRST SCREEN */
+/* CATALOG */
+.catalog {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column; }
+  .catalog__wrapper {
+    background: #161C28; }
+  .catalog__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .catalog__block > * {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 172px;
+      text-align: center;
+      margin: 0 7px;
+      /* CATALOG_LIST */
+      /* /CATALOG_LIST */ }
+      .catalog__block > * > p {
+        line-height: 20px;
+        margin-bottom: 45px; }
+      .catalog__block > * .opori_tryboprovoda {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/opori_tryboprovoda.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .zakladnie_detali {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/zakladnie_detali.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .ankernie_tyagi {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/ankernie_tyagi.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .traversi {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/traversi.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .salniki {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/salniki.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .lestnici {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/lestnici.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .prozhektornie_machti {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/prozhektornie_machti.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .emkostnoe_oborydovanie {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/emkostnoe_oborydovanie.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .tbo {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/tbo.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .bolti {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/bolti.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .ory {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/ory.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .metallicheskie_formi {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/metallicheskie_formi.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .osvetitelnie_machti {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/osvetitelnie_machti.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .vl_lep {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/vl_lep.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .nestandart {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/nestandart.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .stroitelnie {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/stroitelnie.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .tehnologicheskie {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/tehnologicheskie.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .armatyra {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/armatyra.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .registri {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/registri.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .pryzhini {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/pryzhini.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * .compensatori {
+        position: relative;
+        display: block;
+        background-image: url("../images/catalog/compensatori.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 116px;
+        height: 112px; }
+      .catalog__block > * > div {
+        border-radius: 18px;
+        margin-bottom: 15px;
+        background-position: 0 -2px;
+        box-shadow: 5px 5px 2px 0 #171831; }
+  .catalog__links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #006DFF; }
+    .catalog__links > a {
+      margin: 0 30px;
+      position: relative;
+      display: flex;
+      align-items: center; }
+    .catalog__links .request:before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url("../images/catalog/icons/request.png");
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      left: -30px; }
+    .catalog__links .search:before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url("../images/catalog/icons/search.png");
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 18px;
+      height: 18px;
+      left: -30px; }
+    .catalog__links .tech:before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url("../images/catalog/icons/tech.png");
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 17px;
+      height: 16px;
+      left: -30px; }
+    .catalog__links .delivery:before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url("../images/catalog/icons/delivery.png");
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 21px;
+      height: 16px;
+      left: -30px; }
+    .catalog__links .contacts:before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url("../images/catalog/icons/contacts.png");
+      -webkit-background-size: cover;
+      background-size: cover;
+      width: 13px;
+      height: 19px;
+      left: -25px; }
+
+/* /CATALOG */
 
 /*# sourceMappingURL=index.css.map */

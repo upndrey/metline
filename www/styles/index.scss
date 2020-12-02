@@ -35,12 +35,45 @@ body {
   }
 }
 
+.titleBlock {
+  align-self: center;
+  width: $desktopWidth;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    color: #E9F2FF;
+    position: relative;
+    font-size: 36px;
+    &:before {
+      @include icon("../images/horizontal_line.png", 200px, 2px);
+      top: 45px;
+    }
+  }
+
+  p {
+    position: relative;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 21px;
+
+    width: 638px;
+    &:before {
+      @include icon("../images/small_vertical_line.png", 2px, 100px, true, absolute);
+      left: -10px;
+    }
+  }
+}
 /* /GLOBAL */
 
 /* FIRST SCREEN */
 .firstScreenWrapper {
+  position: relative;
+  z-index: 999;
   color: white;
-  background: $headerBgColor;
+  background: rgba(40,46,58, 0.9);
   padding: 0 0 130px 0;
   overflow: hidden;
   height: 1000px;
@@ -52,7 +85,7 @@ body {
 }
 
 .header {
-  max-width: 1600px;
+  max-width: $desktopWidth;
   display: flex;
   margin: 0 auto 100px auto;
   justify-content: space-between;
@@ -60,7 +93,7 @@ body {
   &__logo {
     position: relative;
     top: 20px;
-    background-image: url("../images/logo.png");
+    background-image: url("../images/firstScreen/logo.png");
     background-size: 180px 125px;
     background-repeat: no-repeat;
     width: 250px;
@@ -97,18 +130,18 @@ body {
       font-size: 16px;
     }
     .search {
-      @include icon("../images/search.png", 23px, 23px, false);
+      @include icon("../images/firstScreen/icons/search.png", 23px, 23px, false);
     }
     .phone {
       box-sizing: border-box;
       height: 45px;
       padding: 15px 30px;
       &:before {
-        @include icon("../images/phone.png", 13px, 19px);
+        @include icon("../images/firstScreen/icons/phone.png", 13px, 19px);
         right: 5px;
       }
       &:after {
-          @include icon("../images/arr_down.png", 10px, 5px);
+          @include icon("../images/firstScreen/icons/arr_down.png", 10px, 5px);
           left: 5px;
           bottom: 5px;
       }
@@ -118,11 +151,11 @@ body {
       height: 45px;
       padding: 15px 30px;
       &:before {
-        @include icon("../images/location.png", 12px, 17px);
+        @include icon("../images/firstScreen/icons/location.png", 12px, 17px);
         right: 5px;
       }
       &:after {
-        @include icon("../images/arr_down.png", 10px, 5px);
+        @include icon("../images/firstScreen/icons/arr_down.png", 10px, 5px);
         left: 5px;
         bottom: 5px;
       }
@@ -152,9 +185,9 @@ body {
   margin-bottom: 140px;
 
   &:before {
-    @include icon("../images/vertical_line.png", 2px, 180px, true, absolute);
+    @include icon("../images/firstScreen/icons/vertical_line.png", 2px, 180px, true, absolute);
     top: 13px;
-    left: -10px;
+    left: -15px;
   }
   h1 {
     font-size: 48px;
@@ -201,7 +234,7 @@ body {
 
   .alertBlock {
     position: absolute;
-    right: -100px;
+    right: -175px;
     bottom: -50px;
 
     display: flex;
@@ -217,7 +250,7 @@ body {
     padding-right: 30px;
 
     &__logo {
-      @include icon("../images/small_logo.png", 42px, 50px, false);
+      @include icon("../images/firstScreen/small_logo.png", 42px, 50px, false);
       margin: 5px 15px;
     }
   }
@@ -227,6 +260,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 35px;
 
   .block {
     position: relative;
@@ -246,21 +280,182 @@ body {
       position: relative;
       margin-left: 25px;
       &:before{
-        @include icon("../images/triangle.png", 20px, 25px, true, absolute);
+        @include icon("../images/firstScreen/icons/triangle.png", 20px, 25px, true, absolute);
         top: -1px;
         left: -25px;
       }
     }
     &:nth-child(odd):before {
-      @include icon("../images/arr_right.png", 22px, 40px, true, absolute);
+      @include icon("../images/firstScreen/icons/arr_right.png", 22px, 40px, true, absolute);
       top: 5px;
       left: -35px;
     }
     &:nth-child(even):before {
-      @include icon("../images/arr_circle.png", 31px, 31px, true, absolute);
+      @include icon("../images/firstScreen/icons/arr_circle.png", 31px, 31px, true, absolute);
       top: 10px;
       left: -35px;
     }
   }
 }
+
+
+.videoCtrl {
+  position: absolute;
+  right: 100px;
+  bottom: 50px;
+  width: $desktopWidth;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  &__play {
+    @include icon("../images/firstScreen/icons/play.png", 40px, 40px);
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  &__stop {
+    @include icon("../images/firstScreen/icons/stop.png", 36px, 35px);
+    cursor: pointer;
+  }
+}
+
+.bgVideo {
+  z-index: 1;
+  @include icon("../images/firstScreen/svarka.jpg", 100%, 1000px, false, absolute);
+  top: 0;
+}
 /* /FIRST SCREEN */
+
+/* CATALOG */
+.catalog {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column;
+  &__wrapper {
+    background: #161C28;
+  }
+
+  &__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &>* {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 172px;
+      text-align: center;
+      margin: 0 7px;
+      &>p {
+        line-height: 20px;
+        margin-bottom: 45px;
+      }
+      /* CATALOG_LIST */
+      .opori_tryboprovoda {
+        @include icon("../images/catalog/opori_tryboprovoda.png", 116px, 112px, false);
+      }
+      .zakladnie_detali {
+        @include icon("../images/catalog/zakladnie_detali.png", 116px, 112px, false);
+      }
+      .ankernie_tyagi {
+        @include icon("../images/catalog/ankernie_tyagi.png", 116px, 112px, false);
+      }
+      .traversi {
+        @include icon("../images/catalog/traversi.png", 116px, 112px, false);
+      }
+      .salniki {
+        @include icon("../images/catalog/salniki.png", 116px, 112px, false);
+      }
+      .lestnici {
+        @include icon("../images/catalog/lestnici.png", 116px, 112px, false);
+      }
+      .prozhektornie_machti {
+        @include icon("../images/catalog/prozhektornie_machti.png", 116px, 112px, false);
+      }
+      .emkostnoe_oborydovanie {
+        @include icon("../images/catalog/emkostnoe_oborydovanie.png", 116px, 112px, false);
+      }
+      .tbo {
+        @include icon("../images/catalog/tbo.png", 116px, 112px, false);
+      }
+      .bolti {
+        @include icon("../images/catalog/bolti.png", 116px, 112px, false);
+      }
+      .ory {
+        @include icon("../images/catalog/ory.png", 116px, 112px, false);
+      }
+      .metallicheskie_formi {
+        @include icon("../images/catalog/metallicheskie_formi.png", 116px, 112px, false);
+      }
+      .osvetitelnie_machti {
+        @include icon("../images/catalog/osvetitelnie_machti.png", 116px, 112px, false);
+      }
+      .vl_lep {
+        @include icon("../images/catalog/vl_lep.png", 116px, 112px, false);
+      }
+      .nestandart {
+        @include icon("../images/catalog/nestandart.png", 116px, 112px, false);
+      }
+      .stroitelnie {
+        @include icon("../images/catalog/stroitelnie.png", 116px, 112px, false);
+      }
+      .tehnologicheskie {
+        @include icon("../images/catalog/tehnologicheskie.png", 116px, 112px, false);
+      }
+      .armatyra {
+        @include icon("../images/catalog/armatyra.png", 116px, 112px, false);
+      }
+      .registri {
+        @include icon("../images/catalog/registri.png", 116px, 112px, false);
+      }
+      .pryzhini {
+        @include icon("../images/catalog/pryzhini.png", 116px, 112px, false);
+      }
+      .compensatori {
+        @include icon("../images/catalog/compensatori.png", 116px, 112px, false);
+      }
+      &>div {
+        border-radius: 18px;
+        margin-bottom: 15px;
+        background-position: 0 -2px;
+        box-shadow: 5px 5px 2px 0 #171831;
+      }
+      /* /CATALOG_LIST */
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #006DFF;
+    &>a {
+      margin: 0 30px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .request:before {
+      @include icon("../images/catalog/icons/request.png", 20px, 20px, true, absolute);
+      left: -30px;
+    }
+    .search:before {
+      @include icon("../images/catalog/icons/search.png", 18px, 18px, true, absolute);
+      left: -30px;
+    }
+    .tech:before {
+      @include icon("../images/catalog/icons/tech.png", 17px, 16px, true, absolute);
+      left: -30px;
+    }
+    .delivery:before {
+      @include icon("../images/catalog/icons/delivery.png", 21px, 16px, true, absolute);
+      left: -30px;
+    }
+    .contacts:before {
+      @include icon("../images/catalog/icons/contacts.png", 13px, 19px, true, absolute);
+      left: -25px;
+    }
+  }
+}
+/* /CATALOG */
