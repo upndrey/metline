@@ -470,7 +470,8 @@ body {
   font-size: 16px;
   flex-direction: column;
   &__wrapper {
-    background: #161C28;
+    background: #1B1F2A;
+    padding-bottom: 50px;
   }
 
   &__block {
@@ -725,8 +726,8 @@ body {
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 50px;
     z-index: 1;
+    padding: 100px 0 50px 0;
     &:before {
       content: '';
       position: absolute;
@@ -829,7 +830,7 @@ body {
 
   .contacts {
     width: 50%;
-    padding: 15px;
+    margin-left: 15px;
     box-sizing: border-box;
 
     h2 {
@@ -896,3 +897,113 @@ body {
   }
 }
 /* /CALLBACK */
+
+
+/* MAP */
+.map {
+  width: 100%;
+  height: 850px;
+}
+
+#map {
+  width: 100%;
+  height: 850px;
+}
+
+.ymaps-layers-pane {
+  filter: invert(100%);
+  -ms-filter: invert(100%);
+  -webkit-filter: invert(100%);
+  -moz-filter: invert(100%);
+  -o-filter: invert(100%);
+}
+
+
+/* /MAP */
+
+/* FOOTER */
+
+.footer {
+  color: #fff;
+  font-size: 16px;
+  align-items: center;
+  flex-direction: column;
+  &__wrapper {
+    background: #17181B;
+    padding: 50px 0 50px 0;
+  }
+
+  &__links {
+    margin-bottom: 30px;
+    &>a {
+      margin: 0 15px;
+      font-size: 16px;
+      &:hover {
+        color: #2180FF;
+      }
+    }
+
+    .active {
+      color: #2180FF;
+    }
+  }
+
+  &__secondBlock {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .logo {
+      .img {
+        @include icon("../images/footer/icons/logo.png", 385px, 119px, false, relative);
+        bottom: 20px;
+      }
+      p {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, .8);
+        text-align: center;
+      }
+    }
+
+    .phones {
+      &__title {
+        margin-bottom: 20px;
+      }
+      &>div {
+        color: #2180FF;
+        &>* {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .moreLinks {
+      display: flex;
+      flex-direction: column;
+      &>a {
+        margin-bottom: 20px;
+      }
+      &>p {
+        margin-bottom: 20px;
+        &>a {
+          color: #2180FF;
+        }
+      }
+
+      .icons {
+        display: flex;
+        .tg {
+          @include icon("../images/footer/icons/tg.png", 44px, 44px, false);
+          margin-right: 30px;
+        }
+        .wapp {
+          @include icon("../images/footer/icons/wapp.png", 44px, 44px, false);
+        }
+      }
+    }
+  }
+}
+
+/* /FOOTER */

@@ -10,6 +10,8 @@
     <meta name="HandheldFriendly" content="true"/>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/index.css">
+
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
     <title>Метлайн</title>
 </head>
 <body>
@@ -325,11 +327,43 @@
             </div>
         </div>
     </div>
-    <div class="container map">
-        <iframe src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyA0qv5uPmFYuad-QAMVFddlE8umCK-1ka0&center=45.0356290952634,39.03397161668982&zoom=15&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0x242f3e&style=element:labels.text.fill%7Ccolor:0x746855&style=element:labels.text.stroke%7Ccolor:0x242f3e&style=feature:administrative.locality%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:poi.business%7Cvisibility:off&style=feature:poi.park%7Celement:geometry%7Ccolor:0x263c3f&style=feature:poi.park%7Celement:labels.text%7Cvisibility:off&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x6b9a76&style=feature:road%7Celement:geometry%7Ccolor:0x38414e&style=feature:road%7Celement:geometry.stroke%7Ccolor:0x212a37&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x9ca5b3&style=feature:road.highway%7Celement:geometry%7Ccolor:0x746855&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0x1f2835&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0xf3d19c&style=feature:transit%7Celement:geometry%7Ccolor:0x2f3948&style=feature:transit.station%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:water%7Celement:geometry%7Ccolor:0x17263c&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x515c6d&style=feature:water%7Celement:labels.text.stroke%7Ccolor:0x17263c&size=480x360" frameborder="0"></iframe>
+    <div class="map">
+        <div id="map"></div>
     </div>
-    <footer class="container footer">
-    </footer>
+    <div class="footer__wrapper">
+        <footer class="container footer">
+            <div class="footer__links">
+                <a href="#" class="active">Главная</a>
+                <a href="#">Каталог</a>
+                <a href="#">Услуги</a>
+                <a href="#">Контакты</a>
+                <a href="#">Вакансии</a>
+                <a href="#" class="notImplemented">Личный кабинет</a>
+            </div>
+            <div class="footer__secondBlock">
+                <div class="logo">
+                    <div class="img"></div>
+                    <p>© ОАО«МЕТЛАЙН», 2020 г. Все права защищены.</p>
+                </div>
+                <div class="phones">
+                    <p class="phones__title">Телефон отдела прожаж:</p>
+                    <div>
+                        <p>8(800)600-66-50</p>
+                        <p>8(861)666-66-33</p>
+                        <p>8(918)645-70-66</p>
+                    </div>
+                </div>
+                <div class="moreLinks">
+                    <a href="#">Техническая документация</a>
+                    <p>E-mail: <a href="#">zakaz@mail.ru</a></p>
+                    <div class="icons">
+                        <div class="tg"></div>
+                        <div class="wapp"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 <script src="./js/index.js"></script>
 </html>
