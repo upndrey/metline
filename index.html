@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
     <meta name="HandheldFriendly" content="true"/>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/index.css">
@@ -222,8 +223,9 @@
             <div class="callback__contacts contacts">
                 <h2>Контактная информация</h2>
                 <select name="branch">
-                    <option selected value="moscov">Москва</option>
-                    <option selected value="krasnodar">Краснодар</option>
+                    <option selected value="">Филиал</option>
+                    <option value="moscov">Москва</option>
+                    <option value="krasnodar">Краснодар</option>
                 </select>
                 <div class="contacts__address">
                     <h3>Адрес:</h3>
@@ -231,95 +233,100 @@
                         Краснодарский край, г. Краснодар , ул. Тихорецкая , д. 25
                     </p>
                 </div>
-                <div class="contacts__block">
-                    <h3>Отдел продаж:</h3>
-                    <div>
-                        <h4>Телефон:</h4>
+                <div class="contacts__info">
+                    <div class="block">
+                        <h3>Отдел продаж:</h3>
                         <div>
-                            <span>8(800)600-66-50</span>
-                            <span>8(861)666-66-33</span>
-                            <span>8(918)645-70-66 </span>
+                            <h4>Телефон:</h4>
+                            <div>
+                                <p>8(800)600-66-50</p>
+                                <p>8(861)666-66-33</p>
+                                <p>8(918)645-70-66 </p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>E-mail:</h4>
+                            <div>
+                                <span>zakaz@mail.ru</span>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h4>E-mail:</h4>
+                    <div class="block">
+                        <h3>Отдел логистики:</h3>
                         <div>
-                            <span>zakaz@mail.ru</span>
+                            <h4>Телефон:</h4>
+                            <div>
+                                <p>8(861)222-33-22</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>E-mail:</h4>
+                            <div>
+                                <p>logist@mail.ru</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="contacts__block">
-                    <h3>Производственно-технический отдел:</h3>
-                    <div>
-                        <h4>Телефон:</h4>
+                    <div class="block bigBlock">
+                        <h3>Производственно-технический отдел:</h3>
                         <div>
-                            <span>8(861)600-66-50</span>
+                            <h4>Телефон:</h4>
+                            <div>
+                                <p>8(861)600-66-50</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>E-mail:</h4>
+                            <div>
+                                <p>pto@mail.ru</p>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h4>E-mail:</h4>
+                    <div class="block">
+                        <h3>Отдел снабжения:</h3>
                         <div>
-                            <span>pto@mail.ru</span>
+                            <h4>E-mail:</h4>
+                            <div>
+                                <p>snab@mail.ru</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="contacts__block">
-                    <h3>Отдел логистики:</h3>
-                    <div>
-                        <h4>Телефон:</h4>
+                    <div class="block">
+                        <h3>Бухгалтерия:</h3>
                         <div>
-                            <span>8(861)222-33-22</span>
+                            <h4>E-mail:</h4>
+                            <div>
+                                <p>buh@mail.ru</p>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h4>E-mail:</h4>
+                    <div class="block">
+                        <h3>Отдел качества:</h3>
                         <div>
-                            <span>logist@mail.ru</span>
+                            <h4>E-mail:</h4>
+                            <div>
+                                <p>info@mail.ru</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="contacts__block">
-                    <h3>Отдел снабжения:</h3>
-                    <div>
-                        <h4>E-mail:</h4>
+                    <div class="block">
+                        <h3>Отдел кадров:</h3>
                         <div>
-                            <span>snab@mail.ru</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contacts__block">
-                    <h3>Бухгалтерия:</h3>
-                    <div>
-                        <h4>E-mail:</h4>
-                        <div>
-                            <span>buh@mail.ru</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contacts__block">
-                    <h3>Отдел кадров:</h3>
-                    <div>
-                        <h4>E-mail:</h4>
-                        <div>
-                            <span>hr@mail.ru</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contacts__block">
-                    <h3>Отдел качества:</h3>
-                    <div>
-                        <h4>E-mail:</h4>
-                        <div>
-                            <span>info@mail.ru</span>
+                            <h4>E-mail:</h4>
+                            <div>
+                                <p>hr@mail.ru</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="contacts__operator">
-                    <p>Дежурный оператор:</p>
+                    <h3>Дежурный оператор:</h3>
                     <p>8(918)800-70-80</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container map">
+        <iframe src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyA0qv5uPmFYuad-QAMVFddlE8umCK-1ka0&center=45.0356290952634,39.03397161668982&zoom=15&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0x242f3e&style=element:labels.text.fill%7Ccolor:0x746855&style=element:labels.text.stroke%7Ccolor:0x242f3e&style=feature:administrative.locality%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:poi.business%7Cvisibility:off&style=feature:poi.park%7Celement:geometry%7Ccolor:0x263c3f&style=feature:poi.park%7Celement:labels.text%7Cvisibility:off&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x6b9a76&style=feature:road%7Celement:geometry%7Ccolor:0x38414e&style=feature:road%7Celement:geometry.stroke%7Ccolor:0x212a37&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x9ca5b3&style=feature:road.highway%7Celement:geometry%7Ccolor:0x746855&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0x1f2835&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0xf3d19c&style=feature:transit%7Celement:geometry%7Ccolor:0x2f3948&style=feature:transit.station%7Celement:labels.text.fill%7Ccolor:0xd59563&style=feature:water%7Celement:geometry%7Ccolor:0x17263c&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x515c6d&style=feature:water%7Celement:labels.text.stroke%7Ccolor:0x17263c&size=480x360" frameborder="0"></iframe>
     </div>
     <footer class="container footer">
     </footer>

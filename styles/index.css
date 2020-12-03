@@ -854,13 +854,41 @@ body {
 .callback {
   color: #fff;
   font-size: 16px;
-  justify-content: space-between; }
+  justify-content: space-between;
+  z-index: 4; }
   .callback__wrapper {
-    background: #161C28;
-    padding-top: 50px; }
+    position: relative;
+    background: url("../images/office.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    z-index: 1; }
+    .callback__wrapper:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(356.6deg, #131416 3.51%, rgba(22, 23, 22, 0) 97.36%);
+      opacity: 1;
+      z-index: 3; }
+    .callback__wrapper:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: #171A2D;
+      opacity: .9;
+      z-index: 2; }
   .callback__form {
-    width: 700px;
-    height: 430px;
+    width: 60%;
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -880,7 +908,7 @@ body {
       color: #fff;
       opacity: 1; }
     .callback__form h2 {
-      width: 300px;
+      width: calc(50% - 10px);
       height: 63px;
       font-size: 36px;
       font-weight: 600;
@@ -894,7 +922,7 @@ body {
       background: transparent;
       color: white; }
     .callback__form > .smallBlock {
-      width: 335px;
+      width: calc(50% - 10px);
       height: 63px;
       box-sizing: border-box;
       border: 1px solid #fff;
@@ -918,6 +946,52 @@ body {
         border: 1px solid #fff;
         padding: 15px 30px;
         color: white; }
+  .callback .contacts {
+    width: 50%;
+    padding: 15px;
+    box-sizing: border-box; }
+    .callback .contacts h2 {
+      height: 63px;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 49px;
+      position: relative;
+      bottom: 30px; }
+    .callback .contacts h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      width: 100%; }
+    .callback .contacts h4 {
+      font-size: 20px;
+      margin-bottom: 5px; }
+    .callback .contacts__address {
+      margin-bottom: 25px; }
+    .callback .contacts__info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 25px; }
+      .callback .contacts__info > .block {
+        margin-bottom: 15px;
+        box-sizing: border-box; }
+        .callback .contacts__info > .block > div {
+          margin: 10px 5px; }
+          .callback .contacts__info > .block > div p {
+            margin-bottom: 5px; }
+      .callback .contacts__info > .bigBlock {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap; }
+        .callback .contacts__info > .bigBlock h3 {
+          width: 100%; }
+    .callback .contacts select {
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 30px; }
+      .callback .contacts select > option {
+        color: #000; }
 
 /* /CALLBACK */
 
