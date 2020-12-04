@@ -9,28 +9,30 @@
 
     <meta name="HandheldFriendly" content="true"/>
     <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/fullpage.min.css">
     <link rel="stylesheet" href="./styles/index.css">
 
     <script src="https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
     <title>Метлайн</title>
 </head>
 <body>
-    <div class="navDots">
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-    </div>
-    <div class="firstScreenWrapper">
+<ul id="menu">
+    <li data-menuanchor="firstScreen" class="active"><a href="index.html#firstScreen"></a></li>
+    <li data-menuanchor="catalog"><a href="index.html#catalog"></a></li>
+    <li data-menuanchor="services"><a href="index.html#services"></a></li>
+    <li data-menuanchor="callback"><a href="index.html#callback"></a></li>
+</ul>
+<div id="fullpage">
+    <div class="firstScreenWrapper section" data-anchor="firstScreen">
         <header class="header">
             <div class="header__logo"></div>
             <nav class="header__menu menu">
-                <a href="#" class="active">Главная</a>
-                <a href="#">Каталог</a>
-                <a href="#">Услуги</a>
-                <a href="#">Контакты</a>
-                <a href="#">Вакансии</a>
-                <a href="#" class="notImplemented">Личный кабинет</a> <!-- Ещё не реализовано -->
+                <a href="index.html#firstScreen" class="active">Главная</a>
+                <a href="index.html#catalog">Каталог</a>
+                <a href="index.html#services">Услуги</a>
+                <a href="index.html#callback">Контакты</a>
+                <a href="index.html#">Вакансии</a>
+                <a href="index.html#" class="notImplemented">Личный кабинет</a> <!-- Ещё не реализовано -->
             </nav>
             <div class="contacts">
                 <a href="#" class="search"></a>
@@ -69,8 +71,7 @@
             <div class="videoCtrl__stop"></div>
         </div>
     </div>
-    <div class="bgVideo"></div>
-    <div class="catalog__wrapper">
+    <div class="catalog__wrapper section" data-anchor="catalog">
         <div class="container catalog">
             <div class="titleBlock">
                 <h2>Каталог</h2>
@@ -171,199 +172,241 @@
             </div>
         </div>
     </div>
-    <div class="services__wrapper">
-        <div class="container services">
-            <div class="titleBlock">
-                <h2>Услуги</h2>
-                <p>Производственно-коммерческая фирма  «МЕТЛАЙН» специализируется на предоставлении ряда услуг, связанных с обработкой металла. При изготовлении металлоконструкций, необходимых заказчику, обычно выполняется целый комплекс работ различной сложности. К работам по металлообработке относятся:</p>
+    <div class="section">
+        <div class="services__wrapper slide" data-anchor="services">
+            <div class="container services">
+                <div class="titleBlock">
+                    <h2>Услуги</h2>
+                    <p>Производственно-коммерческая фирма  «МЕТЛАЙН» специализируется на предоставлении ряда услуг, связанных с обработкой металла. При изготовлении металлоконструкций, необходимых заказчику, обычно выполняется целый комплекс работ различной сложности. К работам по металлообработке относятся:</p>
+                </div>
+                <div class="services__block">
+                    <div class="elem rezka">
+                        <div class="rezka__img"></div>
+                        <div class="rezka__title">Резка металла</div>
+                    </div>
+                    <div class="elem metall">
+                        <div class="metall__img"></div>
+                        <div class="metall__title">Изготовление металлоконструкций по чертежам заказчика</div>
+                    </div>
+                    <div class="elem zink">
+                        <div class="zink__img"></div>
+                        <div class="zink__title">Цинкование</div>
+                    </div>
+                    <div class="elem shlifovka">
+                        <div class="shlifovka__img"></div>
+                        <div class="shlifovka__title">Шлифовка металла</div>
+                    </div>
+                    <div class="elem ceh">
+                        <div class="ceh__img"></div>
+                        <div class="ceh__title">Цех по работе с рулонными сталями с покрытием</div>
+                    </div>
+                    <div class="elem tokarnaya">
+                        <div class="tokarnaya__img"></div>
+                        <div class="tokarnaya__title">Токарная обработка</div>
+                    </div>
+                </div>
             </div>
-            <div class="services__block">
-                <div class="elem rezka">
-                    <div class="rezka__img"></div>
-                    <div class="rezka__title">Резка металла</div>
-                </div>
-                <div class="elem metall">
-                    <div class="metall__img"></div>
-                    <div class="metall__title">Изготовление металлоконструкций по чертежам заказчика</div>
-                </div>
-                <div class="elem zink">
-                    <div class="zink__img"></div>
-                    <div class="zink__title">Цинкование</div>
-                </div>
-                <div class="elem shlifovka">
-                    <div class="shlifovka__img"></div>
-                    <div class="shlifovka__title">Шлифовка металла</div>
-                </div>
-                <div class="elem ceh">
-                    <div class="ceh__img"></div>
-                    <div class="ceh__title">Цех по работе с рулонными сталями с покрытием</div>
-                </div>
-                <div class="elem tokarnaya">
-                    <div class="tokarnaya__img"></div>
-                    <div class="tokarnaya__title">Токарная обработка</div>
+        </div>
+        <div class="services__wrapper slide block2" data-anchor="services">
+            <div class="container services">
+                <div class="services__block">
+                    <div class="elem frezirovka">
+                        <div class="frezirovka__img"></div>
+                        <div class="frezirovka__title">Фрезировка металла</div>
+                    </div>
+                    <div class="elem dostavka">
+                        <div class="dostavka__img"></div>
+                        <div class="dostavka__title">Доставка 24/7</div>
+                    </div>
+                    <div class="elem gibka">
+                        <div class="gibka__img"></div>
+                        <div class="gibka__title">Гибка металла</div>
+                    </div>
+                    <div class="elem pokraska">
+                        <div class="pokraska__img"></div>
+                        <div class="pokraska__title"><p>Покраска изделий</p><p>Цветовая шкала RAL</p></div>
+                    </div>
+                    <div class="elem poroshkovaya">
+                        <div class="poroshkovaya__img"></div>
+                        <div class="poroshkovaya__title">Порошковая покраска</div>
+                    </div>
+                    <div class="elem rybka">
+                        <div class="rybka__img"></div>
+                        <div class="rybka__title">Рубка металла</div>
+                    </div>
+                    <div class="elem svarka">
+                        <div class="svarka__img"></div>
+                        <div class="svarka__title">Сварка металла</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="callback__wrapper">
-        <div class="container callback">
-            <form action="#" class="callback__form">
-                <h2>Обратная связь</h2>
-                <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>
-                <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>
-                <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
-                <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
-                <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
-                <select name="load" class="bigBlock">
-                    <option selected value="1">Подгрузка</option>
-                </select>
-                <textarea name="message" cols="30" rows="10" class="bigBlock" ></textarea>
-                <div class="submit">
-                    <input type="submit" name="send" value="Продолжить"/>
-                </div>
-            </form>
-            <div class="callback__contacts contacts">
-                <h2>Контактная информация</h2>
-                <select name="branch">
-                    <option selected value="">Филиал</option>
-                    <option value="moscov">Москва</option>
-                    <option value="krasnodar">Краснодар</option>
-                </select>
-                <div class="contacts__address">
-                    <h3>Адрес:</h3>
-                    <p>
-                        Краснодарский край, г. Краснодар , ул. Тихорецкая , д. 25
-                    </p>
-                </div>
-                <div class="contacts__info">
-                    <div class="block">
-                        <h3>Отдел продаж:</h3>
-                        <div>
-                            <h4>Телефон:</h4>
+    <div class="section">
+        <div class="callback__wrapper" data-anchor="callback">
+            <div class="container callback">
+                <form action="#" class="callback__form">
+                    <h2>Обратная связь</h2>
+                    <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>
+                    <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>
+                    <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
+                    <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
+                    <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
+                    <select name="load" class="bigBlock">
+                        <option selected value="1">Подгрузка</option>
+                    </select>
+                    <textarea name="message" cols="30" rows="10" class="bigBlock" ></textarea>
+                    <div class="submit">
+                        <input type="submit" name="send" value="Продолжить"/>
+                    </div>
+                </form>
+                <div class="callback__contacts contacts">
+                    <h2>Контактная информация</h2>
+                    <select name="branch">
+                        <option selected value="">Филиал</option>
+                        <option value="moscov">Москва</option>
+                        <option value="krasnodar">Краснодар</option>
+                    </select>
+                    <div class="contacts__address">
+                        <h3>Адрес:</h3>
+                        <p>
+                            Краснодарский край, г. Краснодар , ул. Тихорецкая , д. 25
+                        </p>
+                    </div>
+                    <div class="contacts__info">
+                        <div class="block">
+                            <h3>Отдел продаж:</h3>
                             <div>
-                                <p>8(800)600-66-50</p>
-                                <p>8(861)666-66-33</p>
-                                <p>8(918)645-70-66 </p>
+                                <h4>Телефон:</h4>
+                                <div>
+                                    <p>8(800)600-66-50</p>
+                                    <p>8(861)666-66-33</p>
+                                    <p>8(918)645-70-66 </p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>E-mail:</h4>
+                                <div>
+                                    <span>zakaz@mail.ru</span>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <h4>E-mail:</h4>
+                        <div class="block">
+                            <h3>Отдел логистики:</h3>
                             <div>
-                                <span>zakaz@mail.ru</span>
+                                <h4>Телефон:</h4>
+                                <div>
+                                    <p>8(861)222-33-22</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>E-mail:</h4>
+                                <div>
+                                    <p>logist@mail.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block bigBlock">
+                            <h3>Производственно-технический отдел:</h3>
+                            <div>
+                                <h4>Телефон:</h4>
+                                <div>
+                                    <p>8(861)600-66-50</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>E-mail:</h4>
+                                <div>
+                                    <p>pto@mail.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h3>Отдел снабжения:</h3>
+                            <div>
+                                <h4>E-mail:</h4>
+                                <div>
+                                    <p>snab@mail.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h3>Бухгалтерия:</h3>
+                            <div>
+                                <h4>E-mail:</h4>
+                                <div>
+                                    <p>buh@mail.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h3>Отдел качества:</h3>
+                            <div>
+                                <h4>E-mail:</h4>
+                                <div>
+                                    <p>info@mail.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h3>Отдел кадров:</h3>
+                            <div>
+                                <h4>E-mail:</h4>
+                                <div>
+                                    <p>hr@mail.ru</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="block">
-                        <h3>Отдел логистики:</h3>
-                        <div>
-                            <h4>Телефон:</h4>
-                            <div>
-                                <p>8(861)222-33-22</p>
-                            </div>
-                        </div>
-                        <div>
-                            <h4>E-mail:</h4>
-                            <div>
-                                <p>logist@mail.ru</p>
-                            </div>
-                        </div>
+                    <div class="contacts__operator">
+                        <h3>Дежурный оператор:</h3>
+                        <p>8(918)800-70-80</p>
                     </div>
-                    <div class="block bigBlock">
-                        <h3>Производственно-технический отдел:</h3>
-                        <div>
-                            <h4>Телефон:</h4>
-                            <div>
-                                <p>8(861)600-66-50</p>
-                            </div>
-                        </div>
-                        <div>
-                            <h4>E-mail:</h4>
-                            <div>
-                                <p>pto@mail.ru</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block">
-                        <h3>Отдел снабжения:</h3>
-                        <div>
-                            <h4>E-mail:</h4>
-                            <div>
-                                <p>snab@mail.ru</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block">
-                        <h3>Бухгалтерия:</h3>
-                        <div>
-                            <h4>E-mail:</h4>
-                            <div>
-                                <p>buh@mail.ru</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block">
-                        <h3>Отдел качества:</h3>
-                        <div>
-                            <h4>E-mail:</h4>
-                            <div>
-                                <p>info@mail.ru</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block">
-                        <h3>Отдел кадров:</h3>
-                        <div>
-                            <h4>E-mail:</h4>
-                            <div>
-                                <p>hr@mail.ru</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contacts__operator">
-                    <h3>Дежурный оператор:</h3>
-                    <p>8(918)800-70-80</p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="map">
-        <div id="map"></div>
-    </div>
-    <div class="footer__wrapper">
-        <footer class="container footer">
-            <div class="footer__links">
-                <a href="#" class="active">Главная</a>
-                <a href="#">Каталог</a>
-                <a href="#">Услуги</a>
-                <a href="#">Контакты</a>
-                <a href="#">Вакансии</a>
-                <a href="#" class="notImplemented">Личный кабинет</a>
-            </div>
-            <div class="footer__secondBlock">
-                <div class="logo">
-                    <div class="img"></div>
-                    <p>© ОАО«МЕТЛАЙН», 2020 г. Все права защищены.</p>
+        <div class="map">
+            <div id="map"></div>
+        </div>
+        <div class="footer__wrapper">
+            <footer class="container footer">
+                <div class="footer__links">
+                    <a href="index.html#firstScreen" class="active">Главная</a>
+                    <a href="index.html#catalog">Каталог</a>
+                    <a href="index.html#services">Услуги</a>
+                    <a href="index.html#callback">Контакты</a>
+                    <a href="#">Вакансии</a>
+                    <a href="#" class="notImplemented">Личный кабинет</a>
                 </div>
-                <div class="phones">
-                    <p class="phones__title">Телефон отдела прожаж:</p>
-                    <div>
-                        <p>8(800)600-66-50</p>
-                        <p>8(861)666-66-33</p>
-                        <p>8(918)645-70-66</p>
+                <div class="footer__secondBlock">
+                    <div class="logo">
+                        <div class="img"></div>
+                        <p>© ОАО«МЕТЛАЙН», 2020 г. Все права защищены.</p>
+                    </div>
+                    <div class="phones">
+                        <p class="phones__title">Телефон отдела прожаж:</p>
+                        <div>
+                            <a href="#">8(800)600-66-50</a>
+                            <a href="#">8(861)666-66-33</a>
+                            <a href="#">8(918)645-70-66</a>
+                        </div>
+                    </div>
+                    <div class="moreLinks">
+                        <a href="#">Техническая документация</a>
+                        <p>E-mail: <a href="#">zakaz@mail.ru</a></p>
+                        <div class="icons">
+                            <a href="#" class="tg"></a>
+                            <a href="#" class="wapp"></a>
+                        </div>
                     </div>
                 </div>
-                <div class="moreLinks">
-                    <a href="#">Техническая документация</a>
-                    <p>E-mail: <a href="#">zakaz@mail.ru</a></p>
-                    <div class="icons">
-                        <div class="tg"></div>
-                        <div class="wapp"></div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
+</div>
 </body>
-<script src="./js/index.js"></script>
 </html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="./js/fullpage.min.js"></script>
+<script type="text/javascript" src="./js/vendors/scrolloverflow.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>

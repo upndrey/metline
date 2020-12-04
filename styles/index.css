@@ -32,7 +32,7 @@ body {
 .titleBlock {
   align-self: center;
   width: 1120px;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
@@ -68,25 +68,70 @@ body {
       height: 100px;
       left: -10px; }
 
+#menu {
+  z-index: 999;
+  position: fixed;
+  left: 30px;
+  width: 50px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #menu > * {
+    width: 3px;
+    height: 3px;
+    border: 1px solid transparent;
+    background: #fff;
+    border-radius: 100px;
+    margin: 20px 0; }
+    #menu > * a {
+      display: block;
+      width: inherit;
+      height: inherit; }
+  #menu .active {
+    border: 1px solid #fff;
+    width: 15px;
+    height: 15px;
+    background: transparent; }
+
+.fp-controlArrow.fp-next,
+.fp-controlArrow.fp-prev {
+  border: none;
+  width: 62px;
+  height: 62px; }
+
+.fp-controlArrow.fp-prev {
+  background: url("../images/arr_left.png");
+  left: 100px; }
+
+.fp-controlArrow.fp-next {
+  background: url("../images/arr_right.png");
+  right: 100px; }
+
 /* /GLOBAL */
 /* FIRST SCREEN */
 .firstScreenWrapper {
-  position: relative;
-  z-index: 999;
   color: white;
   background: rgba(40, 46, 58, 0.9);
-  padding: 0 0 130px 0;
   overflow: hidden;
-  height: 1000px;
   box-sizing: border-box; }
-  @media screen and (max-width: 480px) {
-    .firstScreenWrapper {
-      padding: 10px 0 130px 0; } }
+  .firstScreenWrapper:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    display: block;
+    background-image: url("../images/firstScreen/svarka.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: inherit;
+    top: 0; }
 
 .header {
   max-width: 1120px;
   display: flex;
-  margin: 0 auto 100px auto;
+  margin: 0 auto 85px auto;
   justify-content: space-between;
   align-items: center; }
   .header__logo {
@@ -209,7 +254,7 @@ body {
   .title h1 {
     font-size: 48px;
     line-height: 60px;
-    margin-bottom: 50px; }
+    margin-bottom: 35px; }
   .title p {
     font-size: 20px;
     line-height: 25px;
@@ -342,17 +387,6 @@ body {
     height: 35px;
     cursor: pointer; }
 
-.bgVideo {
-  z-index: 1;
-  position: absolute;
-  display: block;
-  background-image: url("../images/firstScreen/svarka.jpg");
-  -webkit-background-size: cover;
-  background-size: cover;
-  width: 100%;
-  height: 1000px;
-  top: 0; }
-
 /* /FIRST SCREEN */
 /* CATALOG */
 .catalog {
@@ -376,7 +410,7 @@ body {
       /* /CATALOG_LIST */ }
       .catalog__block > * > p {
         line-height: 20px;
-        margin-bottom: 45px; }
+        margin-bottom: 25px; }
       .catalog__block > * .opori_tryboprovoda {
         position: relative;
         display: block;
@@ -620,6 +654,8 @@ body {
   .services__wrapper {
     background: #1B1F2A;
     padding-bottom: 50px; }
+  .services .block2 {
+    margin-top: 184px; }
   .services__block {
     display: flex;
     flex-wrap: wrap;
@@ -849,6 +885,283 @@ body {
         top: 5px;
         right: -106px;
         z-index: 3; }
+    .services__block .frezirovka {
+      position: relative;
+      display: block;
+      width: 300px;
+      height: 382px;
+      bottom: 20px; }
+      .services__block .frezirovka:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(40.97deg, #020B17 11.15%, #0C6A48 45.23%, #0C6A48 45.24%, rgba(12, 106, 72, 0.29) 72.37%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .frezirovka__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/frezirovka.jpg");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 300px;
+        height: 222px;
+        opacity: 0.7;
+        right: -28px;
+        top: -6px;
+        z-index: 1; }
+      .services__block .frezirovka__title {
+        width: 270px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 41px;
+        position: absolute;
+        left: 39px;
+        bottom: 23px;
+        z-index: 3; }
+    .services__block .dostavka {
+      position: relative;
+      display: block;
+      width: 230px;
+      height: 345px; }
+      .services__block .dostavka:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(12.42deg, #2A3E5F -0.11%, rgba(75, 135, 216, 0.69) 35.27%, rgba(156, 41, 174, 0) 92.77%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .dostavka__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/dostavka.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 234px;
+        height: 176px;
+        opacity: 0.5;
+        left: -12px;
+        bottom: 14px;
+        z-index: 1; }
+      .services__block .dostavka__title {
+        width: 198px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 41px;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        z-index: 3; }
+    .services__block .gibka {
+      position: relative;
+      display: block;
+      width: 250px;
+      height: 277px;
+      align-self: center; }
+      .services__block .gibka:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(12.42deg, rgba(59, 5, 68, 0.69) -0.11%, rgba(156, 41, 174, 0.69) 35.27%, rgba(156, 41, 174, 0) 92.77%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .gibka__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/gibka.jpg");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 238px;
+        height: 159px;
+        opacity: 0.5;
+        right: -7px;
+        top: -8px;
+        z-index: 1; }
+      .services__block .gibka__title {
+        width: 198px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 41px;
+        position: absolute;
+        bottom: 3px;
+        left: 16px;
+        z-index: 3; }
+    .services__block .pokraska {
+      position: relative;
+      display: block;
+      width: 250px;
+      height: 287px;
+      align-self: flex-end; }
+      .services__block .pokraska:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(250.12deg, #006DFF 0.42%, #2180FF 29.72%, rgba(75, 135, 216, 0) 80.38%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .pokraska__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/pokraska.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 239px;
+        height: 231px;
+        opacity: 0.8;
+        left: -5px;
+        bottom: 10px;
+        z-index: 1; }
+      .services__block .pokraska__title {
+        width: 283px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 27px;
+        position: absolute;
+        bottom: 19px;
+        right: -69px;
+        z-index: 3; }
+    .services__block .poroshkovaya {
+      position: relative;
+      display: block;
+      width: 297px;
+      height: 284px; }
+      .services__block .poroshkovaya:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(243.42deg, #212E47 14.3%, #4B87D8 50.09%, rgba(75, 135, 216, 0.53) 71.21%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .poroshkovaya__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/poroshkovaya.jpg");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 318px;
+        height: 166px;
+        opacity: 0.8;
+        left: -10px;
+        bottom: -7px;
+        z-index: 1; }
+      .services__block .poroshkovaya__title {
+        width: 250px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 27px;
+        font-weight: 300;
+        line-height: 36px;
+        position: absolute;
+        top: 26px;
+        right: -89px;
+        z-index: 3; }
+    .services__block .rybka {
+      position: relative;
+      display: block;
+      width: 375px;
+      height: 277px;
+      align-self: center; }
+      .services__block .rybka:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(12.42deg, rgba(59, 5, 68, 0.69) -0.11%, rgba(156, 41, 174, 0.69) 35.27%, rgba(156, 41, 174, 0) 92.77%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .rybka__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/rybka.jpg");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 339px;
+        height: 226px;
+        opacity: .6;
+        top: -31px;
+        right: 13px;
+        z-index: 1; }
+      .services__block .rybka__title {
+        width: 283px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 41px;
+        position: absolute;
+        bottom: 30px;
+        right: 17px;
+        z-index: 3; }
+    .services__block .svarka {
+      position: relative;
+      display: block;
+      width: 400px;
+      height: 277px; }
+      .services__block .svarka:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(228.66deg, #583216 12.81%, #A06438 46.76%, rgba(160, 100, 56, 0) 87.36%);
+        opacity: .7;
+        z-index: 2; }
+      .services__block .svarka__img {
+        position: absolute;
+        display: block;
+        background-image: url("../images/services/svarka.jpg");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 325px;
+        height: 216px;
+        opacity: .45;
+        left: 13px;
+        bottom: -8px;
+        z-index: 1; }
+      .services__block .svarka__title {
+        width: 209px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 41px;
+        position: absolute;
+        top: 7px;
+        right: -69px;
+        z-index: 3; }
 
 /* /SERVICES */
 /* CALLBACK */
@@ -947,6 +1260,9 @@ body {
         border: 1px solid #fff;
         padding: 15px 30px;
         color: white; }
+    .callback__form textarea {
+      height: 250px !important;
+      resize: none; }
   .callback .contacts {
     width: 50%;
     margin-left: 15px;
@@ -1052,7 +1368,9 @@ body {
     .footer__secondBlock .phones__title {
       margin-bottom: 20px; }
     .footer__secondBlock .phones > div {
-      color: #2180FF; }
+      color: #2180FF;
+      display: flex;
+      flex-direction: column; }
       .footer__secondBlock .phones > div > * {
         text-align: center;
         margin-bottom: 10px; }
