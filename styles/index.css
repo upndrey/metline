@@ -171,17 +171,25 @@ body {
       align-items: flex-end;
       font-size: 16px; }
     .header .contacts .search {
+      cursor: pointer;
       position: relative;
       display: block;
       background-image: url("../images/firstScreen/icons/search.png");
       -webkit-background-size: cover;
       background-size: cover;
       width: 23px;
-      height: 23px; }
+      height: 23px;
+      margin-right: 15px; }
     .header .contacts .phone {
-      box-sizing: border-box;
-      height: 45px;
-      padding: 15px 30px; }
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      margin-right: 10px; }
+      .header .contacts .phone > option {
+        color: #000; }
       .header .contacts .phone:before {
         content: '';
         position: relative;
@@ -192,21 +200,15 @@ body {
         width: 13px;
         height: 19px;
         right: 5px; }
-      .header .contacts .phone:after {
-        content: '';
-        position: relative;
-        display: block;
-        background-image: url("../images/firstScreen/icons/arr_down.png");
-        -webkit-background-size: cover;
-        background-size: cover;
-        width: 10px;
-        height: 5px;
-        left: 5px;
-        bottom: 5px; }
     .header .contacts .location {
-      box-sizing: border-box;
-      height: 45px;
-      padding: 15px 30px; }
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px; }
+      .header .contacts .location > option {
+        color: #000; }
       .header .contacts .location:before {
         content: '';
         position: relative;
@@ -217,17 +219,6 @@ body {
         width: 12px;
         height: 17px;
         right: 5px; }
-      .header .contacts .location:after {
-        content: '';
-        position: relative;
-        display: block;
-        background-image: url("../images/firstScreen/icons/arr_down.png");
-        -webkit-background-size: cover;
-        background-size: cover;
-        width: 10px;
-        height: 5px;
-        left: 5px;
-        bottom: 5px; }
   @media screen and (max-width: 1120px) {
     .header {
       max-width: 992px; } }
@@ -336,9 +327,9 @@ body {
         font-size: 48px; }
     .advantages .block__title {
       position: relative;
-      margin-left: 25px;
-      transition: .5s ease-in-out; }
+      margin-left: 25px; }
       .advantages .block__title:before {
+        transition: .3s ease-in-out;
         content: '';
         position: absolute;
         display: block;
@@ -1716,26 +1707,27 @@ body {
       font-weight: 600;
       line-height: 49px;
       position: relative;
-      bottom: 30px; }
+      bottom: 15px; }
     .callback .contacts h3 {
       font-size: 26px;
       margin-bottom: 10px;
       width: 100%; }
     .callback .contacts h4 {
       font-size: 20px;
-      margin-bottom: 5px; }
-    .callback .contacts__address {
-      margin-bottom: 25px; }
+      margin-bottom: 10px;
+      color: #f1f1f1; }
     .callback .contacts__info {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
       margin-bottom: 25px; }
       .callback .contacts__info > .block {
         margin-bottom: 15px;
-        box-sizing: border-box; }
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; }
         .callback .contacts__info > .block > div {
-          margin: 10px 5px; }
+          margin: 10px 30px 10px 5px; }
           .callback .contacts__info > .block > div p {
             margin-bottom: 5px; }
       .callback .contacts__info > .bigBlock {

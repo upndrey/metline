@@ -187,34 +187,39 @@ body {
       font-size: 16px;
     }
     .search {
+      cursor: pointer;
       @include icon("../images/firstScreen/icons/search.png", 23px, 23px, false);
+      margin-right: 15px;
     }
     .phone {
-      box-sizing: border-box;
-      height: 45px;
-      padding: 15px 30px;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      margin-right: 10px;
+      &>option {
+        color: #000;
+      }
       &:before {
         @include icon("../images/firstScreen/icons/phone.png", 13px, 19px);
         right: 5px;
       }
-      &:after {
-          @include icon("../images/firstScreen/icons/arr_down.png", 10px, 5px);
-          left: 5px;
-          bottom: 5px;
-      }
     }
     .location {
-      box-sizing: border-box;
-      height: 45px;
-      padding: 15px 30px;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      &>option {
+        color: #000;
+      }
       &:before {
         @include icon("../images/firstScreen/icons/location.png", 12px, 17px);
         right: 5px;
-      }
-      &:after {
-        @include icon("../images/firstScreen/icons/arr_down.png", 10px, 5px);
-        left: 5px;
-        bottom: 5px;
       }
     }
   }
@@ -348,8 +353,8 @@ body {
     &__title {
       position: relative;
       margin-left: 25px;
-      transition: .5s ease-in-out;
       &:before{
+        transition: .3s ease-in-out;
         @include icon("../images/firstScreen/icons/triangle.png", 20px, 25px, true, absolute);
         top: -1px;
         left: -25px;
@@ -1610,7 +1615,7 @@ body {
       font-weight: 600;
       line-height: 49px;
       position: relative;
-      bottom: 30px;
+      bottom: 15px;
     }
 
     h3 {
@@ -1621,23 +1626,22 @@ body {
 
     h4 {
       font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    &__address {
-      margin-bottom: 25px;
+      margin-bottom: 10px;
+      color: #f1f1f1;
     }
 
     &__info {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
       margin-bottom: 25px;
       &>.block {
         margin-bottom: 15px;
         box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         &>div {
-          margin: 10px 5px;
+          margin: 10px 30px 10px 5px;
           p {
             margin-bottom: 5px;
           }
