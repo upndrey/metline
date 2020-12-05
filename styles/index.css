@@ -10,6 +10,9 @@ body {
 .hidden {
   visibility: hidden; }
 
+.displaynone {
+  display: none; }
+
 .container {
   max-width: 1120px;
   margin: auto;
@@ -28,6 +31,9 @@ body {
     .container {
       max-width: 100%;
       padding: 10px; } }
+
+.displayflex {
+  display: flex; }
 
 .titleBlock {
   align-self: center;
@@ -647,15 +653,403 @@ body {
 
 /* /CATALOG */
 /* SERVICES */
+.hiddenBlocks__bg {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  opacity: .5;
+  cursor: pointer; }
+
 .services {
   color: #fff;
   font-size: 16px;
-  flex-direction: column; }
+  flex-direction: column;
+  position: relative; }
   .services__wrapper {
     background: #1B1F2A;
     padding-bottom: 50px; }
   .services .block2 {
     margin-top: 184px; }
+  .services .hiddenBlocks {
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    margin: auto; }
+    .services .hiddenBlocks__block {
+      position: relative;
+      z-index: 11;
+      width: 991px;
+      margin: 100px auto 0 auto;
+      padding: 30px 15px;
+      background: #1B1F2A;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center; }
+      .services .hiddenBlocks__block .elem {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 172px;
+        text-align: center;
+        margin: 0 5px;
+        margin-bottom: 15px;
+        cursor: pointer; }
+      .services .hiddenBlocks__block .plenka {
+        position: relative;
+        display: block;
+        width: 376px;
+        height: 277px; }
+        .services .hiddenBlocks__block .plenka:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/plenka.png");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 376px;
+          height: 277px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .plenka__title {
+          width: 325px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          top: -11px;
+          right: -95px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .prodolno {
+        position: relative;
+        display: block;
+        width: 327px;
+        height: 245px; }
+        .services .hiddenBlocks__block .prodolno:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/prodolno.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 327px;
+          height: 245px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .prodolno__title {
+          width: 343px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          bottom: 4px;
+          right: -88px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .polinernaya {
+        position: relative;
+        display: block;
+        width: 313px;
+        height: 208px; }
+        .services .hiddenBlocks__block .polinernaya:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/polinernaya.png");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 313px;
+          height: 208px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .polinernaya__title {
+          width: 287px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          bottom: -49px;
+          left: -39px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .peremotka {
+        position: relative;
+        display: block;
+        width: 368px;
+        height: 245px; }
+        .services .hiddenBlocks__block .peremotka:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/peremotka.png");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 368px;
+          height: 245px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .peremotka__title {
+          width: 322px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          bottom: 0;
+          left: -24px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .gidroabraz {
+        position: relative;
+        display: block;
+        width: 353px;
+        height: 254px; }
+        .services .hiddenBlocks__block .gidroabraz:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/gidroabraz.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 353px;
+          height: 254px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .gidroabraz__title {
+          width: 201px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          bottom: 24px;
+          left: 0;
+          z-index: 3; }
+      .services .hiddenBlocks__block .lentopilniy {
+        position: relative;
+        display: block;
+        width: 311px;
+        height: 207px; }
+        .services .hiddenBlocks__block .lentopilniy:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/lentopilniy.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 311px;
+          height: 207px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .lentopilniy__title {
+          width: 269px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          top: 9px;
+          right: -82px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .gazokislorod {
+        position: relative;
+        display: block;
+        width: 410px;
+        height: 252px; }
+        .services .hiddenBlocks__block .gazokislorod:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/gazokislorod.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 410px;
+          height: 252px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .gazokislorod__title {
+          width: 196px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          top: 8px;
+          left: 27px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .plazma {
+        position: relative;
+        display: block;
+        width: 263px;
+        height: 223px; }
+        .services .hiddenBlocks__block .plazma:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/plazma.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 263px;
+          height: 223px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .plazma__title {
+          width: 138px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          top: 15px;
+          left: -27px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .lazer {
+        position: relative;
+        display: block;
+        width: 352px;
+        height: 169px; }
+        .services .hiddenBlocks__block .lazer:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/lazer.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 352px;
+          height: 169px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .lazer__title {
+          width: 108px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 32px;
+          position: absolute;
+          bottom: 8px;
+          right: 3px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .galvanich {
+        position: relative;
+        display: block;
+        width: 341px;
+        height: 280px; }
+        .services .hiddenBlocks__block .galvanich:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/galvanich.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 341px;
+          height: 280px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .galvanich__title {
+          width: 230px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 30px;
+          font-weight: 300;
+          line-height: 41px;
+          position: absolute;
+          top: -2px;
+          left: 13px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .goryachee {
+        position: relative;
+        display: block;
+        width: 298px;
+        height: 199px; }
+        .services .hiddenBlocks__block .goryachee:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/goryachee.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 298px;
+          height: 199px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .goryachee__title {
+          width: 143px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 30px;
+          font-weight: 300;
+          line-height: 41px;
+          position: absolute;
+          bottom: 15px;
+          left: 8px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .termodiffus {
+        position: relative;
+        display: block;
+        width: 328px;
+        height: 246px; }
+        .services .hiddenBlocks__block .termodiffus:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/termodiffus.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 328px;
+          height: 246px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .termodiffus__title {
+          width: 297px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 30px;
+          font-weight: 300;
+          line-height: 41px;
+          position: absolute;
+          top: 0;
+          left: -40px;
+          z-index: 3; }
+      .services .hiddenBlocks__block .holodnoe {
+        position: relative;
+        display: block;
+        width: 361px;
+        height: 296px; }
+        .services .hiddenBlocks__block .holodnoe:before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-image: url("../images/services/holodnoe.jpg");
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 361px;
+          height: 296px;
+          opacity: .65; }
+        .services .hiddenBlocks__block .holodnoe__title {
+          width: 316px;
+          color: #fff;
+          text-align: left;
+          display: block;
+          font-size: 30px;
+          font-weight: 300;
+          line-height: 41px;
+          position: absolute;
+          bottom: 13px;
+          right: -45px;
+          z-index: 3; }
   .services__block {
     display: flex;
     flex-wrap: wrap;

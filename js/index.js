@@ -16,7 +16,7 @@ var myFullpage = new fullpage('#fullpage', {
     }
 });
 
-$("#send-message").click( function(e) {
+$("#send-message").click(function(e) {
     e.preventDefault();
     var name = $("#client-name").val();
     var email = $("#client-email").val();
@@ -41,4 +41,33 @@ $("#send-message").click( function(e) {
             }
         });
     }
+});
+
+$(".ceh").click(function(e) {
+    console.log(1);
+    $(".hiddenCeh").removeClass("displaynone");
+    $(".hiddenCeh").addClass("displayflex");
+    $(".hiddenBlocks__bg").removeClass("displaynone");
+});
+
+$(".rezka").click(function(e) {
+    $(".hiddenRezka").removeClass("displaynone");
+    $(".hiddenRezka").addClass("displayflex");
+    $(".hiddenBlocks__bg").removeClass("displaynone");
+});
+
+$(".zink").click(function(e) {
+    $(".hiddenZink").removeClass("displaynone");
+    $(".hiddenZink").addClass("displayflex");
+    $(".hiddenBlocks__bg").removeClass("displaynone");
+});
+
+$(".hiddenBlocks__bg").click(function(e) {
+    $(".hiddenCeh").removeClass("displayflex");
+    $(".hiddenRezka").removeClass("displayflex");
+    $(".hiddenZink").removeClass("displayflex");
+    $(".hiddenCeh").addClass("displaynone");
+    $(".hiddenRezka").addClass("displaynone");
+    $(".hiddenZink").addClass("displaynone");
+    $(".hiddenBlocks__bg").addClass("displaynone");
 });
