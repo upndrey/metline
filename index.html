@@ -41,7 +41,7 @@
                 <select name="branch" class="phone">
                     <option value="krasnodar" selected><a href="#">8(800)000&#8209;00&#8209;00</a></option>
                 </select>
-                <select name="branch" class="location">
+                <select name="branch" class="branch location">
                     <option value="krasnodar" selected>Краснодар</option>
                     <option value="moscov">Москва</option>
                 </select>
@@ -317,11 +317,11 @@
                 </form>
                 <div class="callback__contacts contacts">
                     <h2>Контактная информация</h2>
-                    <select name="branch">
+                    <select name="branch" class="branch">
                         <option value="krasnodar" selected>Краснодар</option>
                         <option value="moscov">Москва</option>
                     </select>
-                    <div class="contacts__info">
+                    <div class="contacts__info block1 displayflex">
                         <div class="block">
                             <h3>Адрес:</h3>
                             <div>
@@ -405,11 +405,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="contacts__info block2 displaynone">
+                        <div class="block">
+                            <h3>Адрес:</h3>
+                            <div>
+                                <p>
+                                    Московская область, г.Воскресенск, Раменский район, СНТ Борисово
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <h3>Телефоны:</h3>
+                            <div>
+                                <h4>Отдел продаж:</h4>
+                                <div>
+                                    <p>8(800)600-66-50</p>
+                                    <p>8(495)657-88-75</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="map">
-            <div id="map"></div>
+            <div class="map__logo"></div>
+
+            <select name="branch" class="branch map__location">
+                <option value="krasnodar" selected>Краснодар</option>
+                <option value="moscov">Москва</option>
+            </select>
+            <div id="map1"></div>
+            <div id="map2" class="displaynone"></div>
         </div>
         <div class="footer__wrapper">
             <footer class="container footer">

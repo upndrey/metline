@@ -1,9 +1,15 @@
 ymaps.ready(init);
 function init(){
-    var myMap = new ymaps.Map("map",{center: [45.032878,39.022996],zoom: 15});
-    myMap.controls.add("zoomControl").add("typeSelector").add("mapTools");
-    var myPlacemark = new ymaps.Placemark([45.032878,39.022996]);
-    myMap.geoObjects.add(myPlacemark);
+    var myMap1 = new ymaps.Map("map1",{center: [45.032878,39.022996],zoom: 15});
+    var myMap2 = new ymaps.Map("map2",{center: [55.483439,38.312356],zoom: 15});
+
+    myMap1.controls.add("zoomControl");
+    myMap2.controls.add("zoomControl");
+
+    var myPlacemark1 = new ymaps.Placemark([45.032878,39.022996]);
+    var myPlacemark2 = new ymaps.Placemark([55.483439,38.312356]);
+    myMap1.geoObjects.add(myPlacemark1);
+    myMap2.geoObjects.add(myPlacemark2);
 }
 
 var myFullpage = new fullpage('#fullpage', {
@@ -41,6 +47,26 @@ $("#send-message").click(function(e) {
             }
         });
     }
+});
+
+var branch = document.querySelectorAll(".branch");
+branch.forEach((elem1) => {
+    elem1.addEventListener("change", (e) => {
+        branch.forEach((elem2) => {
+            elem2.value = elem1.value;
+        });
+        var contacts1Dom = document.querySelector(".contacts__info.block1");
+        var contacts2Dom = document.querySelector(".contacts__info.block2");
+        contacts1Dom.classList.toggle("displaynone");
+        contacts2Dom.classList.toggle("displaynone");
+        contacts1Dom.classList.toggle("displayflex");
+        contacts2Dom.classList.toggle("displayflex");
+
+        var map1Dom = document.getElementById("map1");
+        var map2Dom = document.getElementById("map2");
+        map1Dom.classList.toggle("displaynone");
+        map2Dom.classList.toggle("displaynone");
+    });
 });
 
 $(".ceh").click(function(e) {
