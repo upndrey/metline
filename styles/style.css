@@ -1260,4 +1260,17 @@ h5 {
 .photo-box>img {
     width: 500px;
 }
+
+.product_page_block {
+    display: flex;
+    flex-direction: column;
+}
+.product_page_block>.row {
+    order: 1;
+}
+.product_page_block>h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    order: 0;
+}
 /* /PRODUCT PAGE */
