@@ -1682,13 +1682,14 @@ body {
     .callback__form > .submit {
       width: 100%;
       display: flex;
-      justify-content: flex-end; }
+      justify-content: space-between; }
       .callback__form > .submit > * {
         transition: .5s ease-in-out;
-        width: 220px;
-        height: 54px;
+        min-width: 220px;
+        height: 60px;
         font-size: 20px;
         cursor: pointer;
+        box-sizing: border-box;
         background: transparent;
         border: 1px solid #fff;
         padding: 15px 30px;
@@ -1696,6 +1697,12 @@ body {
         .callback__form > .submit > *:hover {
           background: #fff;
           color: #171A2D; }
+      .callback__form > .submit .file {
+        margin-right: 5px; }
+        .callback__form > .submit .file:hover {
+          background: transparent;
+          color: white;
+          cursor: auto; }
     .callback__form textarea {
       height: 250px !important;
       resize: none; }
@@ -1705,7 +1712,7 @@ body {
     box-sizing: border-box; }
     .callback .contacts h2 {
       height: 63px;
-      font-size: 36px;
+      font-size: 34px;
       font-weight: 600;
       line-height: 49px;
       position: relative;
