@@ -216,6 +216,7 @@ body {
       font-family: 'Open Sans', sans-serif;
       font-size: 16px;
       padding-bottom: 5px;
+      margin-right: 10px;
       &>option {
         color: #000;
       }
@@ -223,6 +224,12 @@ body {
         @include icon("../images/firstScreen/icons/location.png", 12px, 17px);
         right: 5px;
       }
+    }
+    .cart {
+      cursor: pointer;
+      @include icon("../images/firstScreen/icons/shopping-cart.png", 25px, 25px, false);
+
+      background-repeat: no-repeat;
     }
   }
 
@@ -1826,3 +1833,67 @@ body {
 }
 
 /* /FOOTER */
+
+/* VACANCY */
+
+.vacancy {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column;
+  min-height: 800px;
+  padding: 100px 0;
+  font-weight: 300;
+  &__wrapper {
+    position: relative;
+    background: #161C28;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 283px;
+      height: 1074px;
+      right: -300px;
+      top: 0;
+
+      background: #121E79;
+      opacity: 0.6;
+      filter: blur(250px);
+    }
+  }
+  &>div {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    margin: auto;
+  }
+
+  h1 {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 35px;
+    position: relative;
+    &:before {
+      @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
+      bottom: -15px;
+    }
+  }
+
+  h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+  }
+}
+
+/* /VACANCY */
