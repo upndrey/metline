@@ -1677,7 +1677,7 @@ body {
       line-height: 49px;
       position: relative;
       bottom: 0; }
-    .callback__form > * {
+    .callback__form > *, .callback__form > .select > .bigBlock {
       font-weight: 300;
       margin-top: 0;
       margin-bottom: 15px;
@@ -1692,14 +1692,26 @@ body {
       box-sizing: border-box;
       border: 1px solid #fff;
       padding: 15px 30px; }
-    .callback__form > .bigBlock {
+    .callback__form > .select {
+      width: 100%;
+      position: relative; }
+      .callback__form > .select > span {
+        position: absolute;
+        height: 63px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 15px; }
+    .callback__form .bigBlock {
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
       width: 100%;
       height: 63px;
       box-sizing: border-box;
       border: 1px solid #fff;
-      padding: 15px 30px; }
+      padding: 15px 30px 15px 150px; }
+    .callback__form select > option {
+      color: #000; }
     .callback__form > .submit {
       font-family: 'Open Sans', sans-serif;
       width: 100%;
