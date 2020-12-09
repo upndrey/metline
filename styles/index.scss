@@ -1495,8 +1495,10 @@ body {
 .callback {
   color: #fff;
   font-size: 16px;
+  display: flex;
   justify-content: space-between;
   z-index: 4;
+  min-height: 875px;
   &__wrapper {
     position: relative;
     background: url("../images/office.jpg");
@@ -1533,7 +1535,7 @@ body {
 
 
   &__form {
-    width: 60%;
+    width: 50%;
     height: 630px;
     display: flex;
     flex-wrap: wrap;
@@ -1555,13 +1557,13 @@ body {
     }
 
     h2 {
-      width: calc(50% - 10px);
+      width: 50%;
       height: 63px;
-      font-size: 36px;
-      font-weight: 400;
+      font-size: 30px;
+      font-weight: 600;
       line-height: 49px;
       position: relative;
-      bottom: 30px;
+      bottom: 0;
     }
 
     &>* {
@@ -1638,17 +1640,15 @@ body {
   }
 
   .contacts {
-    width: 50%;
-    margin-left: 15px;
     box-sizing: border-box;
-
+    margin-left: 50px;
     h2 {
       height: 63px;
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 600;
       line-height: 49px;
       position: relative;
-      bottom: 15px;
+      bottom: 0;
     }
 
     h3 {
@@ -1676,6 +1676,7 @@ body {
           margin: 10px 30px 10px 5px;
           p {
             margin-bottom: 5px;
+            min-width: 170px;
           }
         }
       }
@@ -1792,7 +1793,7 @@ body {
     align-items: flex-start;
     .logo {
       .img {
-        @include icon("../images/footer/icons/logo.png", 385px, 119px, false, relative);
+        @include icon("../images/footer/icons/logo.png", 384px, 118px, false, relative);
         bottom: 20px;
       }
       p {

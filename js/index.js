@@ -1,7 +1,7 @@
 ymaps.ready(init);
 function init(){
-    var myMap1 = new ymaps.Map("map1",{center: [45.032878,39.022996],zoom: 15});
-    var myMap2 = new ymaps.Map("map2",{center: [55.483439,38.312356],zoom: 15});
+    var myMap1 = new ymaps.Map("map1",{center: [45.032878,39.022996],zoom: 12});
+    var myMap2 = new ymaps.Map("map2",{center: [55.483439,38.312356],zoom: 12});
 
     myMap1.controls.add("zoomControl");
     myMap2.controls.add("zoomControl");

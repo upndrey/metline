@@ -1614,8 +1614,10 @@ body {
 .callback {
   color: #fff;
   font-size: 16px;
+  display: flex;
   justify-content: space-between;
-  z-index: 4; }
+  z-index: 4;
+  min-height: 875px; }
   .callback__wrapper {
     position: relative;
     background: url("../images/office.jpg");
@@ -1647,7 +1649,7 @@ body {
       opacity: .9;
       z-index: 2; }
   .callback__form {
-    width: 60%;
+    width: 50%;
     height: 630px;
     display: flex;
     flex-wrap: wrap;
@@ -1668,13 +1670,13 @@ body {
       color: #fff;
       opacity: 1; }
     .callback__form h2 {
-      width: calc(50% - 10px);
+      width: 50%;
       height: 63px;
-      font-size: 36px;
-      font-weight: 400;
+      font-size: 30px;
+      font-weight: 600;
       line-height: 49px;
       position: relative;
-      bottom: 30px; }
+      bottom: 0; }
     .callback__form > * {
       font-weight: 300;
       margin-top: 0;
@@ -1731,16 +1733,15 @@ body {
       height: 250px !important;
       resize: none; }
   .callback .contacts {
-    width: 50%;
-    margin-left: 15px;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    margin-left: 50px; }
     .callback .contacts h2 {
       height: 63px;
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 600;
       line-height: 49px;
       position: relative;
-      bottom: 15px; }
+      bottom: 0; }
     .callback .contacts h3 {
       font-size: 26px;
       margin-bottom: 10px;
@@ -1761,7 +1762,8 @@ body {
         .callback .contacts__info > .block > div {
           margin: 10px 30px 10px 5px; }
           .callback .contacts__info > .block > div p {
-            margin-bottom: 5px; }
+            margin-bottom: 5px;
+            min-width: 170px; }
       .callback .contacts__info > .bigBlock {
         width: 100%;
         display: flex;
@@ -1855,8 +1857,8 @@ body {
       background-image: url("../images/footer/icons/logo.png");
       -webkit-background-size: cover;
       background-size: cover;
-      width: 385px;
-      height: 119px;
+      width: 384px;
+      height: 118px;
       bottom: 20px; }
     .footer__secondBlock .logo p {
       font-size: 16px;
