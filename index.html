@@ -36,13 +36,26 @@
             </nav>
             <div class="contacts">
                 <a href="#" class="search"></a>
-                <select name="branch" class="phone">
-                    <option value="krasnodar" selected><a href="#">8(800)000&#8209;00&#8209;00</a></option>
-                </select>
-                <select name="branch" class="branch location">
-                    <option value="krasnodar" selected>Краснодар</option>
-                    <option value="moscov">Москва</option>
-                </select>
+                <div class="phone">
+                    <div class="numsContainer numsContainer1">
+                        <div><a href="#">8(800)000&#8209;00&#8209;00</a></div>
+                        <div class="displaynone"><a href="#">8(800)000&#8209;00&#8209;00</a></div>
+                        <div class="displaynone"><a href="#">8(800)000&#8209;00&#8209;00</a></div>
+                    </div>
+                    <div class="numsContainer numsContainer2 displaynone">
+                        <div><a href="#">8(999)000&#8209;00&#8209;00</a></div>
+                        <div class="displaynone"><a href="#">8(800)000&#8209;00&#8209;00</a></div>
+                        <div class="displaynone"><a href="#">8(800)000&#8209;00&#8209;00</a></div>
+                    </div>
+                    <div class="arrDown "></div>
+                </div>
+                <div class="location">
+                    <select name="branch" class="branch" id="locationSelect">
+                        <option value="krasnodar" selected>Краснодар</option>
+                        <option value="moscov">Москва</option>
+                    </select>
+                    <label for="locationSelect" class="arrDown"></label>
+                </div>
                 <div class="cart"></div>
             </div>
         </header>

@@ -173,6 +173,7 @@ body {
       align-items: flex-end;
       font-size: 16px; }
     .header .contacts .search {
+      display: flex;
       cursor: pointer;
       position: relative;
       display: block;
@@ -181,7 +182,7 @@ body {
       background-size: cover;
       width: 23px;
       height: 23px;
-      margin-right: 15px; }
+      margin-right: 25px; }
     .header .contacts .phone {
       cursor: pointer;
       background: transparent;
@@ -189,8 +190,24 @@ body {
       color: #fff;
       font-family: 'Open Sans', sans-serif;
       font-size: 16px;
-      margin-right: 10px;
-      padding-bottom: 5px; }
+      margin-right: 20px;
+      align-items: center; }
+      .header .contacts .phone .arrDown {
+        position: relative;
+        display: block;
+        background-image: url("../images/firstScreen/icons/arr_down.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 13px;
+        height: 7px;
+        margin-left: 5px; }
+      .header .contacts .phone .arrDownReverse {
+        transform: rotate(180deg); }
+      .header .contacts .phone .jsTopMargin {
+        position: relative;
+        top: 23px; }
+        .header .contacts .phone .jsTopMargin > * {
+          margin-bottom: 5px; }
       .header .contacts .phone > option {
         color: #000; }
       .header .contacts .phone:before {
@@ -202,18 +219,11 @@ body {
         background-size: cover;
         width: 13px;
         height: 19px;
-        right: 5px; }
+        right: 8px; }
     .header .contacts .location {
-      cursor: pointer;
-      background: transparent;
-      border: 0;
-      color: #fff;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 16px;
-      padding-bottom: 5px;
-      margin-right: 10px; }
-      .header .contacts .location > option {
-        color: #000; }
+      position: relative;
+      display: flex;
+      align-items: center; }
       .header .contacts .location:before {
         content: '';
         position: relative;
@@ -224,6 +234,40 @@ body {
         width: 12px;
         height: 17px;
         right: 5px; }
+      .header .contacts .location > select {
+        z-index: 10;
+        width: 110px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        margin-right: 10px;
+        -moz-appearance: none;
+        /* Firefox */
+        -webkit-appearance: none;
+        /* Safari and Chrome */
+        appearance: none; }
+        .header .contacts .location > select > option {
+          color: #000; }
+      .header .contacts .location .arrDown {
+        z-index: 9;
+        display: block;
+        position: absolute;
+        display: block;
+        background-image: url("../images/firstScreen/icons/arr_down.png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 13px;
+        height: 7px;
+        right: 20px;
+        top: 12px; }
+      .header .contacts .location .arrDownReverse {
+        transform: rotate(180deg); }
     .header .contacts .cart {
       cursor: pointer;
       position: relative;

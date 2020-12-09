@@ -50,24 +50,62 @@ $("#send-message").click(function(e) {
 });
 
 var branch = document.querySelectorAll(".branch");
-branch.forEach((elem1) => {
-    elem1.addEventListener("change", (e) => {
-        branch.forEach((elem2) => {
-            elem2.value = elem1.value;
-        });
-        var contacts1Dom = document.querySelector(".contacts__info.block1");
-        var contacts2Dom = document.querySelector(".contacts__info.block2");
-        contacts1Dom.classList.toggle("displaynone");
-        contacts2Dom.classList.toggle("displaynone");
-        contacts1Dom.classList.toggle("displayflex");
-        contacts2Dom.classList.toggle("displayflex");
+if(branch) {
+    branch.forEach((elem1) => {
+        elem1.addEventListener("change", (e) => {
+            branch.forEach((elem2) => {
+                elem2.value = elem1.value;
+            });
+            var contacts1Dom = document.querySelector(".contacts__info.block1");
+            var contacts2Dom = document.querySelector(".contacts__info.block2");
+            contacts1Dom.classList.toggle("displaynone");
+            contacts2Dom.classList.toggle("displaynone");
+            contacts1Dom.classList.toggle("displayflex");
+            contacts2Dom.classList.toggle("displayflex");
 
-        var map1Dom = document.getElementById("map1");
-        var map2Dom = document.getElementById("map2");
-        map1Dom.classList.toggle("displaynone");
-        map2Dom.classList.toggle("displaynone");
+            var map1Dom = document.getElementById("map1");
+            var map2Dom = document.getElementById("map2");
+            map1Dom.classList.toggle("displaynone");
+            map2Dom.classList.toggle("displaynone");
+
+            var numsContainer1Dom = document.querySelector(".numsContainer1");
+            var numsContainer2Dom = document.querySelector(".numsContainer2");
+            numsContainer1Dom.classList.toggle("displaynone");
+            numsContainer2Dom.classList.toggle("displaynone");
+        });
     });
-});
+}
+
+var headerArrDown = document.querySelector(".phone>.arrDown");
+if(headerArrDown) {
+    var isPhonesOpened = 0;
+    var numbersContainer = document.querySelectorAll(".phone>.numsContainer");
+    var phoneArrdown = document.querySelector(".phone>.arrDown");
+    headerArrDown.addEventListener("click", function () {
+        if(!isPhonesOpened) {
+
+            numbersContainer.forEach(function (elem) {
+                [...elem.children].forEach(function (child) {
+                    child.classList.remove("displaynone");
+                });
+            });
+            isPhonesOpened = 1;
+        }
+        else {
+            numbersContainer.forEach(function (elem) {
+                [...elem.children].forEach(function (child, i) {
+                    if(i !== 0)
+                        child.classList.add("displaynone");
+                });
+            });
+            isPhonesOpened = 0;
+        }
+        numbersContainer.forEach(function (elem) {
+            elem.classList.toggle("jsTopMargin");
+        });
+        phoneArrdown.classList.toggle("arrDownReverse");
+    });
+}
 
 $(".ceh").click(function(e) {
     console.log(1);
