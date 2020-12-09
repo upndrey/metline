@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/index.css">
+
+    <title>Метлайн</title>
+</head>
+<body>
+<div class="deliveryBlock__wrapper">
+    <div class="container deliveryBlock">
+        <div>
+            <h1>Расчет стоимости доставки маеталлопродукции:</h1>
+            <p>
+                Выберите зону доставки, непосредственно точку на карте или введите адрес в окне поиска. Внутри зоны действует единый тариф от каждой металлобазы в соответствии с длиной и весом металлопродукции.
+            </p>
+        </div>
+        <div class="inputBlock">
+            <label class="labelBefore" for="address">Адрес доставки:</label>
+            <input type="text" name="address" id="address" placeholder="Город, населенный пункт, улица, дом">
+        </div>
+        <div class="inputBlock">
+            <label class="labelBefore" for="base">База подгрузки:</label>
+            <select id="base" name="branch" class="branch location">
+                <option value="krasnodar" selected>Краснодар</option>
+                <option value="moscov">Москва</option>
+            </select>
+        </div>
+        <div class="inputBlock">
+            <label class="labelBefore" for="range">Количество позиций в кузове:</label>
+            <input type="range" min="0" max="4" value="0" name="range" id="range">
+            <span id="currentRangeValue"></span>
+        </div>
+        <div class="inputBlock">
+            <label class="labelBefore">Тип автомобиля:</label>
+            <div>
+                <input type="radio" checked name="autoType" id="autoType1"/>
+                <label for="autoType1">20 т / 13.8 м</label>
+            </div>
+            <div>
+                <input type="radio" name="autoType" id="autoType2"/>
+                <label for="autoType2">9 т / 6 м</label>
+            </div>
+            <div>
+                <input type="radio" name="autoType" id="autoType3"/>
+                <label for="autoType3">5 т / 6 м</label>
+            </div>
+            <div>
+                <input type="radio" name="autoType" id="autoType4"/>
+                <label for="autoType4">1.5 т / 4 м</label>
+            </div>
+        </div>
+        <div class="inputBlock">
+            <button>Рассчитать</button>
+            <p>Стоимость доставки: <span>-</span> Р</p>
+        </div>
+        <div class="moreBlock">
+            <div class="text">
+                <p>Условия доставки</p>
+                <p class="plus" id="plus1">+</p>
+            </div>
+            <div class="content displaynone" id="content1">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </div>
+        </div>
+        <div class="moreBlock">
+            <div class="text">
+                <p>Скидки</p>
+                <p class="plus" id="plus2">+</p>
+            </div>
+            <div class="content displaynone" id="content2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer__wrapper">
+    <footer class="container footer">
+        <div class="footer__links">
+            <a href="index.html#firstScreen" class="active">Главная</a>
+            <a href="index.html#catalog">Каталог</a>
+            <a href="index.html#services">Услуги</a>
+            <a href="index.html#callback">Контакты</a>
+            <a href="vacancy.html">Вакансии</a>
+            <a href="#" class="notImplemented">Личный кабинет</a>
+        </div>
+        <div class="footer__secondBlock">
+            <div class="logo">
+                <div class="img"></div>
+                <p>© ОАО«МЕТЛАЙН», 2020 г. Все права защищены.</p>
+            </div>
+            <div class="phones">
+                <p class="phones__title">Телефон отдела прожаж:</p>
+                <div>
+                    <a href="#">8(800)600-66-50</a>
+                    <a href="#">8(861)666-66-33</a>
+                    <a href="#">8(918)645-70-66</a>
+                </div>
+            </div>
+            <div class="moreLinks">
+                <a href="#">Техническая документация</a>
+                <p>E-mail: <a href="#">zakaz@mail.ru</a></p>
+                <div class="icons">
+                    <a href="#" class="tg"></a>
+                    <a href="#" class="wapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+<script>
+    var range = document.getElementById("range");
+    var current = document.getElementById("currentRangeValue");
+    range.value = 0;
+    current.innerText = range.value;
+    var savedLeft = current.offsetLeft + 1;
+
+    range.addEventListener("input", function () {
+        current.innerText = range.value;
+        current.style.left = savedLeft + range.value * 121 + "px";
+    });
+
+    var plus1 = document.getElementById("plus1");
+    var content1 = document.getElementById("content1");
+    plus1.addEventListener("click", function () {
+        content1.classList.toggle("displaynone");
+        if(plus1.innerText === "–")
+            plus1.innerText = "+";
+        else
+            plus1.innerText = "–";
+    });
+
+    var plus2 = document.getElementById("plus2");
+    var content2 = document.getElementById("content2");
+    plus2.addEventListener("click", function () {
+        content2.classList.toggle("displaynone");
+        if(plus2.innerText === "–")
+            plus2.innerText = "+";
+        else
+            plus2.innerText = "–";
+    });
+</script>
+</html>
