@@ -644,6 +644,7 @@ body {
   &__wrapper {
     background: #1B1F2A;
     padding-bottom: 50px;
+    min-height: 915px;
 
 
     &:before {
@@ -662,6 +663,14 @@ body {
   .block2 {
     margin-top: 184px;
   }
+  .slick-next:before {
+    @include icon("../images/arr_right.png", 62px, 62px);
+    right: -20px;
+  }
+  .slick-prev:before {
+    @include icon("../images/arr_left.png", 62px, 62px);
+    left: -75px;
+  }
 
   .hiddenBlocks {
     position: absolute;
@@ -669,16 +678,52 @@ body {
     height: 800px;
     margin: auto;
 
+
+    .hiddenCeh {
+      left: 350px;
+      top: -120px;
+    }
+
+    .hiddenRezka {
+      left: -350px;
+      top: -120px;
+    }
+
+    .hiddenZink {
+      top: -120px;
+      right: 80px;
+    }
     &__block {
-      position: relative;
+      display: flex;
+      position: absolute;
       z-index: 11;
       width: 991px;
+      height: 800px;
       margin: 100px auto 0 auto;
       padding: 30px 15px;
       background: #1B1F2A;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      transition: .5s ease-in-out;
+      visibility: hidden;
+      -webkit-transform: scale(.4);
+      -moz-transform: scale(.4);
+      -ms-transform: scale(.4);
+      -o-transform: scale(.4);
+      transform: scale(.4);
+      &.blockAnimate {
+        visibility: visible;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
 
       .elem {
         position: relative;
@@ -1006,21 +1051,54 @@ body {
       }
     }
   }
+  .slick-slide {
+    -webkit-transform: scale(.6);
+    -moz-transform: scale(.6);
+    -ms-transform: scale(.6);
+    -o-transform: scale(.6);
+    transform: scale(.6);
+  }
 
+  .slick-active {
+    -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    -ms-transform: scale(.8);
+    -o-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  .slick-center {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
   &__block {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    &>.elem {
+    &>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 15px;
+    }
+
+    & .elem {
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 172px;
+      width: 300px !important;
+      height: 300px !important;
       text-align: center;
-      margin: 0 7px;
-      margin-bottom: 15px;
+      margin: 0 15px;
       cursor: pointer;
+      &:first-child {
+        margin-bottom: 20px;
+      }
     }
     .rezka {
       position: relative;
@@ -1616,6 +1694,9 @@ body {
       background: transparent;
       color: white;
     }
+    &>.select>.bigBlock {
+      padding-left: 150px;
+    }
 
     &>.smallBlock {
       font-family: 'Open Sans', sans-serif;
@@ -1647,7 +1728,7 @@ body {
       height: 63px;
       box-sizing: border-box;
       border: 1px solid #fff;
-      padding: 15px 30px 15px 150px;
+      padding: 15px 30px 15px 30px;
     }
 
     & select {

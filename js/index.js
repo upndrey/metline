@@ -83,7 +83,6 @@ if(headerArrDown) {
     var phoneArrdown = document.querySelector(".phone>.arrDown");
     headerArrDown.addEventListener("click", function () {
         if(!isPhonesOpened) {
-
             numbersContainer.forEach(function (elem) {
                 [...elem.children].forEach(function (child) {
                     child.classList.remove("displaynone");
@@ -108,30 +107,25 @@ if(headerArrDown) {
 }
 
 $(".ceh").click(function(e) {
-    console.log(1);
-    $(".hiddenCeh").removeClass("displaynone");
-    $(".hiddenCeh").addClass("displayflex");
+    $(".hiddenCeh").addClass("blockAnimate");
     $(".hiddenBlocks__bg").removeClass("displaynone");
 });
 
 $(".rezka").click(function(e) {
-    $(".hiddenRezka").removeClass("displaynone");
-    $(".hiddenRezka").addClass("displayflex");
+    $(".hiddenRezka").addClass("blockAnimate");
     $(".hiddenBlocks__bg").removeClass("displaynone");
 });
 
 $(".zink").click(function(e) {
-    $(".hiddenZink").removeClass("displaynone");
-    $(".hiddenZink").addClass("displayflex");
+    $(".hiddenZink").addClass("blockAnimate");
     $(".hiddenBlocks__bg").removeClass("displaynone");
 });
 
 $(".hiddenBlocks__bg").click(function(e) {
-    $(".hiddenCeh").removeClass("displayflex");
-    $(".hiddenRezka").removeClass("displayflex");
-    $(".hiddenZink").removeClass("displayflex");
-    $(".hiddenCeh").addClass("displaynone");
-    $(".hiddenRezka").addClass("displaynone");
-    $(".hiddenZink").addClass("displaynone");
+    $(".hiddenCeh").removeClass("blockAnimate");
+
+    $(".hiddenRezka").removeClass("blockAnimate");
+
+    $(".hiddenZink").removeClass("blockAnimate");
     $(".hiddenBlocks__bg").addClass("displaynone");
 });

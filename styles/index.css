@@ -757,7 +757,8 @@ body {
   position: relative; }
   .services__wrapper {
     background: #1B1F2A;
-    padding-bottom: 50px; }
+    padding-bottom: 50px;
+    min-height: 915px; }
     .services__wrapper:before {
       content: '';
       position: absolute;
@@ -770,21 +771,70 @@ body {
       filter: blur(250px); }
   .services .block2 {
     margin-top: 184px; }
+  .services .slick-next:before {
+    content: '';
+    position: relative;
+    display: block;
+    background-image: url("../images/arr_right.png");
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 62px;
+    height: 62px;
+    right: -20px; }
+  .services .slick-prev:before {
+    content: '';
+    position: relative;
+    display: block;
+    background-image: url("../images/arr_left.png");
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 62px;
+    height: 62px;
+    left: -75px; }
   .services .hiddenBlocks {
     position: absolute;
     width: 100%;
     height: 800px;
     margin: auto; }
+    .services .hiddenBlocks .hiddenCeh {
+      left: 350px;
+      top: -120px; }
+    .services .hiddenBlocks .hiddenRezka {
+      left: -350px;
+      top: -120px; }
+    .services .hiddenBlocks .hiddenZink {
+      top: -120px;
+      right: 80px; }
     .services .hiddenBlocks__block {
-      position: relative;
+      display: flex;
+      position: absolute;
       z-index: 11;
       width: 991px;
+      height: 800px;
       margin: 100px auto 0 auto;
       padding: 30px 15px;
       background: #1B1F2A;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      transition: .5s ease-in-out;
+      visibility: hidden;
+      -webkit-transform: scale(0.4);
+      -moz-transform: scale(0.4);
+      -ms-transform: scale(0.4);
+      -o-transform: scale(0.4);
+      transform: scale(0.4); }
+      .services .hiddenBlocks__block.blockAnimate {
+        visibility: visible;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; }
       .services .hiddenBlocks__block .elem {
         position: relative;
         display: flex;
@@ -1146,20 +1196,46 @@ body {
           bottom: 13px;
           right: -45px;
           z-index: 3; }
+  .services .slick-slide {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    transform: scale(0.6); }
+  .services .slick-active {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8); }
+  .services .slick-center {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); }
   .services__block {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
-    .services__block > .elem {
+    .services__block > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 15px; }
+    .services__block .elem {
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 172px;
+      width: 300px !important;
+      height: 300px !important;
       text-align: center;
-      margin: 0 7px;
-      margin-bottom: 15px;
+      margin: 0 15px;
       cursor: pointer; }
+      .services__block .elem:first-child {
+        margin-bottom: 20px; }
     .services__block .rezka {
       position: relative;
       display: block;
@@ -1728,6 +1804,8 @@ body {
       font-size: 20px;
       background: transparent;
       color: white; }
+    .callback__form > .select > .bigBlock {
+      padding-left: 150px; }
     .callback__form > .smallBlock {
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
@@ -1753,7 +1831,7 @@ body {
       height: 63px;
       box-sizing: border-box;
       border: 1px solid #fff;
-      padding: 15px 30px 15px 150px; }
+      padding: 15px 30px 15px 30px; }
     .callback__form select > option {
       color: #000; }
     .callback__form > .submit {

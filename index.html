@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/fullpage.min.css">
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" type="text/css" href="./styles/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./styles/slick-theme.css"/>
 
     <script src="https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
     <title>Метлайн</title>
@@ -200,41 +202,15 @@
         </div>
     </div>
     <div class="section">
-        <div class="services__wrapper slide" data-anchor="services">
+        <div class="services__wrapper" data-anchor="services">
             <div class="hiddenBlocks__bg displaynone"></div>
             <div class="container services">
                 <div class="titleBlock">
                     <h2>Услуги</h2>
                     <p>Производственно-коммерческая фирма  «МЕТЛАЙН» специализируется на предоставлении ряда услуг, связанных с обработкой металла. При изготовлении металлоконструкций, необходимых заказчику, обычно выполняется целый комплекс работ различной сложности. К работам по металлообработке относятся:</p>
                 </div>
-                <div class="services__block">
-                    <div class="elem rezka">
-                        <div class="rezka__img"></div>
-                        <div class="rezka__title">Резка металла</div>
-                    </div>
-                    <a href="./services/metall.html" class="elem metall">
-                        <div class="metall__img"></div>
-                        <div class="metall__title">Изготовление металлоконструкций по чертежам заказчика</div>
-                    </a>
-                    <div class="elem zink">
-                        <div class="zink__img"></div>
-                        <div class="zink__title">Цинкование</div>
-                    </div>
-                    <a href="./services/shlifovka.html" class="elem shlifovka">
-                        <div class="shlifovka__img"></div>
-                        <div class="shlifovka__title">Шлифовка металла</div>
-                    </a>
-                    <div class="elem ceh">
-                        <div class="ceh__img"></div>
-                        <div class="ceh__title">Цех по работе с рулонными сталями с покрытием</div>
-                    </div>
-                    <a href="./services/tokarnaya.html" class="elem tokarnaya">
-                        <div class="tokarnaya__img"></div>
-                        <div class="tokarnaya__title">Токарная обработка</div>
-                    </a>
-                </div>
                 <div class="services__hiddenBlocks hiddenBlocks">
-                    <div class="hiddenBlocks__block hiddenCeh displaynone">
+                    <div class="hiddenBlocks__block hiddenCeh">
                         <a href="./services/plenka.html" class="elem plenka">
                             <div class="plenka__title">Нанесение защитной пленки на металл</div>
                         </a>
@@ -248,7 +224,7 @@
                             <div class="peremotka__title">Перемотка рулонов металла</div>
                         </a>
                     </div>
-                    <div class="hiddenBlocks__block hiddenRezka displaynone">
+                    <div class="hiddenBlocks__block hiddenRezka">
                         <a href="./services/gidroabraz.html" class="elem gidroabraz">
                             <div class="gidroabraz__title">Гидроабразивная</div>
                         </a>
@@ -265,7 +241,7 @@
                             <div class="lazer__title">Лазерная</div>
                         </a>
                     </div>
-                    <div class="hiddenBlocks__block hiddenZink displaynone">
+                    <div class="hiddenBlocks__block hiddenZink">
                         <a href="./services/galvanich.html" class="elem galvanich">
                             <div class="galvanich__title">Гальваническое</div>
                         </a>
@@ -280,38 +256,66 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="services__wrapper slide block2" data-anchor="services">
-            <div class="container services">
-                <div class="services__block">
-                    <div class="elem frezirovka">
-                        <div class="frezirovka__img"></div>
-                        <div class="frezirovka__title">Фрезировка металла</div>
+                <div class="services__block" id="slick">
+                    <div>
+                        <div class="elem rezka">
+                            <div class="rezka__img"></div>
+                            <div class="rezka__title">Резка металла</div>
+                        </div>
+                        <a href="./services/metall.html" class="elem metall">
+                            <div class="metall__img"></div>
+                            <div class="metall__title">Изготовление металлоконструкций по чертежам заказчика</div>
+                        </a>
                     </div>
-                    <div class="elem dostavka">
-                        <div class="dostavka__img"></div>
-                        <div class="dostavka__title">Доставка 24/7</div>
+                    <div>
+                        <div class="elem zink">
+                            <div class="zink__img"></div>
+                            <div class="zink__title">Цинкование</div>
+                        </div>
+                        <a href="./services/shlifovka.html" class="elem shlifovka">
+                            <div class="shlifovka__img"></div>
+                            <div class="shlifovka__title">Шлифовка металла</div>
+                        </a>
                     </div>
-                    <div class="elem gibka">
-                        <div class="gibka__img"></div>
-                        <div class="gibka__title">Гибка металла</div>
+                    <div>
+                        <div class="elem ceh">
+                            <div class="ceh__img"></div>
+                            <div class="ceh__title">Цех по работе с рулонными сталями с покрытием</div>
+                        </div>
+                        <a href="./services/tokarnaya.html" class="elem tokarnaya">
+                            <div class="tokarnaya__img"></div>
+                            <div class="tokarnaya__title">Токарная обработка</div>
+                        </a>
                     </div>
-                    <div class="elem pokraska">
-                        <div class="pokraska__img"></div>
-                        <div class="pokraska__title"><p>Покраска изделий</p><p>Цветовая шкала RAL</p></div>
+                    <div>
+                        <div class="elem frezirovka">
+                            <div class="frezirovka__img"></div>
+                            <div class="frezirovka__title">Фрезировка металла</div>
+                        </div>
+                        <div class="elem svarka">
+                            <div class="svarka__img"></div>
+                            <div class="svarka__title">Сварка металла</div>
+                        </div>
                     </div>
-                    <div class="elem poroshkovaya">
-                        <div class="poroshkovaya__img"></div>
-                        <div class="poroshkovaya__title">Порошковая покраска</div>
+                    <div>
+                        <div class="elem gibka">
+                            <div class="gibka__img"></div>
+                            <div class="gibka__title">Гибка металла</div>
+                        </div>
+                        <div class="elem pokraska">
+                            <div class="pokraska__img"></div>
+                            <div class="pokraska__title"><p>Покраска изделий</p><p>Цветовая шкала RAL</p></div>
+                        </div>
                     </div>
-                    <div class="elem rybka">
-                        <div class="rybka__img"></div>
-                        <div class="rybka__title">Рубка металла</div>
-                    </div>
-                    <div class="elem svarka">
-                        <div class="svarka__img"></div>
-                        <div class="svarka__title">Сварка металла</div>
+                    <div>
+                        <div class="elem poroshkovaya">
+                            <div class="poroshkovaya__img"></div>
+                            <div class="poroshkovaya__title">Порошковая покраска</div>
+                        </div>
+                        <div class="elem rybka">
+                            <div class="rybka__img"></div>
+                            <div class="rybka__title">Рубка металла</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -507,3 +511,16 @@
 <script type="text/javascript" src="./js/fullpage.min.js"></script>
 <script type="text/javascript" src="./js/vendors/scrolloverflow.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#slick').slick({
+            centerMode: true,
+            infinite: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+        });
+        $('#slick').slick("slickGoTo", 1);
+    });
+</script>
