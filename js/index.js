@@ -106,6 +106,61 @@ if(headerArrDown) {
     });
 }
 
+var productList = {
+    "name": "link",
+    "name1": "link1",
+    "name2": "link2",
+    "name3": "link3",
+    "name32": "link32",
+};
+var searchPopup = document.getElementById("searchPopup");
+if(searchPopup) {
+    var searchLine = document.getElementById("searchLine");
+    var searchBlock = document.getElementById("searchBlock");
+    var result = Object.entries(productList);
+
+    var searchOpenButton = document.querySelectorAll(".search");
+    searchOpenButton.forEach(function (elem) {
+        elem.addEventListener("click", function () {
+            console.log(1);
+            searchPopup.classList.remove("displaynone");
+        });
+    });
+
+
+    searchPopup.addEventListener("click", function (e) {
+        if (e.target !== this)
+            return;
+        searchPopup.classList.add("displaynone");
+    });
+
+    result.forEach(function (elem) {
+        var searchBlockElem = document.createElement("a");
+        searchBlockElem.innerText = elem[0];
+        searchBlockElem.href = elem[1];
+        searchBlock.appendChild(searchBlockElem);
+    });
+    searchLine.addEventListener("input", function () {
+        var result = Object.entries(productList);
+        result = result.filter(function (elem) {
+            if(elem[0].includes(searchLine.value))
+                return true;
+        });
+        while (searchBlock.childNodes[0]) {
+            searchBlock.removeChild(searchBlock.childNodes[0]);
+        }
+        result.forEach(function (elem) {
+            var searchBlockElem = document.createElement("a");
+            searchBlockElem.innerText = elem[0];
+            searchBlockElem.href = elem[1];
+            searchBlock.appendChild(searchBlockElem);
+        });
+        if(!result.length) {
+            searchBlock.innerText = "Продуктов с таким названием не найдено.";
+        }
+    });
+}
+
 $(".ceh").click(function(e) {
     $(".hiddenCeh").addClass("blockAnimate");
     $(".hiddenBlocks__bg").removeClass("displaynone");
@@ -129,3 +184,4 @@ $(".hiddenBlocks__bg").click(function(e) {
     $(".hiddenZink").removeClass("blockAnimate");
     $(".hiddenBlocks__bg").addClass("displaynone");
 });
+

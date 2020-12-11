@@ -18,6 +18,13 @@
     <title>Метлайн</title>
 </head>
 <body>
+<div id="searchPopup" class="displaynone">
+    <div>
+        <input type="text" name="searchLine" id="searchLine"  placeholder="Начните вводить название продукта">
+        <h2>Список найденных продуктов:</h2>
+        <div id="searchBlock"></div>
+    </div>
+</div>
 <ul id="menu">
     <li data-menuanchor="firstScreen" class="active"><a href="index.html#firstScreen"></a></li>
     <li data-menuanchor="catalog"><a href="index.html#catalog"></a></li>
@@ -37,7 +44,7 @@
                 <a href="index.html#" class="notImplemented">Личный кабинет</a> <!-- Ещё не реализовано -->
             </nav>
             <div class="contacts">
-                <a href="#" class="search"></a>
+                <div class="search"></div>
                 <div class="phone">
                     <div class="numsContainer numsContainer1">
                         <div><a href="#">8(800)000&#8209;00&#8209;00</a></div>
@@ -194,7 +201,7 @@
             </div>
             <div class="catalog__links">
                 <a href="index.html#callback" class="request">Оставить заявку</a>
-                <a href="#" class="search">Поиск</a>
+                <div class="search">Поиск</div>
                 <a href="#" class="tech">Техническая документация</a>
                 <a href="delivery.html" class="delivery">Доставка</a>
                 <a href="index.html#callback" class="contacts">Контакты</a>
