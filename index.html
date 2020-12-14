@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -522,12 +522,14 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#slick').slick({
-            centerMode: true,
-            infinite: false,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-        });
-        $('#slick').slick("slickGoTo", 1);
+        if ($(window).width() > 900) {
+            $('#slick').slick({
+                centerMode: true,
+                infinite: false,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            });
+            $('#slick').slick("slickGoTo", 1);
+        }
     });
 </script>

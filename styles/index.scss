@@ -5,6 +5,7 @@ body {
   overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
+  min-width: 320px;
 }
 
 .notImplemented {
@@ -208,11 +209,18 @@ body {
         color: #2180FF;
         border-bottom: 2px solid #2180FF;
       }
+      @include laptop {
+        margin: 5px;
+      }
     }
 
     .active {
       color: #2180FF;
       border-bottom: 2px solid #2180FF;
+    }
+    @include laptop {
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
 
@@ -224,6 +232,9 @@ body {
       display: flex;
       align-items: flex-end;;
       font-size: 16px;
+      @include laptop {
+        margin: 5px;
+      }
     }
     .search {
       display: flex;
@@ -312,6 +323,10 @@ body {
 
       background-repeat: no-repeat;
     }
+    @include laptop {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   @include desktop {
@@ -349,6 +364,13 @@ body {
     @include laptop {
       line-height: 34px;
       font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    @include phones {
+      line-height: 24px;
+      font-size: 24px;
+      font-weight: 600;
       margin-bottom: 15px;
     }
   }
@@ -391,6 +413,11 @@ body {
       &:hover {
         background: #006DFF;
       }
+
+      @include phones {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
     }
 
     .btn-catalog {
@@ -407,6 +434,12 @@ body {
     }
 
     @include tablets {
+      justify-content: center;
+    }
+
+    @include phones {
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
     }
   }
@@ -2043,7 +2076,7 @@ body {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    @include phones{
+    @include tablets{
       display: none;
     }
   }
@@ -2108,7 +2141,7 @@ body {
         color: #2180FF;
       }
       @include tablets {
-        margin: 10px 0;
+        margin: 10px 5px;
       }
     }
 
@@ -2117,8 +2150,9 @@ body {
     }
 
     @include tablets {
+      width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -2161,6 +2195,9 @@ body {
           margin-bottom: 10px;
         }
       }
+      @include laptop {
+        text-align: center;
+      }
       @include tablets {
         margin-bottom: 30px;
       }
@@ -2197,6 +2234,9 @@ body {
         @include tablets {
           margin-bottom: 15px;
         }
+      }
+      @include laptop {
+        text-align: center;
       }
       @include tablets {
         margin-bottom: 30px;

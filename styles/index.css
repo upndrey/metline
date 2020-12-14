@@ -2,7 +2,8 @@
 body {
   overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
-  font-size: 20px; }
+  font-size: 20px;
+  min-width: 320px; }
 
 .notImplemented {
   display: none; }
@@ -191,9 +192,16 @@ body {
       .header .menu > a:hover {
         color: #2180FF;
         border-bottom: 2px solid #2180FF; }
+      @media screen and (max-width: 1024px) {
+        .header .menu > a {
+          margin: 5px; } }
     .header .menu .active {
       color: #2180FF;
       border-bottom: 2px solid #2180FF; }
+    @media screen and (max-width: 1024px) {
+      .header .menu {
+        justify-content: center;
+        flex-wrap: wrap; } }
   .header .contacts {
     display: flex;
     justify-content: space-between;
@@ -202,6 +210,9 @@ body {
       display: flex;
       align-items: flex-end;
       font-size: 16px; }
+      @media screen and (max-width: 1024px) {
+        .header .contacts > * {
+          margin: 5px; } }
     .header .contacts .search {
       display: flex;
       cursor: pointer;
@@ -308,6 +319,10 @@ body {
       width: 25px;
       height: 25px;
       background-repeat: no-repeat; }
+    @media screen and (max-width: 1024px) {
+      .header .contacts {
+        flex-wrap: wrap;
+        justify-content: center; } }
   @media screen and (max-width: 1220px) {
     .header {
       max-width: 1024px; } }
@@ -344,6 +359,12 @@ body {
         line-height: 34px;
         font-size: 34px;
         margin-bottom: 15px; } }
+    @media screen and (max-width: 480px) {
+      .title h1 {
+        line-height: 24px;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px; } }
   .title p {
     font-size: 20px;
     line-height: 25px;
@@ -375,6 +396,10 @@ body {
       transition: .5s ease-in-out; }
       .title .buttons .btn-send:hover {
         background: #006DFF; }
+      @media screen and (max-width: 480px) {
+        .title .buttons .btn-send {
+          margin-right: 0;
+          margin-bottom: 20px; } }
     .title .buttons .btn-catalog {
       width: 242px;
       height: 61px;
@@ -386,6 +411,11 @@ body {
         background: #BF4145; }
     @media screen and (max-width: 768px) {
       .title .buttons {
+        justify-content: center; } }
+    @media screen and (max-width: 480px) {
+      .title .buttons {
+        flex-direction: column;
+        align-items: center;
         justify-content: center; } }
   .title .alertBlock {
     position: absolute;
@@ -2081,7 +2111,7 @@ body {
     top: 10px;
     left: 50%;
     transform: translateX(-50%); }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 768px) {
       .map__logo {
         display: none; } }
   .map__location {
@@ -2134,13 +2164,14 @@ body {
         color: #2180FF; }
       @media screen and (max-width: 768px) {
         .footer__links > a {
-          margin: 10px 0; } }
+          margin: 10px 5px; } }
     .footer__links .active {
       color: #2180FF; }
     @media screen and (max-width: 768px) {
       .footer__links {
+        width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap; } }
   .footer__secondBlock {
@@ -2176,6 +2207,9 @@ body {
       .footer__secondBlock .phones > div > * {
         text-align: center;
         margin-bottom: 10px; }
+    @media screen and (max-width: 1024px) {
+      .footer__secondBlock .phones {
+        text-align: center; } }
     @media screen and (max-width: 768px) {
       .footer__secondBlock .phones {
         margin-bottom: 30px; } }
@@ -2216,6 +2250,9 @@ body {
         @media screen and (max-width: 768px) {
           .footer__secondBlock .moreLinks .icons {
             margin-bottom: 15px; } }
+      @media screen and (max-width: 1024px) {
+        .footer__secondBlock .moreLinks {
+          text-align: center; } }
       @media screen and (max-width: 768px) {
         .footer__secondBlock .moreLinks {
           margin-bottom: 30px; } }
