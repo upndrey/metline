@@ -21,27 +21,28 @@ body {
 
 
 .container {
-  max-width: $desktopWidth;
+  max-width: $desktopWidth - 100px;
   margin: auto;
   display: flex;
   position: relative;
   font-weight: 300;
 
   @include desktop{
-    max-width: $laptopWidth;
+    max-width: $laptopWidthBound;
   }
 
   @include laptop{
-    max-width: $tabletsWidth;
+    max-width: $tabletsWidthBound;
   }
 
   @include tablets{
-    max-width: $phonesWidth;
+    max-width: $phonesWidthBound;
   }
 
   @include phones{
     max-width: 100%;
     padding: 10px;
+    box-sizing: border-box;
   }
 }
 
@@ -66,6 +67,10 @@ body {
       @include icon("../images/horizontal_line.png", 200px, 2px);
       top: 45px;
     }
+
+    @include laptop{
+      margin-bottom: 30px;
+    }
   }
 
   p {
@@ -79,6 +84,30 @@ body {
       @include icon("../images/small_vertical_line.png", 2px, 100px, true, absolute);
       left: -10px;
     }
+    @include tablets{
+      max-width: 100%;
+    }
+  }
+
+  @include desktop{
+    max-width: $laptopWidthBound;
+  }
+
+  @include laptop{
+    max-width: $tabletsWidthBound;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include tablets{
+    max-width: $phonesWidthBound;
+  }
+
+  @include phones{
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
   }
 }
 
@@ -111,6 +140,10 @@ body {
     height: 15px;
     background: transparent;
   }
+
+  @include laptop{
+    display: none;
+  }
 }
 
 .fp-controlArrow.fp-next,
@@ -138,8 +171,12 @@ body {
 
   &:before {
     z-index: -1;
-    @include icon("../images/firstScreen/svarka.jpg", 100%, inherit, true, absolute);
+    @include icon("../images/firstScreen/svarka.jpg", 100%, 100%, true, absolute);
     top: 0;
+  }
+
+  @include tablets {
+    overflow: scroll;
   }
 }
 
@@ -155,7 +192,7 @@ body {
     background-image: url("../images/firstScreen/logo.png");
     background-size: 180px 125px;
     background-repeat: no-repeat;
-    width: 250px;
+    width: 182px;
     height: 150px;
   }
 
@@ -278,17 +315,16 @@ body {
   }
 
   @include desktop {
-    max-width: $laptopWidth;
+    max-width: $laptopWidthBound;
   }
 
   @include laptop {
-    max-width: $tabletsWidth;
-  }
-
-  @include tablets {
     max-width: 100%;
     flex-direction: column;
     align-items: center;
+  }
+
+  @include tablets {
   }
 }
 
@@ -305,10 +341,16 @@ body {
     left: -15px;
   }
   h1 {
-    width: 800px;
+    max-width: 800px;
     font-size: 48px;
     line-height: 60px;
     margin-bottom: 35px;
+
+    @include laptop {
+      line-height: 34px;
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
   }
 
   p {
@@ -316,6 +358,12 @@ body {
     line-height: 25px;
     font-weight: 300;
     margin-bottom: 85px;
+
+    @include laptop {
+      line-height: 18px;
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
   }
 
   .buttons {
@@ -357,11 +405,15 @@ body {
         background: #BF4145;
       }
     }
+
+    @include tablets {
+      justify-content: center;
+    }
   }
 
   .alertBlock {
     position: absolute;
-    right: -175px;
+    right: -100px;
     bottom: -50px;
 
     display: flex;
@@ -379,7 +431,43 @@ body {
     &__logo {
       @include icon("../images/firstScreen/small_logo.png", 42px, 50px, false);
       margin: 5px 15px;
+
+      @include tablets{
+        display: none;
+      }
     }
+
+    @include popularScreen {
+      right: 0;
+    }
+
+    @include laptop {
+      position: relative;
+      margin: auto;
+      right: 0;
+      bottom: 0;
+    }
+
+    @include tablets{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+  }
+
+  @include laptop {
+    margin-bottom: 140px;
+  }
+
+
+  @include tablets{
+    margin-bottom: 50px;
   }
 }
 
@@ -419,6 +507,9 @@ body {
           left: -23px;
         }
       }
+      @include tablets{
+        display: none;
+      }
     }
     &:nth-child(odd):before {
       @include icon("../images/firstScreen/icons/arr_right.png", 22px, 40px, true, absolute);
@@ -430,6 +521,14 @@ body {
       top: 10px;
       left: -35px;
     }
+    @include tablets{
+      margin-bottom: 10px;
+    }
+  }
+  @include tablets{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -452,15 +551,22 @@ body {
     @include icon("../images/firstScreen/icons/stop.png", 36px, 35px);
     cursor: pointer;
   }
+
+  @include laptop {
+    right: 15px;
+    bottom: 15px;
+  }
 }
 /* /FIRST SCREEN */
 
 /* CATALOG */
 .catalog {
+  max-width: 1120px;
   color: #fff;
   font-size: 16px;
   flex-direction: column;
   &__wrapper {
+    overflow-x: hidden;
     position: relative;
     background: #161C28;
 
@@ -597,6 +703,9 @@ body {
       &:hover {
         text-decoration: underline;
       }
+      @include tablets {
+        margin-bottom: 10px;
+      }
     }
 
     .request:before {
@@ -619,7 +728,11 @@ body {
       @include icon("../images/catalog/icons/contacts.png", 13px, 19px, true, absolute);
       left: -25px;
     }
+    @include tablets {
+      flex-wrap: wrap;
+    }
   }
+
 }
 /* /CATALOG */
 
@@ -631,7 +744,7 @@ body {
   left:0;
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  background: transparent;
   opacity: .5;
   cursor: pointer;
 }
@@ -642,6 +755,7 @@ body {
   flex-direction: column;
   position: relative;
   &__wrapper {
+    overflow-x: hidden;
     background: #1B1F2A;
     padding-bottom: 50px;
     min-height: 915px;
@@ -1620,6 +1734,7 @@ body {
   z-index: 4;
   min-height: 875px;
   &__wrapper {
+    overflow-x: hidden;
     position: relative;
     background: url("../images/office.jpg");
     -webkit-background-size: cover;
@@ -1684,6 +1799,14 @@ body {
       line-height: 49px;
       position: relative;
       bottom: 0;
+
+      @include phones{
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 24px;
+      }
     }
 
     &>*, &>.select>.bigBlock {
@@ -1706,6 +1829,10 @@ body {
       box-sizing: border-box;
       border: 1px solid #fff;
       padding: 15px 30px;
+
+      @include phones{
+        width: 100%;
+      }
     }
 
     &>.select {
@@ -1758,6 +1885,19 @@ body {
           background: #fff;
           color: #171A2D;
         }
+
+        @include laptop{
+          min-width: 0;
+          width: 50%;
+        }
+
+        @include phones{
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+      @include phones{
+        flex-direction: column;
       }
 
       .file {
@@ -1779,6 +1919,16 @@ body {
       height: 250px !important;
       resize: none;
     }
+
+    @include laptop{
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @include phones{
+      height: auto;
+      margin-bottom: 50px;
+    }
   }
 
   .contacts {
@@ -1791,18 +1941,31 @@ body {
       line-height: 49px;
       position: relative;
       bottom: 0;
+
+      @include phones{
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 24px;
+      }
     }
 
     h3 {
       font-size: 26px;
       margin-bottom: 10px;
       width: 100%;
+
+      @include phones{
+        font-size: 21px;
+      }
     }
 
     h4 {
       font-size: 20px;
       margin-bottom: 10px;
       color: #f1f1f1;
+      @include phones{
+        font-size: 18px;
+      }
     }
 
     &__info {
@@ -1820,6 +1983,14 @@ body {
             margin-bottom: 5px;
             min-width: 170px;
           }
+          @include phones{
+            margin: 10px auto;
+          }
+        }
+        @include phones{
+          justify-content: center;
+          align-items: center;
+          text-align: center;
         }
       }
 
@@ -1844,6 +2015,17 @@ body {
         color: #000;
       }
     }
+
+    @include laptop{
+      margin-left: 0;
+    }
+  }
+
+  @include laptop{
+    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 /* /CALLBACK */
@@ -1861,6 +2043,9 @@ body {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
+    @include phones{
+      display: none;
+    }
   }
 
   &__location {
@@ -1911,6 +2096,7 @@ body {
   &__wrapper {
     background: #17181B;
     padding: 50px 0 50px 0;
+    overflow-x: hidden;
   }
 
   &__links {
@@ -1921,10 +2107,20 @@ body {
       &:hover {
         color: #2180FF;
       }
+      @include tablets {
+        margin: 10px 0;
+      }
     }
 
     .active {
       color: #2180FF;
+    }
+
+    @include tablets {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
   }
 
@@ -1937,6 +2133,12 @@ body {
       .img {
         @include icon("../images/footer/icons/logo.png", 384px, 118px, false, relative);
         bottom: 20px;
+
+        @include phones {
+          width: 250px;
+          height: 77px;
+          margin: auto;
+        }
       }
       p {
         font-size: 16px;
@@ -1959,6 +2161,9 @@ body {
           margin-bottom: 10px;
         }
       }
+      @include tablets {
+        margin-bottom: 30px;
+      }
     }
 
     .moreLinks {
@@ -1979,11 +2184,29 @@ body {
         .tg {
           @include icon("../images/footer/icons/tg.png", 44px, 44px, false);
           margin-right: 30px;
+          @include tablets {
+            margin-right: 0;
+          }
         }
         .wapp {
           @include icon("../images/footer/icons/wapp.png", 44px, 44px, false);
         }
+        @include tablets {
+          justify-content: space-around;
+        }
+        @include tablets {
+          margin-bottom: 15px;
+        }
       }
+      @include tablets {
+        margin-bottom: 30px;
+      }
+    }
+    @include tablets {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
   }
 }
@@ -2002,6 +2225,7 @@ body {
   &__wrapper {
     position: relative;
     background: #161C28;
+    overflow-x: hidden;
 
     &:before {
       content: '';
@@ -2244,6 +2468,7 @@ body {
   padding: 100px 0;
   font-weight: 300;
   &__wrapper {
+    overflow-x: hidden;
     position: relative;
     background: #161C28;
 

@@ -15,6 +15,7 @@ function init(){
 var myFullpage = new fullpage('#fullpage', {
     anchors: ['firstScreen', 'catalog', 'services','callback'],
     menu: '#menu',
+    responsiveWidth: 800,
     navigation:false,
     scrollOverflow: true,
     scrollOverflowOptions: {
