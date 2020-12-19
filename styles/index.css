@@ -1021,12 +1021,12 @@ body {
           bottom: 4px;
           right: -88px;
           z-index: 3; }
-      .services .hiddenBlocks__block .polinernaya {
+      .services .hiddenBlocks__block .polimernaya {
         position: relative;
         display: block;
         width: 313px;
         height: 208px; }
-        .services .hiddenBlocks__block .polinernaya:before {
+        .services .hiddenBlocks__block .polimernaya:before {
           content: '';
           position: absolute;
           display: block;
@@ -1036,7 +1036,7 @@ body {
           width: 313px;
           height: 208px;
           opacity: .65; }
-        .services .hiddenBlocks__block .polinernaya__title {
+        .services .hiddenBlocks__block .polimernaya__title {
           width: 287px;
           color: #fff;
           text-align: left;
@@ -2290,11 +2290,12 @@ body {
     display: flex;
     flex-direction: column;
     width: 800px;
-    margin: auto; }
+    margin: auto;
+    max-width: 100%; }
   .vacancy h1 {
     display: block;
     font-size: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     position: relative; }
     .vacancy h1:before {
       content: '';
@@ -2306,6 +2307,9 @@ body {
       width: 180px;
       height: 2px;
       bottom: -15px; }
+  .vacancy .back {
+    margin-bottom: 35px;
+    text-decoration: underline; }
   .vacancy h2 {
     font-size: 21px;
     margin-bottom: 10px; }
@@ -2331,25 +2335,26 @@ body {
     position: relative;
     background: #161C28; }
     .service__wrapper:before {
-      content: '';
-      position: absolute;
-      width: 283px;
-      height: 1074px;
-      right: -300px;
       top: 0;
-      background: #121E79;
-      opacity: 0.6;
-      filter: blur(250px); }
+      opacity: .1; }
   .service > div {
     display: flex;
     flex-direction: column;
     width: 800px;
     margin: auto;
     margin-bottom: 100px; }
+    @media screen and (max-width: 1024px) {
+      .service > div {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box; } }
+    @media screen and (max-width: 480px) {
+      .service > div {
+        margin-bottom: 30px; } }
   .service h1 {
     display: block;
     font-size: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     position: relative; }
     .service h1:before {
       content: '';
@@ -2361,6 +2366,24 @@ body {
       width: 180px;
       height: 2px;
       bottom: -15px; }
+      @media screen and (max-width: 480px) {
+        .service h1:before {
+          width: 0;
+          height: 0; } }
+    @media screen and (max-width: 480px) {
+      .service h1 {
+        padding: 10px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        text-align: center; } }
+  .service .back {
+    margin-bottom: 35px;
+    text-decoration: underline; }
+    @media screen and (max-width: 480px) {
+      .service .back {
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center; } }
   .service h2 {
     font-size: 21px;
     margin-bottom: 10px; }
@@ -2368,6 +2391,9 @@ body {
     font-size: 16px;
     margin-bottom: 15px;
     margin-left: 15px; }
+    @media screen and (max-width: 1024px) {
+      .service p, .service ul {
+        margin: 5px 0 10px 0; } }
   .service ul {
     margin-left: 35px;
     list-style: initial; }
@@ -2397,14 +2423,20 @@ body {
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center; }
+        @media screen and (max-width: 1024px) {
+          .service__form .form__content > div {
+            width: 100%; } }
         .service__form .form__content > div h2 {
           width: calc(50% - 10px);
           height: 63px;
-          font-size: 36px;
+          font-size: 26px;
           font-weight: 400;
           line-height: 49px;
-          position: relative;
-          bottom: 30px; }
+          position: relative; }
+          @media screen and (max-width: 480px) {
+            .service__form .form__content > div h2 {
+              width: 100%;
+              text-align: center; } }
         .service__form .form__content > div > * {
           font-weight: 300;
           margin-top: 0;
@@ -2420,6 +2452,14 @@ body {
           box-sizing: border-box;
           border: 1px solid #fff;
           padding: 15px 30px; }
+          @media screen and (max-width: 480px) {
+            .service__form .form__content > div > .smallBlock {
+              width: 100%; } }
+        @media screen and (max-width: 480px) {
+          .service__form .form__content > div {
+            width: 100%;
+            flex-direction: column;
+            height: auto; } }
       .service__form .form__content .bigBlock {
         font-family: 'Open Sans', sans-serif;
         font-weight: 300;
@@ -2437,6 +2477,14 @@ body {
         color: white;
         height: 300px !important;
         resize: none; }
+        @media screen and (max-width: 1024px) {
+          .service__form .form__content textarea {
+            width: 100% !important;
+            margin: 10px 0; } }
+      @media screen and (max-width: 1024px) {
+        .service__form .form__content {
+          flex-direction: column;
+          width: 100%; } }
     .service__form > .submit {
       font-family: 'Open Sans', sans-serif;
       width: 100%;
@@ -2463,6 +2511,267 @@ body {
           background: transparent;
           color: white;
           cursor: auto; }
+        @media screen and (max-width: 480px) {
+          .service__form > .submit .file {
+            margin-right: 0;
+            margin-bottom: 10px; } }
+      @media screen and (max-width: 480px) {
+        .service__form > .submit {
+          flex-direction: column; } }
+    @media screen and (max-width: 480px) {
+      .service__form {
+        padding: 10px;
+        box-sizing: border-box; } }
+
+.rezkaBg:before {
+  content: '';
+  position: relative;
+  display: block;
+  background-image: url("../images/services/rezka.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.metallBg:before {
+  content: '';
+  position: relative;
+  display: block;
+  background-image: url("../images/services/metall.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.zinkBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/zink.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.shlifovkaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/shlifovka.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.cehBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/ceh.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.tokarnayaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/tokarnaya.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.frezirovkaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/frezirovka.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.dostavkaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/dostavka.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.gibkaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/gibka.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.pokraskaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/pokraska.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.poroshkovayaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/poroshkovaya.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.rybkaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/rybka.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.svarkaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/svarka.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.prodolnoBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/prodolno.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.polimernayaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/polinernaya.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.peremotkaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/peremotka.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.gidroabrazBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/gidroabraz.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.lentopilniyBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/lentopilniy.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.gazokislorodBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/gazokislorod.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.plazmaBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/plazma.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.lazerBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/lazer.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.galvanichBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/galvanich.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.goryacheeBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/goryachee.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.termodiffusBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/termodiffus.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+
+.holodnoeBg:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url("../images/services/holodnoe.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
 
 /* /SERVICE */
 /* SERVICE */
@@ -2475,7 +2784,7 @@ body {
   padding: 100px 0;
   font-weight: 300; }
   .deliveryBlock__wrapper {
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     background: #161C28; }
     .deliveryBlock__wrapper:before {
@@ -2493,11 +2802,17 @@ body {
     flex-direction: column;
     width: 800px;
     margin: 0 auto 50px auto; }
+    @media screen and (max-width: 768px) {
+      .deliveryBlock > div {
+        flex-direction: column; } }
   .deliveryBlock h1 {
     display: block;
     font-size: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 5px;
     position: relative; }
+  .deliveryBlock .back {
+    margin-bottom: 35px;
+    text-decoration: underline; }
   .deliveryBlock .inputBlock {
     position: relative;
     display: flex;
@@ -2508,6 +2823,9 @@ body {
       display: block; }
     .deliveryBlock .inputBlock > .labelBefore {
       min-width: 150px; }
+      @media screen and (max-width: 768px) {
+        .deliveryBlock .inputBlock > .labelBefore {
+          margin-bottom: 10px; } }
     .deliveryBlock .inputBlock > input[type="text"], .deliveryBlock .inputBlock > select {
       width: 100%;
       height: 45px;
@@ -2518,13 +2836,21 @@ body {
       box-sizing: border-box; }
       .deliveryBlock .inputBlock > input[type="text"] > option, .deliveryBlock .inputBlock > select > option {
         color: #000; }
-    .deliveryBlock .inputBlock > input[type="range"] {
-      width: 500px;
-      height: 2px; }
+    .deliveryBlock .inputBlock > .rangeBlock {
+      position: relative; }
+      .deliveryBlock .inputBlock > .rangeBlock > input[type="range"] {
+        width: 500px;
+        height: 2px; }
+        @media screen and (max-width: 768px) {
+          .deliveryBlock .inputBlock > .rangeBlock > input[type="range"] {
+            width: 100%; } }
+      @media screen and (max-width: 768px) {
+        .deliveryBlock .inputBlock > .rangeBlock {
+          width: 100%; } }
     .deliveryBlock .inputBlock #currentRangeValue {
       position: absolute;
       top: 25px;
-      left: 302px; }
+      left: 0; }
     .deliveryBlock .inputBlock > button {
       width: 247px;
       height: 66px;
@@ -2539,6 +2865,22 @@ body {
         border: 2px solid #2180FF;
         color: #2180FF;
         background: transparent; }
+      @media screen and (max-width: 768px) {
+        .deliveryBlock .inputBlock > button {
+          margin-bottom: 10px; } }
+    @media screen and (max-width: 768px) {
+      .deliveryBlock .inputBlock {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; } }
+  .deliveryBlock > .radioBlock {
+    align-items: flex-start; }
+    @media screen and (max-width: 768px) {
+      .deliveryBlock > .radioBlock {
+        width: 150px;
+        margin: 0 auto 50px auto; } }
+    .deliveryBlock > .radioBlock > div {
+      margin-bottom: 10px; }
   .deliveryBlock > .moreBlock > .text {
     display: flex;
     flex-direction: row;
@@ -2562,6 +2904,11 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
     line-height: 24px; }
+  @media screen and (max-width: 768px) {
+    .deliveryBlock {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; } }
 
 /* /DELIVERY */
 /* SEARCH */

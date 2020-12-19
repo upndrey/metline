@@ -933,7 +933,7 @@ body {
         }
       }
 
-      .polinernaya {
+      .polimernaya {
         position: relative;
         display: block;
         width: 313px;
@@ -2285,17 +2285,23 @@ body {
     flex-direction: column;
     width: 800px;
     margin: auto;
+    max-width: 100%;
   }
 
   h1 {
     display: block;
     font-size: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     position: relative;
     &:before {
       @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
       bottom: -15px;
     }
+  }
+
+  .back {
+    margin-bottom: 35px;
+    text-decoration: underline;
   }
 
   h2 {
@@ -2332,16 +2338,8 @@ body {
     background: #161C28;
 
     &:before {
-      content: '';
-      position: absolute;
-      width: 283px;
-      height: 1074px;
-      right: -300px;
       top: 0;
-
-      background: #121E79;
-      opacity: 0.6;
-      filter: blur(250px);
+      opacity: .1;
     }
   }
   &>div {
@@ -2350,16 +2348,44 @@ body {
     width: 800px;
     margin: auto;
     margin-bottom: 100px;
+    @include laptop{
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    @include phones{
+      margin-bottom: 30px;
+    }
   }
 
   h1 {
     display: block;
     font-size: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     position: relative;
     &:before {
       @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
       bottom: -15px;
+      @include phones{
+        width: 0;
+        height: 0;
+      }
+    }
+    @include phones{
+      padding: 10px;
+      margin-bottom: 5px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+
+  .back {
+    margin-bottom: 35px;
+    text-decoration: underline;
+    @include phones{
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
     }
   }
 
@@ -2372,6 +2398,9 @@ body {
     font-size: 16px;
     margin-bottom: 15px;
     margin-left: 15px;
+    @include laptop{
+      margin: 5px 0 10px 0;
+    }
   }
 
   ul {
@@ -2408,14 +2437,20 @@ body {
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        @include laptop{
+          width: 100%;
+        }
         h2 {
           width: calc(50% - 10px);
           height: 63px;
-          font-size: 36px;
+          font-size: 26px;
           font-weight: 400;
           line-height: 49px;
           position: relative;
-          bottom: 30px;
+          @include phones{
+            width: 100%;
+            text-align: center;
+          }
         }
         &>* {
           font-weight: 300;
@@ -2433,8 +2468,17 @@ body {
           box-sizing: border-box;
           border: 1px solid #fff;
           padding: 15px 30px;
+
+          @include phones{
+            width: 100%;
+          }
         }
 
+        @include phones{
+          width: 100%;
+          flex-direction: column;
+          height: auto;
+        }
 
       }
       & .bigBlock {
@@ -2457,7 +2501,17 @@ body {
         color: white;
         height: 300px !important;
         resize: none;
+        @include laptop{
+          width: 100% !important;
+          margin: 10px 0;
+        }
       }
+
+      @include laptop{
+        flex-direction: column;
+        width: 100%;
+      }
+
     }
     &>.submit {
       font-family: 'Open Sans', sans-serif;
@@ -2491,8 +2545,161 @@ body {
           color: white;
           cursor: auto;
         }
+        @include phones{
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+
+      @include phones{
+        flex-direction: column;
       }
     }
+
+    @include phones{
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+
+.rezkaBg {
+  &:before {
+    @include icon("../images/services/rezka.png", 100%, 100%);
+  }
+}
+.metallBg {
+  &:before {
+    @include icon("../images/services/metall.png", 100%, 100%);
+  }
+}
+.zinkBg {
+  &:before {
+    @include icon("../images/services/zink.png", 100%, 100%, true, absolute);
+  }
+}
+.shlifovkaBg {
+  &:before {
+    @include icon("../images/services/shlifovka.png", 100%, 100%, true, absolute);
+  }
+}
+.cehBg {
+  &:before {
+    @include icon("../images/services/ceh.png", 100%, 100%, true, absolute);
+  }
+}
+.tokarnayaBg {
+  &:before {
+    @include icon("../images/services/tokarnaya.png", 100%, 100%, true, absolute);
+  }
+}
+
+.frezirovkaBg {
+  &:before {
+    @include icon("../images/services/frezirovka.jpg", 100%, 100%, true, absolute);
+  }
+}
+.dostavkaBg {
+  &:before {
+    @include icon("../images/services/dostavka.png", 100%, 100%, true, absolute);
+  }
+}
+.gibkaBg {
+  &:before {
+    @include icon("../images/services/gibka.jpg", 100%, 100%, true, absolute);
+  }
+}
+.pokraskaBg {
+  &:before {
+    @include icon("../images/services/pokraska.png", 100%, 100%, true, absolute);
+  }
+}
+.poroshkovayaBg {
+  &:before {
+    @include icon("../images/services/poroshkovaya.jpg", 100%, 100%, true, absolute);
+  }
+}
+.rybkaBg {
+  &:before {
+    @include icon("../images/services/rybka.jpg", 100%, 100%, true, absolute);
+  }
+}
+.svarkaBg {
+  &:before {
+    @include icon("../images/services/svarka.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.prodolnoBg {
+  &:before {
+    @include icon("../images/services/prodolno.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.polimernayaBg {
+  &:before {
+    @include icon("../images/services/polinernaya.png", 100%, 100%, true, absolute);
+  }
+}
+
+.peremotkaBg {
+  &:before {
+    @include icon("../images/services/peremotka.png", 100%, 100%, true, absolute);
+  }
+}
+
+.gidroabrazBg {
+  &:before {
+    @include icon("../images/services/gidroabraz.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.lentopilniyBg {
+  &:before {
+    @include icon("../images/services/lentopilniy.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.gazokislorodBg {
+  &:before {
+    @include icon("../images/services/gazokislorod.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.plazmaBg {
+  &:before {
+    @include icon("../images/services/plazma.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.lazerBg {
+  &:before {
+    @include icon("../images/services/lazer.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.galvanichBg {
+  &:before {
+    @include icon("../images/services/galvanich.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.goryacheeBg {
+  &:before {
+    @include icon("../images/services/goryachee.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.termodiffusBg {
+  &:before {
+    @include icon("../images/services/termodiffus.jpg", 100%, 100%, true, absolute);
+  }
+}
+
+.holodnoeBg {
+  &:before {
+    @include icon("../images/services/holodnoe.jpg", 100%, 100%, true, absolute);
   }
 }
 /* /SERVICE */
@@ -2508,7 +2715,7 @@ body {
   padding: 100px 0;
   font-weight: 300;
   &__wrapper {
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     background: #161C28;
 
@@ -2530,13 +2737,22 @@ body {
     flex-direction: column;
     width: 800px;
     margin: 0 auto 50px auto;
+
+    @include tablets {
+      flex-direction: column;
+    }
   }
 
   h1 {
     display: block;
     font-size: 30px;
-    margin-bottom: 35px;
+    margin-bottom: 5px;
     position: relative;
+  }
+
+  .back {
+    margin-bottom: 35px;
+    text-decoration: underline;
   }
 
   .inputBlock {
@@ -2551,6 +2767,9 @@ body {
 
     &>.labelBefore {
       min-width: 150px;
+      @include tablets {
+        margin-bottom: 10px;
+      }
     }
 
     &>input[type="text"], &>select {
@@ -2566,15 +2785,25 @@ body {
       }
     }
 
-    &>input[type="range"] {
-      width: 500px;
-      height: 2px;
+    &>.rangeBlock {
+      position: relative;
+      &>input[type="range"] {
+        width: 500px;
+        height: 2px;
+
+        @include tablets {
+          width: 100%;
+        }
+      }
+      @include tablets {
+        width: 100%;
+      }
     }
 
     #currentRangeValue {
       position: absolute;
       top: 25px;
-      left: 302px;
+      left: 0;
     }
 
     &>button {
@@ -2593,6 +2822,27 @@ body {
         color: #2180FF;
         background: transparent;
       }
+
+      @include tablets {
+        margin-bottom: 10px;
+      }
+    }
+
+    @include tablets {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &>.radioBlock {
+    align-items: flex-start;
+    @include tablets {
+      width: 150px;
+      margin: 0 auto 50px auto;
+    }
+    &>div {
+      margin-bottom: 10px;
     }
   }
 
@@ -2624,6 +2874,12 @@ body {
       box-sizing: border-box;
       line-height: 24px;
     }
+  }
+
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 /* /DELIVERY */
