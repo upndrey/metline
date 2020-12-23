@@ -1265,64 +1265,131 @@ h5 {
 /* /FOOTER */
 /* CALLBACK*/
 .callback__form {
-    margin-top: 50px;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center; }
-.callback__form>.form__content {
-    display: flex;
-    justify-content: space-between;
-}
-.callback__form>.form__content>div {
-    display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 .callback__form ::-webkit-input-placeholder {
     /* Chrome */
-    color: #fff; }
+    color: #fff;
+}
 .callback__form :-ms-input-placeholder {
     /* IE 10+ */
-    color: #fff; }
+    color: #fff;
+}
 .callback__form ::-moz-placeholder {
     /* Firefox 19+ */
     color: #fff;
-    opacity: 1; }
+    opacity: 1;
+}
 .callback__form :-moz-placeholder {
     /* Firefox 4 - 18 */
     color: #fff;
-    opacity: 1; }
+    opacity: 1;
+}
 .callback__form h2 {
-    width: calc(50% - 10px);
+    width: 50%;
     height: 63px;
-    font-size: 36px !important;
+    font-size: 32px;
     font-weight: 600;
     line-height: 49px;
     position: relative;
-    bottom: 30px; }
-.callback__form>div>div> * {
+    bottom: 0;
+    margin: 0;
+}
+@media screen and (max-width: 480px) {
+    .callback__form h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+}
+.callback__form>div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 55%;
+    box-sizing: border-box;
+}
+
+.callback__form>div>.smallBlock, .callback__form .select>.bigBlock {
+    font-weight: 300;
     margin-top: 0;
-    margin-bottom: 15px;
     font-size: 20px;
     background: transparent;
-    color: white; }
-.callback__form  .smallBlock {
+    color: white;
+}
+.callback__form .select > .bigBlock {
+    padding-left: 150px;
+}
+.callback__form .smallBlock {
     width: calc(50% - 10px);
+    margin: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     height: 63px;
     box-sizing: border-box;
     border: 1px solid #fff;
-    padding: 15px 30px; }
-.callback__form  .bigBlock {
+    padding: 15px 30px;
+}
+@media screen and (max-width: 480px) {
+    .callback__form .smallBlock {
+        width: 100%;
+    }
+}
+.callback__form .select {
     width: 100%;
-    height: 63px;
+    position: relative;
+}
+
+.callback__form .select>select {
+    width: calc(100% - 10px);
+    margin: 0 5px;
+}
+
+.callback__form .select > span {
+    position: absolute;
+    height: 61px;
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    left: 15px;
+}
+.callback__form .bigBlock {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     box-sizing: border-box;
     border: 1px solid #fff;
-    padding: 15px 30px; }
+    padding: 15px 30px 15px 30px;
+    box-sizing: border-box;
+}
+.callback__form select > option {
+    color: #000;
+}
+.callback__form textarea {
+    width: 45%;
+    height: 267px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    resize: none;
+    background: transparent;
+    color: #fff;
+    box-sizing: border-box;
+}
 .callback__form > .submit {
+    font-family: 'Open Sans', sans-serif;
     width: 100%;
     display: flex;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    margin-top: 10px;
+}
 .callback__form > .submit > * {
     transition: .5s ease-in-out;
     min-width: 220px;
@@ -1333,55 +1400,68 @@ h5 {
     background: transparent;
     border: 1px solid #fff;
     padding: 15px 30px;
-    color: white; }
+    color: white;
+}
 .callback__form > .submit > *:hover {
     background: #fff;
-    color: #171A2D; }
+    color: #171A2D;
+}
 .callback__form > .submit .file {
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 5px;
     overflow-x: hidden;
-    margin-right: 15px; }
+}
 .callback__form > .submit .file:hover {
     background: transparent;
     color: white;
-    cursor: auto; }
-.callback__form textarea {
-    color: #fff;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
-    background: transparent;
-    margin-left: 10px;
-    height: 297px !important;
-    resize: none; }
-
-
+    cursor: auto;
+}
+@media screen and (max-width: 1024px) {
+    .callback__form h2 {
+        font-size: 21px;
+    }
+}
 @media screen and (max-width: 768px) {
-    .form__content {
-        width: 100%;
+    .callback__form {
         flex-direction: column;
-        margin-bottom: 20px;
     }
-    .form__content>div {
+    .callback__form > .submit > * {
         width: 100%;
-        flex-direction: column;
+        margin: 0 0 10px 0;
+    }
 
+
+    .callback__form>div {
+        width: 100%;
     }
+
     .callback__form h2 {
         width: 100%;
         text-align: center;
+    }
+    .callback__form .select>select {
+        width: 100%;
         margin: 0;
+    }
+
+    .callback__form .select {
+        margin: 0 0 10px 0;
     }
 
     .callback__form .smallBlock {
         width: 100%;
+        margin: 0 0 10px 0;
     }
-    .form__content>textarea {
+
+    .callback__form .bigBlock {
         width: 100%;
-        margin: 0;
+        margin: 0 0 10px 0;
     }
-    .callback__form .submit {
-        flex-direction: column;
+
+    .callback__form > .submit .file {
+        margin-right: 0;
     }
-    .callback__form .submit>* {
+    .callback__form textarea {
         width: 100%;
         margin-bottom: 10px;
     }

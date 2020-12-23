@@ -144,8 +144,30 @@
     <p>Линзовые компенсаторы. Компенсатор представляет собой изогнутый по окружности отрезок трубы, диаметр которой равен диаметру трубопровода. Кольца компенсатора снабжаются дренажными спусковыми устройствами. Такие вставки врезаются в магистраль с заранее определенным шагом в уже готовом виде, что дает возможность избежать ручного изгиба основной линии трубопровода. Единственным недостатком линзовых компенсаторов является их «нежная» конструкция: они могут устанавливаться лишь на линии с давлением среды не более 16 атмосфер, а сама перемещаемая в системе среда должна быть химически нейтральной. </p>
     <p>Сальниковые компенсаторы. Данный тип компенсаторов так же, как и линзовые, не может использоваться в трубопроводах с высоким давлением и/или критическими температурами транспортируемой среды, а также в магистралях, по которым перемещаются химически активные реагенты. Сальниковый компенсатор представляет собой пару патрубков, между которыми находится специализированный уплотнитель (набивка). Конструкция нуждается в щадящих условиях эксплуатации и регулярном уходе, заключающемся в добавлении смазки и замене уплотнителя. Преимущества сальниковых компенсаторов — их невысокая цена и простота установки (без специальных опор), компактность по сравнению с линзовыми и П-образными конструкциями. В бытовых водопроводных и отопительных сетях, где экстремальные нагрузки и опасные качества транспортируемой среды отсутствуют, сальниковые компенсаторы нашли широчайшее применение. </p>
     <br>
-    <form action="#" class="callback__form">         <div class="form__content">             <div>                 <h2>Обратная связь</h2>                 <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>                 <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>                 <input type="text" name="company" placeholder="Компания" class="smallBlock"/>                 <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>                 <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>                 <select name="load" class="bigBlock">                     <option selected value="1">Подгрузка</option>                 </select>             </div>             <textarea placeholder="Введите ваш комментарий" name="message" cols="30" rows="10" class="bigBlock" ></textarea>         </div>         <div class="submit">             <input type="file" name="file" placeholder="Загрузить файл" class="file"/>             <input type="submit" name="send" value="Продолжить"/>         </div>     </form>     <h2>Список товаров</h2>
-    <br>
+    <form action="#" class="callback__form">
+            <div>
+                <h2>Обратная связь</h2>
+                <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>
+                <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>
+                <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
+                <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
+                <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
+                <div class="select">
+                    <span>База отгрузки:</span>
+                    <select name="load" class="bigBlock">
+                        <option value="krasnodar" selected>Краснодар</option>
+                        <option value="moscov">Москва</option>
+                    </select>
+                </div>
+            </div>
+            <textarea placeholder="Введите ваш комментарий" name="message" cols="30" rows="10" class="bigBlock" ></textarea>
+            <div class="submit">
+                <input type="file" name="file" placeholder="Загрузить файл" class="file"/>
+                <input type="submit" name="send" value="Продолжить"/>
+            </div>
+        </form>
+        <h2>Список товаров</h2>
+<br>
     <input class="search-input" type="text" placeholder="Начните вводить название изделия" id="search-text" onkeyup="tableSearch()">
     <table class="table table-hover" id="info-table">
       <thead>
@@ -282,8 +304,39 @@
 </div>
 
 </div>
-<div class="footer__wrapper">             <footer class="container footer">                 <div class="footer__links">                     <a href="index.html#firstScreen" class="active">Главная</a>                     <a href="index.html#catalog">Каталог</a>                     <a href="index.html#services">Услуги</a>                     <a href="index.html#callback">Контакты</a>                     <a href="#">Вакансии</a>                     <a href="#" class="notImplemented">Личный кабинет</a>                 </div>                 <div class="footer__secondBlock">                     <div class="logo">                         <div class="img"></div>                         <p>© ОАО«МЕТЛАЙН», 2020 г. Все права защищены.</p>                     </div>                     <div class="phones">                         <p class="phones__title">Телефон отдела прожаж:</p>                         <div>                             <a href="#">8(800)600-66-50</a>                             <a href="#">8(861)666-66-33</a>                             <a href="#">8(918)645-70-66</a>                         </div>                     </div>                     <div class="moreLinks">                         <a href="#">Техническая документация</a>                         <p>E-mail: <a href="#">zakaz@mail.ru</a></p>                         <div class="icons">                             <a href="#" class="tg"></a>                             <a href="#" class="wapp"></a>                         </div>                     </div>                 </div>             </footer>         </div>
-
+<div class="footer__wrapper">
+    <footer class="container footer">
+        <div class="footer__links">
+            <a href="index.html#firstScreen" class="active">Главная</a>
+            <a href="index.html#catalog">Каталог</a>
+            <a href="index.html#services">Услуги</a>
+            <a href="index.html#callback">Контакты</a>
+            <a href="vacancy.html">Вакансии</a>
+        </div>
+        <div class="footer__secondBlock">
+            <div class="logo">
+                <div class="img"></div>
+                <p>© ОАО«МЕТЛАЙН», 2020 г. Все права защищены.</p>
+            </div>
+            <div class="phones">
+                <p class="phones__title">Телефон отдела прожаж:</p>
+                <div>
+                    <a href="#">8(800)600-66-50</a>
+                    <a href="#">8(861)666-66-33</a>
+                    <a href="#">8(918)645-70-66</a>
+                </div>
+            </div>
+            <div class="moreLinks">
+                <a href="#">Техническая документация</a>
+                <p>E-mail: <a href="#">zakaz@mail.ru</a></p>
+                <div class="icons">
+                    <a href="#" class="tg"></a>
+                    <a href="#" class="wapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
 <script type="text/javascript" src="../../js/slick.min.js"></script>
 
