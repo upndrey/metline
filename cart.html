@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/index.css">
+
+    <title>Метлайн</title>
+</head>
+<body>
+<div class="cartPage__wrapper">
+    <div class="container cartPage">
+        <div class="cartPage__title">
+            <h1>Корзина</h1>
+            <a href="index.html" class="back">Вернуться на главную</a>
+        </div>
+        <div class="cartPage__body emptyCart displaynone">
+            <div class="img"></div>
+            <h2>В вашей корзине пока нет товаров.</h2>
+            <p>Если Вы уже зарегистрированы, пожалуйста войдите для просмотра товаров в корзине</p>
+            <div class="buttons">
+                <div class="signup">Зарегистрироваться</div>
+                <div class="login">Войти</div>
+            </div>
+        </div>
+        <div class="cartPage__body notEmptyCart">
+            <table>
+                <tbody class="prodHead">
+                    <tr>
+                        <th>Название товара</th>
+                        <th>Количество</th>
+                        <th>Единица</th>
+                        <th>Сумма</th>
+                        <th>Металлобаза</th>
+                        <th>Удалить</th>
+                    </tr>
+                </tbody>
+                <tbody class="prod">
+                    <tr>
+                        <td class="prod__title">Лист г/к 3x1250x2500 Ст3</td>
+                        <td class="prod__count">
+                            <div>
+                                <div class="minus">–</div>
+                                <input type="number" value="1" name="count" min="99" max="99"/>
+                                <div class="plus">+</div>
+                            </div>
+                        </td>
+                        <td class="prod__type">Т</td>
+                        <td class="prod__price"><span>69990</span>₽</td>
+                        <td class="prod__location">Москва</td>
+                        <td class="prod__remove"><div></div></td>
+                    </tr>
+                    <tr>
+                        <td class="prod__title">Лист г/к 3x1250x2500 Ст3</td>
+                        <td class="prod__count">
+                            <div>
+                                <div class="minus">–</div>
+                                <input type="number" value="1" name="count" min="99" max="99"/>
+                                <div class="plus">+</div>
+                            </div>
+                        </td>
+                        <td class="prod__type">Т</td>
+                        <td class="prod__price"><span>69990</span>₽</td>
+                        <td class="prod__location">Москва</td>
+                        <td class="prod__remove"><div></div></td>
+                    </tr>
+                    <tr>
+                        <td class="prod__title">Лист г/к 3x1250x2500 Ст3</td>
+                        <td class="prod__count">
+                            <div>
+                                <div class="minus">–</div>
+                                <input type="number" value="1" name="count" min="99" max="99"/>
+                                <div class="plus">+</div>
+                            </div>
+                        </td>
+                        <td class="prod__type">Т</td>
+                        <td class="prod__price"><span>69992</span>₽</td>
+                        <td class="prod__location">Москва</td>
+                        <td class="prod__remove"><div></div></td>
+                    </tr>
+                    <tr>
+                        <td class="prod__title">Лист г/к 3x1250x2500 Ст3</td>
+                        <td class="prod__count">
+                            <div>
+                                <div class="minus">–</div>
+                                <input type="number" value="1" name="count" min="99" max="99"/>
+                                <div class="plus">+</div>
+                            </div>
+                        </td>
+                        <td class="prod__type">Т</td>
+                        <td class="prod__price"><span>69991</span>₽</td>
+                        <td class="prod__location">Москва</td>
+                        <td class="prod__remove"><div></div></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="index.html" class="back">Вернуться на главную</a>
+        </div>
+    </div>
+</div>
+<div class="footer__wrapper">
+    <footer class="container footer">
+        <div class="footer__links">
+            <a href="index.html#firstScreen" class="active">Главная</a>
+            <a href="index.html#catalog">Каталог</a>
+            <a href="index.html#services">Услуги</a>
+            <a href="index.html#callback">Контакты</a>
+            <a href="vacancy.html">Вакансии</a>
+            <a href="#" class="notImplemented">Личный кабинет</a>
+        </div>
+        <div class="footer__secondBlock">
+            <div class="logo">
+                <div class="img"></div>
+                <p>© ОАО«МЕТЛАЙН», 2020 г. Все права защищены.</p>
+            </div>
+            <div class="phones">
+                <p class="phones__title">Телефон отдела прожаж:</p>
+                <div>
+                    <a href="#">8(800)600-66-50</a>
+                    <a href="#">8(861)666-66-33</a>
+                    <a href="#">8(918)645-70-66</a>
+                </div>
+            </div>
+            <div class="moreLinks">
+                <a href="#">Техническая документация</a>
+                <p>E-mail: <a href="#">zakaz@mail.ru</a></p>
+                <div class="icons">
+                    <a href="#" class="tg"></a>
+                    <a href="#" class="wapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+<script>
+    var minus = document.querySelectorAll(".minus");
+    var plus = document.querySelectorAll(".plus");
+    var remove = document.querySelectorAll(".prod__remove");
+    minus.forEach(function (elem) {
+        elem.addEventListener("click", function (e) {
+            var elemParent = e.target.parentElement;
+
+            var countDom = elemParent.querySelector("input");
+            if(countDom.value > 0)
+                countDom.value--;
+        })
+    });
+    plus.forEach(function (elem) {
+        elem.addEventListener("click", function (e) {
+            var elemParent = e.target.parentElement;
+
+            var countDom = elemParent.querySelector("input");
+            if(countDom.value < 99)
+                countDom.value++;
+        })
+    });
+    remove.forEach(function (elem) {
+        elem.addEventListener("click", function (e) {
+            var elemParent = e.target.parentElement.parentElement;
+            var tableDom = elemParent.parentElement;
+            tableDom.removeChild(elemParent);
+            console.log(tableDom);
+            console.log(elemParent);
+            console.log(e.target);
+        })
+    });
+</script>
+</html>
