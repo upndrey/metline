@@ -1,0 +1,382 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+//////////////////////////////////// RESET END /////////////////////////////////////
+@import "mixins";
+
+/* GLOBAL */
+body {
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  min-width: 320px;
+}
+
+.notImplemented {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.displaynone {
+  display: none;
+}
+
+
+.container {
+  max-width: $desktopWidth - 100px;
+  margin: auto;
+  display: flex;
+  position: relative;
+  font-weight: 300;
+
+  @include desktop{
+    max-width: $laptopWidthBound;
+  }
+
+  @include laptop{
+    max-width: $tabletsWidthBound;
+  }
+
+  @include tablets{
+    max-width: $phonesWidthBound;
+  }
+
+  @include phones{
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+.displayflex {
+  display: flex;
+}
+/* /GLOBAL */
+/*  */
+.content {
+  position: relative;
+  background: #161C28;
+  overflow-x: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 283px;
+    height: 1074px;
+    right: -300px;
+    top: 0;
+
+    background: #121E79;
+    opacity: 0.6;
+    filter: blur(250px);
+  }
+}
+.docsProd {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column;
+  min-height: 1000px;
+  margin: 50px auto;
+  font-weight: 300;
+  background: rgba(0, 109, 255, 0.2);
+  border-radius: 12px;
+  .displaynone {
+    display: none;
+  }
+
+  &>p {
+    padding: 5px 50px;
+  }
+
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 30px 50px;
+
+    h1 {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      &:before {
+        @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
+        bottom: -15px;
+      }
+      @include phones {
+        margin-bottom: 25px;
+      }
+    }
+
+    .back {
+      color: #2180FF;
+      display: inline-block;
+      text-decoration: underline;
+    }
+    @include phones {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  h4 {
+    font-size: 18px;
+    padding: 30px 50px;
+    border-top: 1px solid #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    span {
+      @include icon("../images/firstScreen/icons/arr_down.png", 11px, 6px, false, relative);
+      left: 10px;
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .link-fon-file {
+    padding: 30px 50px;
+    transition: 1s ease-in-out;
+  }
+  .link-fon-file a {
+    line-height: 22px;
+  }
+  p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .scan_img {
+    display: flex;
+    flex-direction: column;
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 5px auto 10px auto;
+      order: 0;
+    }
+    span {
+      display: block;
+      text-align: center;
+      order: 1;
+    }
+    a {
+      color: #2180FF;
+      display: block;
+      text-decoration: underline;
+      text-align: right;
+      order: 2;
+      padding: 0 50px;
+      box-sizing: border-box;
+    }
+    margin-bottom: 25px;
+  }
+  &>.back {
+    color: #2180FF;
+    display: block;
+    text-decoration: underline;
+    text-align: right;
+    @include phones {
+      text-align: center;
+    }
+  }
+
+  @include phones {
+    margin: 50px 10px;
+  }
+}
+
+/* /VACANCY */
+/* FOOTER */
+
+.footer {
+  color: #fff;
+  font-size: 16px;
+  align-items: center;
+  flex-direction: column;
+  &__wrapper {
+    background: #17181B;
+    padding: 50px 0 50px 0;
+    overflow-x: hidden;
+  }
+
+  &__links {
+    margin-bottom: 30px;
+    &>a {
+      margin: 0 15px;
+      font-size: 16px;
+      &:hover {
+        color: #2180FF;
+      }
+      @include tablets {
+        margin: 10px 5px;
+      }
+    }
+
+    .active {
+      color: #2180FF;
+    }
+
+    @include tablets {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__secondBlock {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .logo {
+      .img {
+        @include icon("../images/footer/icons/logo.png", 384px, 118px, false, relative);
+        bottom: 20px;
+
+        @include phones {
+          width: 250px;
+          height: 77px;
+          margin: auto;
+        }
+      }
+      p {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, .8);
+        text-align: center;
+      }
+    }
+
+    .phones {
+      &__title {
+        margin-bottom: 20px;
+      }
+      &>div {
+        color: #2180FF;
+        display: flex;
+        flex-direction: column;
+        &>* {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+      }
+      @include laptop {
+        text-align: center;
+      }
+      @include tablets {
+        margin-bottom: 30px;
+      }
+    }
+
+    .moreLinks {
+      display: flex;
+      flex-direction: column;
+      &>a {
+        margin-bottom: 20px;
+      }
+      &>p {
+        margin-bottom: 20px;
+        &>a {
+          color: #2180FF;
+        }
+      }
+
+      .icons {
+        display: flex;
+        .tg {
+          @include icon("../images/footer/icons/tg.png", 44px, 44px, false);
+          margin-right: 30px;
+          @include tablets {
+            margin-right: 0;
+          }
+        }
+        .wapp {
+          @include icon("../images/footer/icons/wapp.png", 44px, 44px, false);
+        }
+        @include tablets {
+          justify-content: space-around;
+        }
+        @include tablets {
+          margin-bottom: 15px;
+        }
+      }
+      @include laptop {
+        text-align: center;
+      }
+      @include tablets {
+        margin-bottom: 30px;
+      }
+    }
+    @include tablets {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+/* /FOOTER */

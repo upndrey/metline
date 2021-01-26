@@ -9,12 +9,7 @@
 
     <meta name="HandheldFriendly" content="true"/>
     <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/fullpage.min.css">
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" type="text/css" href="./styles/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="./styles/slick-theme.css"/>
-
-    <script src="https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
+    <link rel="stylesheet" href="./styles/index.min.css">
     <title>Метлайн</title>
 </head>
 <body>
@@ -33,14 +28,14 @@
     <li data-menuanchor="callback"><a href="index.html#callback"></a></li>
 </ul>
 <div id="fullpage">
-    <div class="firstScreenWrapper section" data-anchor="firstScreen">
+    <div class="firstScreenWrapper section" data-anchor="firstScreen" id="firstScreenGoTo">
         <header class="header">
             <div class="header__logo"></div>
             <nav class="header__menu menu">
-                <a href="index.html#firstScreen" class="active">Главная</a>
-                <a href="index.html#catalog">Каталог</a>
-                <a href="index.html#services">Услуги</a>
-                <a href="index.html#callback">Контакты</a>
+                <a href="index.html#firstScreen" class="active firstScreenLink">Главная</a>
+                <a href="index.html#catalog" class="catalogLink">Каталог</a>
+                <a href="index.html#services" class="servicesLink">Услуги</a>
+                <a href="index.html#callback" class="callbackLink">Контакты</a>
                 <a href="vacancy.html">Вакансии</a>
                 <a href="index.html#" class="notImplemented">Личный кабинет</a> <!-- Ещё не реализовано -->
             </nav>
@@ -66,19 +61,23 @@
                     </select>
                     <label for="locationSelect" class="arrDown"></label>
                 </div>
-                <div class="cart"></div>
+                <a href="cart.html" class="cart"></a>
             </div>
         </header>
         <div class="container title">
             <h1>Изготовление металлоконструкций в Краснодаре и в Москве</h1>
             <p>Завод металлоизделий «МЕТЛАЙН» изготавливает и продает конструкции разного назначения. Мы рады сотрудничеству со строительными, сельскохозяйственными, промышленными и другими предприятиями. Собственное налаженное производство в Москве и Краснодаре, где вы можете купить металлоконструкции с доставкой по всем регионам России.</p>
             <div class="title__buttons buttons">
-                <a href="index.html#callback" class="btn-send">Отправить заявку</a>
-                <a href="index.html#catalog" class="btn-catalog">Каталог</a>
+                <a href="index.html#callback" class="btn-send callbackLink">Отправить заявку</a>
+                <a href="index.html#catalog" class="btn-catalog catalogLink">Каталог</a>
+                <a href="./alert.html" class="alertBlock">
+                    <div class="alertBlock__logo"></div>
+                    <div class="alertBlock__text">Внимание, участились случаи мошенничества</div>
+                </a>
             </div>
-            <a href="#" class="alertBlock">
-                <div class="alertBlock__logo"></div>
-                <div class="alertBlock__text">Внимание, участились случаи мошенничества</div>
+            <a href="./docs.html" class="docsLink">
+                <div class="docsLink__logo"></div>
+                <div class="docsLink__text">Ознакомиться с документацией</div>
             </a>
         </div>
         <div class="container advantages">
@@ -100,7 +99,7 @@
             <div class="videoCtrl__stop"></div>
         </div>
     </div>
-    <div class="catalog__wrapper section" data-anchor="catalog">
+    <div class="catalog__wrapper section" data-anchor="catalog" id="catalogGoTo">
         <div class="container catalog">
             <div class="titleBlock">
                 <h2>Каталог</h2>
@@ -203,14 +202,14 @@
             <div class="catalog__links">
                 <a href="index.html#callback" class="request">Оставить заявку</a>
                 <div class="search">Поиск</div>
-                <a href="#" class="tech">Техническая документация</a>
+                <a href="docs.html" class="tech">Техническая документация</a>
                 <a href="delivery.html" class="delivery">Доставка</a>
                 <a href="index.html#callback" class="contacts">Контакты</a>
             </div>
         </div>
     </div>
     <div class="section">
-        <div class="services__wrapper" data-anchor="services">
+        <div class="services__wrapper" data-anchor="services" id="servicesGoTo">
             <div class="hiddenBlocks__bg displaynone"></div>
             <div class="container services">
                 <div class="titleBlock">
@@ -219,6 +218,7 @@
                 </div>
                 <div class="services__hiddenBlocks hiddenBlocks">
                     <div class="hiddenBlocks__block hiddenCeh">
+                        <div class="closeService">X</div>
                         <a href="./services/plenka.html" class="elem plenka">
                             <div class="plenka__title">Нанесение защитной пленки на металл</div>
                         </a>
@@ -233,6 +233,7 @@
                         </a>
                     </div>
                     <div class="hiddenBlocks__block hiddenRezka">
+                        <div class="closeService">X</div>
                         <a href="./services/gidroabraz.html" class="elem gidroabraz">
                             <div class="gidroabraz__title">Гидроабразивная</div>
                         </a>
@@ -250,6 +251,7 @@
                         </a>
                     </div>
                     <div class="hiddenBlocks__block hiddenZink">
+                        <div class="closeService">X</div>
                         <a href="./services/galvanich.html" class="elem galvanich">
                             <div class="galvanich__title">Гальваническое</div>
                         </a>
@@ -330,7 +332,7 @@
         </div>
     </div>
     <div class="section">
-        <div class="callback__wrapper" data-anchor="callback">
+        <div class="callback__wrapper" data-anchor="callback" id="callbackGoTo">
             <div class="container callback">
                 <form action="#" class="callback__form">
                     <h2>Обратная связь</h2>
@@ -350,6 +352,10 @@
                     <div class="submit">
                         <input type="file" name="file" placeholder="Загрузить файл" class="file"/>
                         <input type="submit" name="send" value="Продолжить"/>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="tg"></a>
+                        <a href="#" class="wapp"></a>
                     </div>
                 </form>
                 <div class="callback__contacts contacts">
@@ -396,7 +402,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="block">
+                        <div class="block contacts__email">
                             <h3>E-mail:</h3>
                             <div>
                                 <h4>Отдел продаж:</h4>
@@ -480,7 +486,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="block">
+                        <div class="block contacts__email">
                             <h3>E-mail:</h3>
                             <div>
                                 <h4>Отдел продаж:</h4>
@@ -544,12 +550,12 @@
         <div class="footer__wrapper">
             <footer class="container footer">
                 <div class="footer__links">
-                    <a href="index.html#firstScreen" class="active">Главная</a>
-                    <a href="index.html#catalog">Каталог</a>
-                    <a href="index.html#services">Услуги</a>
-                    <a href="index.html#callback">Контакты</a>
+                    <a href="index.html#firstScreen" class="firstScreenLink">Главная</a>
+                    <a href="index.html#catalog" class="catalogLink">Каталог</a>
+                    <a href="index.html#services" class="servicesLink">Услуги</a>
+                    <a href="index.html#callback" class="callbackLink">Контакты</a>
                     <a href="vacancy.html">Вакансии</a>
-                    <a href="#" class="notImplemented">Личный кабинет</a>
+                    <div class="search"></div>
                 </div>
                 <div class="footer__secondBlock">
                     <div class="logo">
@@ -579,22 +585,26 @@
 </div>
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="./js/fullpage.min.js"></script>
+<link rel="stylesheet" href="./styles/jquery.fullpage.min.css">
+<link rel="stylesheet" type="text/css" href="./styles/slick.css"/>
+<link rel="stylesheet" type="text/css" href="./styles/slick-theme.css"/>
+<script src="https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.fullpage.min.js"></script>
 <script type="text/javascript" src="./js/vendors/scrolloverflow.min.js"></script>
-<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/index.min.js"></script>
 <script type="text/javascript" src="./js/slick.min.js"></script>
 
 <script type="text/javascript">
+    if(window.screen.width > 900){
     $(document).ready(function(){
-        if ($(window).width() > 900) {
-            $('#slick').slick({
-                centerMode: true,
-                infinite: false,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-            });
-            $('#slick').slick("slickGoTo", 1);
-        }
+        $('#slick').slick({
+            centerMode: true,
+            infinite: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+        });
+        $('#slick').slick("slickGoTo", 1);
     });
+    }
 </script>

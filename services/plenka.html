@@ -64,15 +64,23 @@
                     <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
                     <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
                     <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
-                    <select name="load" class="bigBlock">
-                        <option selected value="1">Подгрузка</option>
-                    </select>
+                    <div class="select">
+                        <span>База отгрузки:</span>
+                        <select name="load" class="bigBlock">
+                            <option value="krasnodar" selected>Краснодар</option>
+                            <option value="moscov">Москва</option>
+                        </select>
+                    </div>
                 </div>
                 <textarea placeholder="Введите ваш комментарий" name="message" cols="30" rows="10" class="bigBlock" ></textarea>
             </div>
             <div class="submit">
                 <input type="file" name="file" placeholder="Загрузить файл" class="file"/>
                 <input type="submit" name="send" value="Продолжить"/>
+            </div>
+            <div class="icons">
+                <a href="#" class="tg"></a>
+                <a href="#" class="wapp"></a>
             </div>
         </form>
     </div>

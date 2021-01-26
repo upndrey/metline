@@ -174,6 +174,11 @@ body {
     z-index: -1;
     @include icon("../images/firstScreen/svarka.jpg", 100%, 100%, true, absolute);
     top: 0;
+    background-position: center;
+
+    @include tablets {
+      height: 200%;
+    }
   }
 
   @include tablets {
@@ -391,8 +396,9 @@ body {
   .buttons {
     display: flex;
     align-items: center;
-    margin-bottom: 42px;
-    &>* {
+    width: 567px;
+    flex-wrap: wrap;
+    .btn-send, .btn-catalog {
       box-sizing: border-box;
       display: flex;
       align-items: center;
@@ -414,9 +420,9 @@ body {
         background: #006DFF;
       }
 
-      @include phones {
+      @include tablets {
         margin-right: 0;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
     }
 
@@ -431,9 +437,18 @@ body {
       &:hover {
         background: #BF4145;
       }
+      @include tablets {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+
+    @include laptop {
+      margin: 0 auto 15px auto;
     }
 
     @include tablets {
+      width: 100%;
       justify-content: center;
     }
 
@@ -442,18 +457,56 @@ body {
       align-items: center;
       justify-content: center;
     }
+
+    .alertBlock {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      height: 63px;
+
+      background: rgba(191, 65, 69, 0.74);
+      border-radius: 14px;
+      margin-top: 10px;
+
+      padding-right: 30px;
+
+      &__logo {
+        @include icon("../images/firstScreen/small_logo.png", 42px, 50px, false);
+        margin: 5px 15px;
+
+        @include tablets{
+          display: none;
+        }
+      }
+
+      @include tablets{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+    }
   }
 
-  .alertBlock {
+  .docsLink {
     position: absolute;
     right: -100px;
-    bottom: -50px;
+    bottom: 45px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    width: 531px;
+    width: 380px;
     height: 63px;
 
     background: rgba(0, 109, 255, 0.36);
@@ -462,7 +515,7 @@ body {
     padding-right: 30px;
 
     &__logo {
-      @include icon("../images/firstScreen/small_logo.png", 42px, 50px, false);
+      @include icon("../images/firstScreen/icons/docs.png", 30px, 39px, false);
       margin: 5px 15px;
 
       @include tablets{
@@ -494,8 +547,10 @@ body {
 
   }
 
+
+
   @include laptop {
-    margin-bottom: 140px;
+    margin-bottom: 15px;
   }
 
 
@@ -589,6 +644,10 @@ body {
     right: 15px;
     bottom: 15px;
   }
+
+  @include tablets {
+    display: none;
+  }
 }
 /* /FIRST SCREEN */
 
@@ -614,6 +673,9 @@ body {
       background: #121E79;
       opacity: 0.6;
       filter: blur(250px);
+      @include phones {
+        height: auto;
+      }
     }
   }
 
@@ -721,6 +783,13 @@ body {
       }
       /* /CATALOG_LIST */
     }
+
+    @include phones {
+      flex-direction: column;
+      width: 100%;
+      height: 600px;
+      overflow-x: scroll;
+    }
   }
 
   &__links {
@@ -781,6 +850,15 @@ body {
   opacity: .5;
   cursor: pointer;
 }
+.closeService {
+  font-size: 24px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
+}
 
 .services {
   color: #fff;
@@ -791,7 +869,7 @@ body {
     overflow-x: hidden;
     background: #1B1F2A;
     padding-bottom: 50px;
-    min-height: 915px;
+    min-height: 930px;
 
 
     &:before {
@@ -859,6 +937,14 @@ body {
       -ms-transform: scale(.5);
       -o-transform: scale(.5);
       transform: scale(.5);
+      @include laptop {
+        width: auto;
+      }
+      @include tablets {
+        width: auto;
+        height: 1200px;
+      }
+
       &.blockAnimate {
         visibility: visible;
         -webkit-transform: scale(1, 1);
@@ -870,6 +956,13 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
+        @include phones {
+          -webkit-transform: scale(.8);
+          -moz-transform: scale(.8);
+          -ms-transform: scale(.8);
+          -o-transform: scale(.8);
+          transform: scale(.8);
+        }
       }
 
       .elem {
@@ -892,6 +985,13 @@ body {
         &:before {
           @include icon("../images/services/plenka.png", 376px, 277px, true, absolute);
           opacity: .65;
+          @include phones {
+            -webkit-transform: scale(.7);
+            -moz-transform: scale(.7);
+            -ms-transform: scale(.7);
+            -o-transform: scale(.7);
+            transform: scale(.7);
+          }
         }
 
         &__title {
@@ -928,8 +1028,11 @@ body {
           line-height: 32px;
           position: absolute;
           bottom: 4px;
-          right: -88px;
+          right: -50px;
           z-index: 3;
+          @include phones {
+            width: 338px;
+          }
         }
       }
 
@@ -965,6 +1068,9 @@ body {
         &:before {
           @include icon("../images/services/peremotka.png", 368px, 245px, true, absolute);
           opacity: .65;
+          @include phones {
+            width: 345px;
+          }
         }
         &__title {
           width: 322px;
@@ -978,6 +1084,9 @@ body {
           bottom: 0;
           left: -24px;
           z-index: 3;
+          @include phones {
+            left: -10px;
+          }
         }
       }
 
@@ -1026,7 +1135,11 @@ body {
           top: 9px;
           right: -82px;
           z-index: 3;
+          @include phones {
+            width: 300px;
+          }
         }
+
       }
 
       .gazokislorod {
@@ -1037,6 +1150,13 @@ body {
         &:before {
           @include icon("../images/services/gazokislorod.jpg", 410px, 252px, true, absolute);
           opacity: .65;
+          @include phones {
+            -webkit-transform: scale(.7);
+            -moz-transform: scale(.7);
+            -ms-transform: scale(.7);
+            -o-transform: scale(.7);
+            transform: scale(.7);
+          }
         }
         &__title {
           width: 196px;
@@ -1170,6 +1290,9 @@ body {
           top: 0;
           left: -40px;
           z-index: 3;
+          @include phones {
+            left: 0;
+          }
         }
       }
 
@@ -1181,6 +1304,9 @@ body {
         &:before {
           @include icon("../images/services/holodnoe.jpg", 361px, 296px, true, absolute);
           opacity: .65;
+          @include phones {
+            width: 345px;
+          }
         }
         &__title {
           width: 316px;
@@ -1194,7 +1320,39 @@ body {
           bottom: 13px;
           right: -45px;
           z-index: 3;
+          @include phones {
+            left: 0;
+          }
         }
+      }
+    }
+    .hiddenCeh {
+       @include tablets {
+         border: 1px solid #fff;
+         top: 1400px;
+       }
+      @include phones {
+        top: 100px;
+      }
+     }
+
+    .hiddenRezka {
+      @include tablets {
+        border: 1px solid #fff;
+        top: 100px;
+      }
+      @include phones {
+        top: 100px;
+      }
+    }
+
+    .hiddenZink {
+      @include tablets {
+        border: 1px solid #fff;
+        top: 700px;
+      }
+      @include phones {
+        top: 100px;
       }
     }
   }
@@ -1754,6 +1912,13 @@ body {
         z-index: 3;
       }
     }
+
+    @include phones {
+      flex-direction: column;
+      width: 100%;
+      height: 750px;
+      overflow-x: scroll;
+    }
   }
 }
 /* /SERVICES */
@@ -1803,7 +1968,7 @@ body {
 
 
   &__form {
-    width: 50%;
+    width: 492px;
     height: 630px;
     display: flex;
     flex-wrap: wrap;
@@ -1944,6 +2109,24 @@ body {
         }
       }
     }
+    &>.icons {
+      display: flex;
+      .tg {
+        @include icon("../images/footer/icons/tg.png", 44px, 44px, false);
+        margin-right: 30px;
+        @include tablets {
+          margin: 0 30px;
+        }
+      }
+      .wapp {
+        @include icon("../images/footer/icons/wapp.png", 44px, 44px, false);
+      }
+      @include tablets {
+        justify-content: space-around;
+        margin: auto;
+        margin-bottom: 100px;
+      }
+    }
 
     textarea {
       font-family: 'Open Sans', sans-serif;
@@ -1955,23 +2138,26 @@ body {
 
     @include laptop{
       width: 100%;
-      margin-bottom: 50px;
+      margin-bottom: 100px;
     }
 
     @include phones{
       height: auto;
-      margin-bottom: 50px;
+      margin-bottom: 0;
     }
   }
 
   .contacts {
+    width: 528px;
     box-sizing: border-box;
     margin-left: 50px;
+    background: rgba(0, 109, 255, 0.2);
+    padding: 0 50px;
     h2 {
       height: 63px;
       font-size: 30px;
-      font-weight: 600;
-      line-height: 49px;
+      font-weight: 400;
+      line-height: 40px;
       position: relative;
       bottom: 0;
 
@@ -1979,12 +2165,13 @@ body {
         font-size: 24px;
         font-weight: 600;
         line-height: 24px;
+        text-align: center;
       }
     }
 
     h3 {
       font-size: 26px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       width: 100%;
 
       @include phones{
@@ -2011,19 +2198,17 @@ body {
         flex-wrap: wrap;
         justify-content: flex-start;
         &>div {
-          margin: 10px 30px 10px 5px;
+          margin-left: 10px;
           p {
-            margin-bottom: 5px;
+            margin-bottom: 15px;
             min-width: 170px;
           }
-          @include phones{
-            margin: 10px auto;
-          }
         }
-        @include phones{
-          justify-content: center;
-          align-items: center;
-          text-align: center;
+
+        &.contacts__email {
+          & p {
+            color: #2180FF;
+          }
         }
       }
 
@@ -2051,6 +2236,11 @@ body {
 
     @include laptop{
       margin-left: 0;
+    }
+
+    @include phones{
+      padding: 15px;
+      width: 100%;
     }
   }
 
@@ -2101,11 +2291,17 @@ body {
       color: #000;
     }
   }
+  @include tablets {
+    height: 550px;
+  }
 }
 
 #map1, #map2 {
   width: 100%;
   height: 850px;
+  @include tablets {
+    height: 550px;
+  }
 }
 
 .ymaps-layers-pane {
@@ -2262,6 +2458,9 @@ body {
   min-height: 800px;
   padding: 100px 0;
   font-weight: 300;
+  .displaynone {
+    display: none;
+  }
   &__wrapper {
     position: relative;
     background: #161C28;
@@ -2280,49 +2479,630 @@ body {
       filter: blur(250px);
     }
   }
-  &>div {
-    display: flex;
-    flex-direction: column;
-    width: 800px;
-    margin: auto;
-    max-width: 100%;
-  }
 
-  h1 {
-    display: block;
-    font-size: 30px;
-    margin-bottom: 15px;
-    position: relative;
-    &:before {
-      @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
-      bottom: -15px;
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      &:before {
+        @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
+        bottom: -15px;
+      }
+      @include phones {
+        margin-bottom: 25px;
+      }
+    }
+
+    .back {
+      color: #2180FF;
+      display: inline-block;
+      text-decoration: underline;
+    }
+    @include phones {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
+  &__body {
+    .block  {
+      display: flex;
+      flex-direction: column;
+      width: 682px;
+      padding: 30px 50px;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+      max-width: 100%;
+      background: rgba(0, 109, 255, 0.3);
+      border-radius: 15px;
 
-  .back {
-    margin-bottom: 35px;
+
+      &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+        h2 {
+          font-size: 21px;
+          font-weight: 700;
+
+          @include tablets {
+            margin-bottom: 10px;
+          }
+        }
+        span { 
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          &:before {
+            @include icon("../images/vacancy/icons/calendar.png", 32px, 32px, true, relative);
+            right: 10px;
+          }
+        }
+
+        @include tablets {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      &__location {
+        font-size: 21px !important;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+
+        &:before {
+          @include icon("../images/vacancy/icons/location.png", 23px, 32px, true, relative);
+          right: 10px;
+        }
+      }
+
+      @include phones {
+        width: auto;
+        box-sizing: content-box;
+        margin: 0 5px 30px 5px;
+      }
+
+      .vacancy__hide, .vacancy__show {
+        color: #2180FF;
+        cursor: pointer;
+      }
+    }
+  }
+  &>.back {
+    color: #2180FF;
+    display: block;
     text-decoration: underline;
-  }
-
-  h2 {
-    font-size: 21px;
-    margin-bottom: 10px;
-  }
-
-  h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-  }
-
-  p {
-    font-size: 16px;
-    margin-bottom: 15px;
-    margin-left: 15px;
+    text-align: right;
+    @include phones {
+      text-align: center;
+    }
   }
 }
 
 /* /VACANCY */
+
+/* ALERT */
+
+.alert {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column;
+  min-height: 800px;
+  padding: 100px 0;
+  font-weight: 300;
+  .displaynone {
+    display: none;
+  }
+  &__wrapper {
+    position: relative;
+    background: #161C28;
+    overflow-x: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 283px;
+      height: 1074px;
+      right: -300px;
+      top: 0;
+
+      background: #121E79;
+      opacity: 0.6;
+      filter: blur(250px);
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      &:before {
+        @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
+        bottom: -15px;
+        @include phones {
+          display: none;
+        }
+      }
+      @include phones {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+    }
+
+    .back {
+      color: #2180FF;
+      display: inline-block;
+      text-decoration: underline;
+    }
+    @include phones {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    &>span {
+      color: #2180FF;
+    }
+  }
+
+  @include phones {
+    width: auto;
+    box-sizing: content-box;
+    margin: 0 5px 30px 5px;
+  }
+  &>.back {
+    color: #2180FF;
+    display: block;
+    text-decoration: underline;
+    text-align: right;
+    @include phones {
+      text-align: center;
+    }
+  }
+}
+
+/* /ALERT */
+/* DOCS */
+
+.docs {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column;
+  min-height: 800px;
+  padding: 100px 0;
+  font-weight: 300;
+  .displaynone {
+    display: none;
+  }
+  &__wrapper {
+    position: relative;
+    background: #161C28;
+    overflow-x: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 283px;
+      height: 1074px;
+      right: -300px;
+      top: 0;
+
+      background: #121E79;
+      opacity: 0.6;
+      filter: blur(250px);
+    }
+  }
+
+  .catalog__block {
+    a {
+      width: 305px;
+      background: rgba(0, 109, 255, 0.2);
+      border-radius: 12px;
+      padding: 15px;
+      box-sizing: border-box;
+      margin-bottom: 50px;
+      p {
+        font-weight: 600;
+      }
+      span {
+        text-align: left;
+      }
+    }
+    @include phones {
+      flex-direction: row;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      &:before {
+        @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
+        bottom: -15px;
+        @include tablets {
+          display: none;
+        }
+      }
+      @include tablets {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+    }
+
+    .back {
+      color: #2180FF;
+      display: inline-block;
+      text-decoration: underline;
+    }
+    @include tablets {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    &>span {
+      color: #2180FF;
+    }
+  }
+
+  @include phones {
+    width: auto;
+    box-sizing: content-box;
+    margin: 0 5px 30px 5px;
+  }
+  &>.back {
+    color: #2180FF;
+    display: block;
+    text-decoration: underline;
+    text-align: right;
+    @include phones {
+      text-align: center;
+    }
+  }
+}
+
+/* /DOCS */
+
+/* CART */
+
+.cartPage {
+  color: #fff;
+  font-size: 16px;
+  flex-direction: column;
+  min-height: 800px;
+  padding: 100px 0;
+  font-weight: 300;
+  &__wrapper {
+    position: relative;
+    background: #161C28;
+    overflow-x: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 283px;
+      height: 800px;
+      right: -300px;
+      top: 0;
+
+      background: #121E79;
+      opacity: 0.6;
+      filter: blur(250px);
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      &:before {
+        @include icon("../images/horizontal_line.png", 180px, 2px, true, absolute);
+        bottom: -15px;
+      }
+      @include phones {
+        margin-bottom: 25px;
+      }
+    }
+
+    .back {
+      color: #2180FF;
+      display: inline-block;
+      text-decoration: underline;
+    }
+    @include phones {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__body {
+    &.emptyCart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &.displaynone {
+        display: none;
+      }
+
+      .img {
+        margin-bottom: 30px;
+        @include icon("../images/cart/icons/cart.png", 184px, 172px, false, relative);
+      }
+
+      h2 {
+        font-size: 21px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        font-weight: 400;
+      }
+
+      &>.buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        &>div {
+          width: 242px;
+          height: 62px;
+          box-sizing: border-box;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 27px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          color: #fff;
+          border-radius: 14px;
+          transition: .5s ease-in-out;
+          cursor: pointer;
+          margin: 0 15px;
+        }
+
+        .signup {
+          border: 2px solid rgba(0, 109, 255, 0.74);
+          box-shadow: inset 1px 0px 5px rgba(191, 65, 69, 0.25);
+
+          &:hover {
+            background: rgba(0, 109, 255, 0.74);
+            border: 2px solid transparent;
+          }
+        }
+
+        .login {
+          border: 2px solid rgba(191, 65, 69, 0.74);
+          box-shadow: inset 1px 0px 5px rgba(191, 65, 69, 0.25);
+
+          &:hover {
+            background: rgba(191, 65, 69, 0.74);
+            border: 2px solid transparent;
+          }
+        }
+      }
+    }
+    &.notEmptyCart {
+      &>table {
+        width: 100%;
+        .prodHead {
+          &>tr {
+            display: flex;
+            justify-content: space-between;
+
+            &>th {
+              padding: 10px 0;
+              font-size: 21px;
+              font-weight: 600;
+
+              &:nth-child(1) {
+                width: 260px;
+                text-align: left;
+              }
+
+              &:nth-child(2) {
+                width: 160px;
+              }
+
+              &:nth-child(3) {
+                width: 117px;
+              }
+
+              &:nth-child(4) {
+                width: 172px;
+              }
+
+              &:nth-child(5) {
+                width: 192px;
+              }
+
+              &:nth-child(6) {
+                width: 112px;
+              }
+            }
+          }
+        }
+        .prod {
+          &>tr {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-top: 1px solid #fff;
+            &>td {
+              font-size: 18px;
+              text-align: center;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &.prod__title {
+                width: 260px;
+                text-align: left;
+                justify-content: flex-start;
+              }
+
+              &.prod__count {
+                width: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &>div {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-around;
+                  width: 165px;
+                  height: 40px;
+                  background: rgba(0, 109, 255, 0.2);
+                  border-radius: 18px;
+                  &>input {
+                    width: 40px;
+                    background: none;
+                    border: 0;
+                    color: #fff;
+                    text-align: center;
+                    position: relative;
+                    left: 10px;
+                  }
+                  &>.minus, &>.plus {
+                    cursor: pointer;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 600;
+                    background: rgba(33, 128, 255, 0.4);
+                    border-radius: 50px;
+                    box-sizing: border-box;
+                    padding-bottom: 2px;
+                  }
+                }
+              }
+
+              &.prod__type {
+                width: 117px;
+              }
+
+              &.prod__price {
+                width: 172px;
+                &>span {
+                  margin-right: 5px;
+                }
+              }
+
+              &.prod__location {
+                width: 192px;
+              }
+
+              &.prod__remove {
+                width: 112px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &>div {
+                  @include icon("../images/cart/icons/delete.png", 25px, 28px, false, relative);
+
+                }
+              }
+            }
+
+          }
+        }
+      }
+      &.displaynone {
+        display: none;
+      }
+      &>.back {
+        color: #2180FF;
+        display: block;
+        text-decoration: underline;
+        text-align: right;
+        margin-top: 10px;
+        @include phones {
+          text-align: center;
+        }
+      }
+    }
+
+    @include phones {
+      width: auto;
+      box-sizing: content-box;
+      margin: 0 5px 30px 5px;
+    }
+  }
+}
+
+/* /CART */
 
 /* SERVICE */
 
@@ -2480,17 +3260,47 @@ body {
           height: auto;
         }
 
-      }
-      & .bigBlock {
-         font-family: 'Open Sans', sans-serif;
-         font-weight: 300;
-         width: 100%;
-         height: 63px;
-         box-sizing: border-box;
-         border: 1px solid #fff;
-         padding: 15px 30px;
-       }
+        &>.select {
+          width: 100%;
+          position: relative;
+          &>span {
+            position: absolute;
+            height: 63px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 15px;
+          }
+        }
 
+        & select {
+          &>option {
+            color: #000;
+          }
+        }
+        &>.select>.bigBlock {
+           font-weight: 300;
+           margin-top: 0;
+           margin-bottom: 15px;
+           font-size: 20px;
+           background: transparent;
+           color: white;
+         }
+        &>.select>.bigBlock {
+          padding-left: 150px;
+        }
+      }
+
+
+      & .bigBlock {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        width: 100%;
+        height: 63px;
+        box-sizing: border-box;
+        border: 1px solid #fff;
+        padding: 15px 30px 15px 30px;
+      }
 
       textarea {
         width: 50% !important;
@@ -2518,6 +3328,7 @@ body {
       width: 100%;
       display: flex;
       justify-content: flex-end;
+      margin-bottom: 10px;
       &>* {
         transition: .5s ease-in-out;
         min-width: 220px;
@@ -2539,6 +3350,7 @@ body {
       .file {
         font-family: 'Open Sans', sans-serif;
         margin-right: 15px;
+        flex-grow: 1;
 
         &:hover {
           background: transparent;
@@ -2555,6 +3367,25 @@ body {
         flex-direction: column;
       }
     }
+    &>.icons {
+       display: flex;
+       .tg {
+         @include icon("../images/footer/icons/tg.png", 44px, 44px, false);
+         margin-right: 30px;
+         @include tablets {
+           margin-right: 0;
+         }
+       }
+       .wapp {
+         @include icon("../images/footer/icons/wapp.png", 44px, 44px, false);
+       }
+       @include tablets {
+         justify-content: space-around;
+       }
+       @include tablets {
+         margin-bottom: 100px;
+       }
+     }
 
     @include phones{
       padding: 10px;
@@ -2566,12 +3397,17 @@ body {
 
 .rezkaBg {
   &:before {
-    @include icon("../images/services/rezka.png", 100%, 100%);
+    @include icon("../images/services/rezka.png", 100%, 100%, true, absolute);
   }
 }
 .metallBg {
   &:before {
-    @include icon("../images/services/metall.png", 100%, 100%);
+    @include icon("../images/firstScreen/svarka.jpg", 100%, 100%, true, absolute);
+  }
+}
+.plenkaBg {
+  &:before {
+    @include icon("../images/services/plenka.png", 100%, 100%, true, absolute);
   }
 }
 .zinkBg {
@@ -2967,7 +3803,7 @@ body {
       margin-bottom: 5px;
       transition: .5s ease-in-out;
       color: #fff;
-      
+
       &:hover {
         background: #fff;
         color: #000;
