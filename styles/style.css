@@ -730,14 +730,14 @@ h5 {
     }
 }
 
-.pricelist:first-child:before {
+.pricelist:before {
     content: 'Прайс-лист:';
     display: block;
     margin-bottom: 15px;
     font-size: 21px;
     font-family: 'Open Sans', sans-serif;
 }
-.pricelist:last-child:after {
+.pricelist:after {
     content: '* - Для отображения цены на сайте  авторизуйтесь в личном кабинете. Получить логин можно у персонального менеджера.';
     display: block;
     margin-top: 15px;
