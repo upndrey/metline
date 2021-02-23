@@ -65,7 +65,7 @@
             <th>Обозначение</th>
             <th>Дн, мм</th>
             <th>Масса, кг</th>
-            <th>Заказать</th>
+
         </tr>
         <tr>
             <td><p class="price_name">АПЭ 1572.0</td>
@@ -81,6 +81,32 @@
     </table>
 
 
+<form action="#" class="callback__form">
+        <div>
+            <h2>Обратная связь</h2>
+            <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>
+            <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>
+            <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
+            <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
+            <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
+            <div class="select">
+                <span>База отгрузки:</span>
+                <select name="load" class="bigBlock">
+                    <option value="krasnodar" selected>Краснодар</option>
+                    <option value="moscov">Москва</option>
+                </select>
+            </div>
+        </div>
+        <textarea placeholder="Введите ваш комментарий" name="message" cols="30" rows="10" class="bigBlock"></textarea>
+        <div class="submit">
+            <input type="file" name="file" placeholder="Загрузить файл" class="file"/>
+            <input type="submit" name="send" value="Продолжить"/>
+        </div>
+        <div class="icons">
+            <a href="#" class="tg"></a>
+            <a href="#" class="wapp"></a>
+        </div>
+    </form>
 </div>
 <div class="footer__wrapper">
     <footer class="container footer">
