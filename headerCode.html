@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="../../styles/main185.css">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/price.css">
+    <title>Метлайн</title>
+    <script type="text/javascript" src="../../js/js45.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var RESPONSIVE_MAX_WIDTH = 992;
+    var IS_MAINPAGE = false;
+
+    var ignore_firms_array = [];
+
+    var e_lc, e_cc, e_footer;
+    var v_ccol;
+    var window_height, window_width;
+    var user_bmm = 0;
+
+    function show_shadow_under_lc_and_cc_in_responsive_mode(show){
+
+        if( show ){
+            if( window_width > RESPONSIVE_MAX_WIDTH ) return;
+
+            if( !$('#shadow_under_lc_and_cc').length ){
+                $('body').append('<div id="shadow_under_lc_and_cc" onclick="show_shadow_under_lc_and_cc_in_responsive_mode(0)"></div>');
+                $('body').append('<div id="shadow_under_lc_and_cc-closer" class="popup-closer-container" onclick="show_shadow_under_lc_and_cc_in_responsive_mode(0)"><div class="popup-closer" onclick="show_shadow_under_lc_and_cc_in_responsive_mode(0)">&times;</div></div>');
+            }
+
+            var w = e_lc.outerWidth() + e_cc.outerWidth();
+            var l = (window_width - w)/2
+            var t = parseInt(e_lc.css('top')) - $('#shadow_under_lc_and_cc-closer').outerHeight();
+
+            $('#shadow_under_lc_and_cc-closer').css({ 'position': 'fixed', 'width': w, 'top': t, 'left': l});
+
+            $('body').addClass('noscroll');
+            $('html').addClass('noscroll');
+        }
+        else{
+            $('#shadow_under_lc_and_cc').remove();
+            $('#shadow_under_lc_and_cc-closer').remove();
+            $('body').removeClass('noscroll');
+            $('html').removeClass('noscroll');
+
+            resize_left_container('hide');
+            resize_center_container('hide');
+        }
+    }
+
+    function resize_left_container(action){
+
+        if( window_width <= RESPONSIVE_MAX_WIDTH ){
+            if(action === 'show_responsive'){
+                if( IS_MAINPAGE ) e_lc.removeClass('left-container-mainpage-static');
+
+                var l = (window_width - e_lc.outerWidth() - e_cc.outerWidth() )/2;
+
+                e_lc.show().css({'position': 'fixed', 'height': $(window).height() - 46 - 60, 'top': 46, 'left': l}).attr('data-window-width', window_width);
+                scroll_left_container_to_current_naimenovanie();
+            }
+            else if( action === 'hide' ){
+                if( IS_MAINPAGE ){
+                    e_lc.css({ 'position': 'static', 'height': 'auto' }).addClass('left-container-mainpage-static');
+                    $('.tabs').find('a.current').removeClass('current');
+                }
+                e_lc.hide();
+            }
+
+        }
+        else{
+            e_lc.css({ 'position': 'static', 'height': 'auto'}).show().attr('data-window-width', window_width);
+        }
+    }
+
+    function resize_center_container(action){
+
+        if( window_width <= RESPONSIVE_MAX_WIDTH ){
+
+            if(action === 'show_responsive'){
+                e_cc.show();
+                var left = parseInt(e_lc.css('left')) + e_lc.outerWidth();
+
+                e_cc.css({'height': $(window).height() - 46 - 20, 'top': 46, 'left': left});
+
+                scroll_panes_to_current_size();
+            }
+            else if( action === 'hide' ){
+                e_cc.hide();
+            }
+        }
+        else{
+            e_cc.show();
+
+            var v_dst = $(document).scrollTop();
+            var v_dsl = $(document).scrollLeft();
+
+            var v_cct = $('#left-container').offset().top - v_dst;
+
+            if( v_cct < 7 ) v_cct = 7;
+
+            var v_ccl = v_ccol-v_dsl;
+            var v_fot = e_footer.offset().top;
+            var v_fv = v_dst + window_height - v_fot;
+            if( v_fv < 0 ) v_fv = 0;
+            var v_cch = window_height - v_cct - v_fv - 7;
+
+            e_cc.css({'height': v_cch, 'top': v_cct, 'left':v_ccl});
+        }
+    }
+
+    $(document).ready(function()
+        {
+
+            $(document).on('mousemove.user_bmm touchend.user_bmm', function(){
+                user_bmm = 1;
+                $(document).off('.user_bmm');
+
+            });
+
+            if( global_user_params['id']
+                && typeof(Storage) !== "undefined"
+                && localStorage.ignore_firms_stamp
+                && global_user_params['ignore_firms_stamp']
+                && localStorage.ignore_firms_stamp != global_user_params['ignore_firms_stamp']
+            ){
+                localStorage.ignore_firms_stamp = '';
+                window.location.reload();
+            }
+
+            filter('','','','first_call');
+
+            $(window).on('hashchange', function() {
+                filter();
+            });
+
+
+            window_check_height_and_width(1, 1);
+
+            e_cc=$("#center-container");
+            e_lc=$("#left-container");
+            e_footer=$("#footer");
+
+            v_ccol=$("#content").offset().left+parseInt($("#content").css('padding-left'))+$("#left-container").innerWidth();
+
+            e_cc.css('position', 'fixed');
+            e_cc.css('left', v_ccol );
+
+
+            resize_center_container(null);
+            $('.tabs-sorting-showing-selector-container').show();
+
+            $(window).scroll(  function(){
+
+                window_check_height_and_width(1, 0);
+                resize_center_container(null);
+            });
+
+            $(window).resize(  function(){
+                v_ccol=$("#content").offset().left+parseInt($("#content").css('padding-left'))+$("#left-container").innerWidth();
+
+                window_check_height_and_width(1, 1);
+                showhide_ignored_firms_positionize();
+
+                if( e_lc.attr('data-window-width') != window_width ){
+                    resize_left_container('hide');
+                    resize_center_container('hide');
+                    show_shadow_under_lc_and_cc_in_responsive_mode(0);
+                }
+            });
+
+
+            if( $('.panes > .pane').length === 1 ){
+                $('.panes > .pane').addClass('current');
+            }
+
+            scroll_panes_to_current_size();
+
+
+            $("#table-price tbody").on('click', function(e){
+                var el = e.target;
+
+                /* clicked */
+                if( el.tagName == 'TR' ){
+                    $(el).toggleClass("clicked");
+                }
+                else if( el.tagName == 'TD' && !$(el).hasClass("firm_dop_opener") ){
+                    $(el).parent("tr").toggleClass("clicked");
+                }
+                else if( $(el).hasClass('cost') || $(el).hasClass('cost2') || $(el).hasClass('yslovie') || $(el).hasClass('cost-edizm') || $(el).hasClass('tel') || $(el).hasClass('cost_delta')
+                ){
+                    $(el).closest("tr").toggleClass("clicked");
+                }
+            });
+
+            $('.lc-cc-popup-opener').on('click', function(){
+                if( window_width > RESPONSIVE_MAX_WIDTH ) return;
+                if( IS_MAINPAGE ) return;
+
+                window_check_height_and_width(1, 1);
+                resize_left_container('show_responsive');
+                resize_center_container('show_responsive');
+                show_shadow_under_lc_and_cc_in_responsive_mode(1);
+            });
+
+            $('#left-container').on('click', function(e){
+                if( window_width > RESPONSIVE_MAX_WIDTH ) return;
+
+                var el = e.target;
+                if( el.tagName !== 'A' ) return;
+                if( el.id === 'show_services' ) return;
+                if( $('#shadow_under_lc_and_cc').length ) return;
+
+                window_check_height_and_width(1, 1);
+                resize_left_container('show_responsive');
+                resize_center_container('show_responsive');
+                show_shadow_under_lc_and_cc_in_responsive_mode(1);
+            })
+
+
+            $(document).bind('click', function(e){
+                var el = e.target;
+
+                if( $(el).hasClass('complaint') ){
+
+                    $(el).text('Принято, спасибо!').removeClass('complaint');
+                    $.post("http://23met.ru/complaint", {
+                        firm: $(el).attr("data-firm-name"),
+                        filters: $(el).attr("data-filters"),
+                        cost: $(el).attr("data-cost"),
+                        url: $(el).attr("data-url"),
+                    },function(data){});
+                }
+
+
+                if( $(el).hasClass('ignore-firm') ){
+
+                    if( !global_user_params['id'] ){
+                        form_user_logreg_show('user', 'Для скрытия поставщика необходимо войти или зарегистрироваться');
+                    }
+                    else{
+                        firm_name=$(el).attr("data-firm-name");
+
+                        $.post("http://23met.ru/user", { ajax: 'ignore_firm', ignore_firm : firm_name },
+                            function(ignore_firms_stamp){
+
+                                if( typeof(Storage) !== "undefined" ){
+                                    localStorage.ignore_firms_stamp = ignore_firms_stamp;
+                                }
+
+                                $('#firm-dop-popup').remove();
+                                $('tr.hovered').removeClass('hovered');
+
+                                var shifc = $('#showhide-ignored-firms-count');
+                                if( $('tr[data-firm-name="'+firm_name+'"]').hasClass('ignored-firm') ){
+                                    $('tr[data-firm-name="'+firm_name+'"]').removeClass('ignored-firm');
+
+                                    shifc.text( shifc.text()*1 - 1);
+                                }
+                                else{
+                                    $('tr[data-firm-name="'+firm_name+'"]').addClass('ignored-firm');
+                                    shifc.text( shifc.text()*1 + 1);
+                                }
+
+                                filter();
+
+                            });
+                    }
+                }
+
+                if( $(el).parent().attr('id') == 'showhide-ignored-firms-button' ){
+                    filter( '', '', 'showhide_ignored_firms-change_state');
+                }
+
+                if( $(el).hasClass("firm_dop_opener") || $(el).parent().hasClass("firm_dop_opener") ){
+
+                    $('#firm-dop-popup').remove();
+
+                    var tr = $(el).parents('tr');
+                    tr.addClass('hovered');
+
+                    var elp = $(el).parent();
+
+                    var checkbox_onoff = ( tr.hasClass('ignored-firm') )? '' : 'checked="checked"';
+
+                    $('body').append('<table id="firm-dop-popup"><tr><td><label id="ignore_firm_help" for="ifn_input" >Показывать поставщика</label><input id="ifn_input" data-firm-name="' + tr.attr('data-firm-name') + '" class="ignore-firm" type="checkbox" ' + checkbox_onoff + ' type="checkbox"/></td></tr>' + '<tr><td><span data-filters="'+ tr.attr('data-filters') +'" data-firm-name="'+ tr.attr('data-firm-name') +'" data-cost="'+tr.find('.cost').first().html()+'" data-url="'+ window.location.href
+                        +'" class="complaint">Неверная цена</span></td>' + '</tr></table>');
+                    var etdp = $('#firm-dop-popup');
+                    etdp.css('top',elp.offset().top - 1 ).css('left', elp.offset().left + elp.innerWidth() - etdp.innerWidth() - 2 ).show();
+
+                    $("#firm-dop-popup").mouseleave(function (){
+                        $('#firm-dop-popup').remove();
+                        $('tr.hovered').removeClass('hovered');
+                    });
+                }
+
+
+            });
+
+            $(document).on("click", ".tel-dob", function (){
+                $('#tel-dob-popup').remove();
+
+                var elp = $(this).parent();
+
+                $('body').append('<div id="tel-dob-popup">' + $(this).attr('data-tel-dob') + '</div>');
+
+                var etdp = $('#tel-dob-popup');
+                etdp.css('top', elp.offset().top + elp.innerHeight());
+
+                if(etdp.innerWidth() < elp.innerWidth()){
+                    etdp.css('left', elp.offset().left + elp.innerWidth() - etdp.innerWidth() );
+                }
+                else{
+                    etdp.css('left', elp.offset().left - (etdp.innerWidth() - elp.innerWidth() ) );
+                }
+                etdp.show();
+            });
+
+            $(document).on("mouseleave", ".tel-dob", function (){
+                $('#tel-dob-popup').remove();
+            });
+
+
+            $("#sizes-showing-mode-container .help").on('click', function() {
+                show_help_popup(1, '<b>Все города</b> &mdash; показывать наименования и размеры из всех горов. Размеры, не доступные в текущем городе, выделены серым цветом.<br /><br /><b>Текущий</b> &mdash; показывать наименования и размеры только из выбранного города.', this, 300);
+                $(this).on('mouseleave', function(){ show_help_popup(0); });
+            });
+
+
+        }
+    ); /* $(document).ready */
+
+    function window_check_height_and_width(h, w){
+        if(h) window_height = (typeof window.innerHeight != 'undefined')? window.innerHeight: $(window).height();
+        if(w) window_width = (typeof window.innerWidth != 'undefined')? window.innerWidth: $(window).width();
+    }
+
+    function scroll_left_container_to_current_naimenovanie(){
+        var a_current = $('#left-container').find('a.current');
+
+        if( $(a_current).length && $(a_current).position().top !== $('#left-container').height()/2 ){
+            $('#left-container').scrollTop( $('#left-container').scrollTop() + $(a_current).position().top - $('#left-container').height()/2 - 20-3);
+        }
+    }
+
+    function scroll_panes_to_current_size(){
+        var a_current = $(".panes > .current > a").filter(function(){
+            return $(this).text() === "1.5";
+        });
+
+        if( a_current.length ){
+            $(a_current).addClass('current');
+
+            var scroll_to = $(a_current).position().top - $(a_current).parent().position().top - $("div.panes").height()/2;
+            if( scroll_to > 0){
+                $("div.panes").scrollTop( scroll_to );
+            }
+        }
+    }
+
+
+    function show_help_popup(show, html, el, w){
+        $('.help_popup').remove();
+        if(show){
+            w = (w) ? w : 350;
+            if( w > $(window).width() ) w = $(window).width() - 2;
+
+            var t = $(el).offset().top + $(el).outerHeight() + 5;
+            var l = $(el).offset().left + $(el).outerWidth() / 2 - w / 2;
+
+            $('body').append('<div class="help_popup" style="top:'+t+'px; left:'+l+'px; width:'+w+'px;">'+html+'</div>');
+            var hp = $('.help_popup');
+            var d = hp.offset().left + hp.outerWidth() - $(window).width() - $(document).scrollLeft();
+            if( d > 0 ) hp.width( hp.width() - d - 1);
+
+            d = hp.offset().top + hp.outerHeight() - $(window).height() - $(document).scrollTop();
+            if( d > 0 ) hp.css('top', $(el).offset().top - 5 - hp.outerHeight());
+
+            if( hp.offset().left < 0 ) hp.css('left', 1);
+        }
+    }
+
+
+    function filter(e, fid, showhide_ignored_firms_change_state, first_call){
+
+        if( first_call ){
+            $.each( ignore_firms_array, function( firm, yes ) {
+                $('tr[data-firm-name="' + firm + '"').addClass('ignored-firm').addClass('tp-tr-hidden');
+            });
+        }
+
+
+        if( !$('#table-price').length ){
+            return;
+        }
+
+        var filters={};
+
+        var hash=window.location.hash.substring(1);
+
+
+        hash=hash.split(';');
+        $.each( hash, function( k, v ) {
+            filters[v] = 1;
+        });
+
+
+        if(fid){
+            if(filters[fid] == undefined){
+                filters[fid] = 1;
+            }
+            else{
+                delete filters[fid];
+            }
+        }
+        else{
+            if(e){
+                $(e).parent().find('li').each(function( index ) {
+
+                    id = $( this ).attr('data-eng');
+                    if(id !== undefined){
+                        if(filters[id] !== undefined){
+                            delete filters[id];
+                        }
+                    }
+
+                });
+            }
+        }
+
+        $('.current-filter').removeClass('current-filter');
+        $('.filter-clear-all').addClass('current-filter');
+
+
+        hash=Array();
+
+        $.each( filters, function( k, v ) {
+            if(!k) return;
+
+            $('.table-filter[data-eng="' + k + '"]').parent().find('.filter-clear-all').removeClass('current-filter');
+
+            var parent_eng = $('.table-filter[data-eng="' + k + '"]').attr('data-parent-eng');
+
+            if( parent_eng ){
+                if( parent_eng == fid ){
+
+                    var index = $.inArray(k, hash);
+                    if (index > -1) {
+                        hash.splice(index, 1);
+                    }
+                    $('.table-filter[data-eng="' + parent_eng + '"]').addClass('current-filter');
+
+
+                }else{
+                    var index = $.inArray(parent_eng, hash);
+                    if (index > -1) {
+                        hash.splice(index, 1);
+                        $('.table-filter[data-eng="' + parent_eng + '"]').removeClass('current-filter');
+                    }
+
+                    $('.table-filter[data-eng="' + k + '"]').addClass('current-filter');
+                    hash.push( k );
+                }
+            }
+            else{
+                $('.table-filter[data-eng="' + k + '"]').addClass('current-filter');
+                hash.push( k );
+            }
+
+        });
+
+
+        if(first_call){
+            $("#table-price > tbody > tr:not(.ignored-firm)").removeClass('tp-tr-hidden');//.show();
+        }
+        else{
+            $("#table-price > tbody > tr").removeClass('tp-tr-hidden');//.show();
+        }
+
+        showhide_ignored_firms( showhide_ignored_firms_change_state );
+
+        $( ".filters-container" ).each(function( i ) {
+
+            var el_not_to_hide_selectors = Array();
+            $(this).find(".current-filter" ).each(function( j, cf  ) {
+                id = $( cf ).attr('data-eng');
+                if(id !== undefined){
+                    el_not_to_hide_selectors.push( 'tr[data-filters~="' + id + '"]' );
+                }
+            });
+
+            if( el_not_to_hide_selectors.length ){
+                $("#table-price > tbody > tr").not( el_not_to_hide_selectors.join(', ') ).addClass('tp-tr-hidden');//.hide();
+            }
+        });
+
+        $("#tr-no-positions-match-filter").remove();
+        if( $("#table-price > tbody > tr").filter(":visible").length < 1 ){
+
+            var col_count = 0;
+            $('#table-price > thead > tr > th').each(function () {
+                if ($(this).attr('colspan')) col_count += +$(this).attr('colspan');
+                else col_count++;
+            });
+
+            $("#table-price > tbody").append('<tr id="tr-no-positions-match-filter"><td colspan="' + col_count + '" style="font-weight:bold; text-align:center; padding:7px;">Под заданный набор фильтров не подходит ни одна позиция.</td></tr>');
+        }
+
+        if(e){
+            var pos = $(window).scrollTop();
+            window.location.hash = hash.join(';');
+            $(window).scrollTop(pos);
+            resize_center_container('resize');
+        }
+
+        showhide_ignored_firms_positionize();
+    }
+
+
+    function showhide_ignored_firms( change_state ){
+
+        if( !$("#table-price > thead" ).length || $("#table-price > thead" ).html() === '' ){
+            return;
+        }
+
+        var txt_show = 'Показать скрытых';
+        var txt_hide = 'Убрать скрытых';
+
+        if(!$('#showhide-ignored-firms-button').length){
+
+            var ignored_firms = [];
+            var tmp_dfm = '';
+            $('tr.ignored-firm').map(function(){
+                tmp_dfm = $(this).attr('data-firm-name');
+                if( ignored_firms.indexOf(tmp_dfm) < 0 ){
+                    ignored_firms.push(tmp_dfm);
+                }
+            });
+
+            $('body').append('<div id="showhide-ignored-firms-button" data-showed="0"><span id="showhide-ignored-firms-text">'+txt_show+'</span> (<span id="showhide-ignored-firms-count">' + ignored_firms.length + '</span>)</div>');
+
+            showhide_ignored_firms_positionize();
+
+            $("#showhide-ignored-firms-button").hover(
+                function () {},
+                function () {   show_help_popup(0); }
+            );
+
+            return;
+        }
+
+
+        showhide_ignored_firms_positionize();
+
+        var shifb = $('#showhide-ignored-firms-button');
+
+
+        if( $('#showhide-ignored-firms-count').text()*1 < 1 && (typeof change_state != 'undefined') && change_state !== '' ){
+            show_help_popup(1, 'Нажмите <span class="settings-icon"></span> в строке таблицы, чтобы настроить отображение поставщиков.', shifb);
+        }
+
+
+
+        if( shifb.attr('data-showed') > 0 ){
+            if(change_state){
+                $('#showhide-ignored-firms-text').text( txt_show );
+                shifb.attr('data-showed', 0);
+
+                $('tr.ignored-firm').addClass('tp-tr-hidden');//hide();
+
+            }
+            else{
+                $('tr.ignored-firm').removeClass('tp-tr-hidden');//.show();
+            }
+        }
+        else{
+            if(change_state){
+                $('#showhide-ignored-firms-text').text( txt_hide );
+                shifb.attr('data-showed', 1);
+
+                $('tr.ignored-firm').removeClass('tp-tr-hidden');//.show();
+            }
+            else{
+                $('tr.ignored-firm').addClass('tp-tr-hidden');//hide();
+            }
+        }
+    }
+
+    function showhide_ignored_firms_positionize(){
+        if($('#showhide-ignored-firms-button').length){
+
+            var table_price_offset_top = parseInt( $("#table-price").offset().top);
+            var w = 135;
+            var h = parseInt( $("#table-price tbody").offset().top) - table_price_offset_top;
+            var l = Math.ceil( $("th:contains('Поставщик')").offset().left ) + $("th:contains('Поставщик')").innerWidth() - w - 2;
+            var t = table_price_offset_top + 1;
+
+            $('#showhide-ignored-firms-button').css('line-height', h + 'px').css('height', h).css('left', l).css('top', t).css('width', w);
+        }
+    }
+
+    function set_tabs_sorting_type(sorting_type, e){
+        if( $(e).hasClass('selected') || $(e).hasClass('disabled') ) return;
+        $.post("http://23met.ru/user", { ajax:'set_tabs_sorting_type', sorting_type:sorting_type },
+            function(data){
+                window.location.reload();
+            });
+    }
+
+    function set_tabs_and_sizes_showing_type(showing_type, e){
+        if( $(e).hasClass('selected') || $(e).hasClass('disabled') ) return;
+        $.post("http://23met.ru/user", { ajax:'set_tabs_and_sizes_showing_type', showing_type:showing_type },
+            function(data){
+                window.location.reload();
+            });
+    }
+
+
+    function load_postions_from_other_cities(radius){
+        var el_r = $('#load-dop-positions-input-radius');
+
+        if( radius !== undefined ) el_r.val(radius);
+        radius = el_r.val();
+
+        // el_r.blur().find("option:selected").text( radius + ' км' );
+        $('#load-dop-positions-input-radius-label').html( radius + ' км' );
+
+        $.post("http://23met.ru/price", {  ajax:'load_postions_from_other_cities',
+                action_metal: 'aluminium',
+                naimenovanie: 'list_rifl_aluminium',
+                size: '1.5',
+                radius: radius
+            },
+            function(data){
+
+                data = jQuery.parseJSON(data);
+
+                if( data['error'] !== undefined ){
+                    blink_border('#load-dop-positions-input-radius-container');
+                    yandex_counter_hit('SEARCH_OTHER_CITIES_ERROR');
+                }
+                else if( data['notif'] !== undefined ){
+                    blink_border('#load-dop-positions-input-radius-container');
+                    yandex_counter_hit('SEARCH_OTHER_CITIES_NOTIF');
+                }
+                else{
+
+                    var cost_recalculated = $('#table-price').find("[data-original-cost]").length ? true : false;
+
+                    $('#all-filters-container .filters-container').remove();
+                    $('#all-filters-container').prepend( data['filters'] );
+
+                    if( $('#all-filters-container').find('.filters-container').length ) $('#all-filters-container').show();
+                    else $('#all-filters-container').hide();
+
+
+                    $('#load-dop-positions-founded').remove();
+                    if( radius > 0 ){
+                        $('<div id="load-dop-positions-founded">'+data['message']+'</div>').insertBefore('#table-price');
+                    }else{
+                        $('#load-dop-positions-founded').remove();
+                    }
+
+                    if( !$('#table-price thead').length || $('#table-price thead').html() === '' ){
+                        $('#table-price thead').html( data['thead'] );
+                    }
+                    $('#table-price tbody').html( data['tbody'] );
+
+                    filter('','','','');
+
+                    /*$('html, body').animate({
+                        scrollTop: $("#right-container").offset().top
+                    }, 500);*/
+
+                    $('.cities-list-opener').on('click', function(e){
+                        $('.cities-list-hidden').toggle();
+                        showhide_ignored_firms_positionize();
+                    });
+
+                    $('.cities-list-back-to-one-city').on('click', function(e){
+                        load_postions_from_other_cities(0);
+                    });
+
+                    if( cost_recalculated ) calc_cost_recalculate_by_calc();
+
+                    yandex_counter_hit('SEARCH_OTHER_CITIES');
+                }
+            }).fail(function(xhr, status, error) {
+            blink_border('#load-dop-positions-input-radius-container');
+            yandex_counter_hit('SEARCH_OTHER_CITIES_ERROR');
+        });
+    }
+</script>
+<style type="text/css">
+ #l42963{position:relative;width:992px;height:60px;margin:0px auto 17px auto; overflow:hidden;}
+ #ld2f9c{position:relative;width:728px;height:100px;margin:37px auto 37px auto; overflow:hidden;}
+ .l4bb59{z-index:666;}
+ .l4d308{z-index:766;}
+ .lc9d62{position:absolute;left:0;top:0;width:100%;}
+
+ .l268ad{visibility:hidden; width:100%; padding-top:6.2%; height:1px;}
+ .le7ccc{visibility:hidden; width:100%; padding-top:14%; height:1px;}
+
+ @media (max-width: 992px) {
+  #l42963{max-width:992px; width:auto; height:auto; overflow:hidden;}
+  #ld2f9c{max-width:728px; width:auto; height:auto; overflow:hidden;}
+ }
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        setInterval(function() { rotate_banners(8100) }, 8100);
+
+        function rotate_banners(interval){
+            var id;
+            var image_change_speed = 1300;
+            var link_and_class_change_speed = 1000; //ссылка меняется только после почти полной смены баннера
+            var hnc_class = "l4d308";
+            var snc_class = "l4bb59";
+            var b_class = "lc9d62";
+
+            $( '.' + snc_class ).fadeIn( image_change_speed );
+            $( '.' + hnc_class ).fadeOut( image_change_speed );
+
+            setTimeout(function() {
+                $( '.' + hnc_class + ' a' ).hide();
+                $( '.' + snc_class + ' a' ).show();
+
+                var hnc = $( '.' + hnc_class);
+                var snc = $( '.' + snc_class);
+
+                hnc.hide().removeClass( hnc_class );
+                snc.show().addClass( hnc_class ).removeClass( snc_class );
+
+                $(snc).each(function(i) {
+                    if( $(this).next().length ) $(this).next().addClass( snc_class );
+                    else $(this).parent().find('.' + b_class).first().addClass( snc_class );
+                });
+            }, link_and_class_change_speed);
+        }
+    });
+
+    $(window).load(function() {
+        $('#l42963 img[data-src], #ld2f9c img[data-src]').each(function(i) {
+            $(this).attr('src', $(this).attr('data-src') );
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('body').on('click touchend', function(e){
+        if( $(e.target).hasClass('submenu_link') || $(e.target).closest('.submenu_link, .submenu_ul').length ) submenu_ul_show(1, e.type, e.target);
+        else submenu_ul_show(0, e.type);
+    });
+
+    $(window).resize(function(){
+        if($('.submenu_ul').attr('data-window-width') == $(window).width()) return;
+        submenu_ul_show(0);
+    });
+
+    $('#header').scroll(function() {
+        submenu_ul_show(0);
+    });
+
+    function submenu_ul_show(show, e_type, e_target){
+
+        if( e_type ){
+            if( $(".submenu_link").attr('data-blocked') === 'yes' ) return;
+            $(".submenu_link").attr('data-blocked', 'yes');
+            setTimeout(function(){ $(".submenu_link").attr('data-blocked', ''); }, 300);
+        }
+
+        if( show ){
+            if( !$(".submenu_link").find(".submenu_ul").length && $(e_target).closest('.submenu_link').length ){
+                submenu_ul_show(0);
+                return;
+            }
+
+            $(".submenu_ul").detach().appendTo('body').css('top', $(".submenu_link").offset().top + $(".submenu_link").outerHeight() + 1 ).attr('data-window-width', $(window).width()).show(); ;
+
+            var l = $(".submenu_link").offset().left + $(".submenu_link").width()/2 - $(".submenu_ul").outerWidth()/ 2;
+            var out_of_right_edge =  l + $(".submenu_ul").outerWidth() - $(window).width();
+            if( out_of_right_edge > 0 ) l -= out_of_right_edge + 5;
+            if( l < 5 ) l = 5;
+
+            $(".submenu_ul").css('left', l);
+
+            $('body').on('touchmove', function(e){
+                $(".submenu_ul").attr('data-touch-scrolled', 1);
+            });
+
+            $('.submenu_link-arrow').addClass('submenu_link-arrow180');
+        }
+        else{
+            if( e_type !== 'touchend' || (e_type === 'touchend' && $(".submenu_ul").attr('data-touch-scrolled') == 0) ){
+                if( !$(".submenu_link").find(".submenu_ul").length ){
+                    $(".submenu_ul").hide();
+                    $(".submenu_ul").detach().appendTo('.submenu_link');
+                    $('.submenu_link-arrow').removeClass('submenu_link-arrow180');
+                }
+            }
+        }
+        $(".submenu_ul").attr('data-touch-scrolled', 0);
+    }
+</script>
+<div class="calcPages__wrapper">
+ <div class="skladLinksBlock">
+  <a href="sizes.html" class="sizesLink active">Размер</a>
+  <a href="weights.html" class="weightsLink">Вес</a>
+  <a href="cart.html" class="cartLink">Корзина</a>
+  <a href="calculator.html" class="calculatorLink">Калькулятор</a>
+  <a href="gost.html" class="gostLink">ГОСТы и ТУ</a>
+ </div>
+ <div class="calcPages container">
+  <h1>Размер</h1>
+  <nav class="calcPages__menu menu">
+   <a href="index.html#firstScreen" class="firstScreenLink">Главная</a>
+   <a href="index.html#catalog" class="catalogLink">Каталог</a>
+   <a href="index.html#services" class="servicesLink">Услуги</a>
+   <a href="index.html#callback" class="callbackLink">Контакты</a>
+   <a href="vacancy.html">Вакансии</a>
+   <a href="index.html#">Личный кабинет</a>
+  </nav>
