@@ -60,7 +60,7 @@
             <th>Ширина, мм</th>
             <th>Высота, мм</th>
             <th>Масса изделия, кг</th>
-
+            <th>Заказать</th>
         </tr>
         <tr>
             <td>1</td>
@@ -70,7 +70,12 @@
             <td>200</td>
             <td>816</td>
             <td>32,0</td>
-
+            <td class="price_cena">
+                <div class="cart-block-tb">
+                    <input type="number" class="num-cart" min="1" value="1" max="1000">
+                    <a href="../../index.html#" class="cart-btn add-cart" item="tovar"><i class="fas fa-cart-plus"></i></a>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>2</td>
@@ -80,7 +85,12 @@
             <td>240</td>
             <td>920</td>
             <td>33,6</td>
-
+            <td class="price_cena">
+                <div class="cart-block-tb">
+                    <input type="number" class="num-cart" min="1" value="1" max="1000">
+                    <a href="../../index.html#" class="cart-btn add-cart" item="tovar"><i class="fas fa-cart-plus"></i></a>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>3</td>
@@ -90,7 +100,12 @@
             <td>280</td>
             <td>1012</td>
             <td>40,0</td>
-
+            <td class="price_cena">
+                <div class="cart-block-tb">
+                    <input type="number" class="num-cart" min="1" value="1" max="1000">
+                    <a href="../../index.html#" class="cart-btn add-cart" item="tovar"><i class="fas fa-cart-plus"></i></a>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>4</td>
@@ -100,38 +115,17 @@
             <td>300</td>
             <td>1114</td>
             <td>41,6</td>
-
+            <td class="price_cena">
+                <div class="cart-block-tb">
+                    <input type="number" class="num-cart" min="1" value="1" max="1000">
+                    <a href="../../index.html#" class="cart-btn add-cart" item="tovar"><i class="fas fa-cart-plus"></i></a>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
 
 
-<form action="#" class="callback__form">
-        <div>
-            <h2>Обратная связь</h2>
-            <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>
-            <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>
-            <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
-            <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
-            <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
-            <div class="select">
-                <span>База отгрузки:</span>
-                <select name="load" class="bigBlock">
-                    <option value="krasnodar" selected>Краснодар</option>
-                    <option value="moscov">Москва</option>
-                </select>
-            </div>
-        </div>
-        <textarea placeholder="Введите ваш комментарий" name="message" cols="30" rows="10" class="bigBlock"></textarea>
-        <div class="submit">
-            <input type="file" name="file" placeholder="Загрузить файл" class="file"/>
-            <input type="submit" name="send" value="Продолжить"/>
-        </div>
-        <div class="icons">
-            <a href="#" class="tg"></a>
-            <a href="#" class="wapp"></a>
-        </div>
-    </form>
 </div>
 <div class="footer__wrapper">
     <footer class="container footer">
