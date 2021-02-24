@@ -20,6 +20,33 @@
 <body>
 <a href="../index.html#" class="mainpage">Назад</a>
 <div class="container s-body">
+    <form action="#" class="callback__form callback__popup displaynone">
+        <div class="callback__close">X</div>
+        <div>
+            <h2>Обратная связь</h2>
+            <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>
+            <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>
+            <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
+            <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
+            <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
+            <div class="select">
+                <span>База отгрузки:</span>
+                <select name="load" class="bigBlock">
+                    <option value="krasnodar" selected>Краснодар</option>
+                    <option value="moscov">Москва</option>
+                </select>
+            </div>
+        </div>
+        <textarea placeholder="Введите ваш комментарий" name="message" cols="30" rows="10" class="bigBlock"></textarea>
+        <div class="submit">
+            <input type="file" name="file" placeholder="Загрузить файл" class="file"/>
+            <input type="submit" name="send" value="Продолжить"/>
+        </div>
+        <div class="icons">
+            <a href="#" class="tg"></a>
+            <a href="#" class="wapp"></a>
+        </div>
+    </form>
 
     <h1>Регистры отопления</h1>
     <p>Производственно-торговая компания «Метлайн» изготавливает регистры отопления по типовым и индивидуальным чертежам. При производстве используется высококачественный металлопрокат из стали, чугуна или другого металла. Металлоизделия отличаются высокими техническими и эксплуатационными характеристиками.</p>

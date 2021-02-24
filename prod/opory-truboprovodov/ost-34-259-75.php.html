@@ -25,6 +25,33 @@
 
 <a href="../opory-truboprovodov.1.html" class="mainpage">Назад</a>
 <div class="container s-body">
+    <form action="#" class="callback__form callback__popup displaynone">
+        <div class="callback__close">X</div>
+        <div>
+            <h2>Обратная связь</h2>
+            <input type="text" name="inn" placeholder="ИНН" class="smallBlock"/>
+            <input type="text" name="firstname" placeholder="Ваше имя" class="smallBlock"/>
+            <input type="text" name="company" placeholder="Компания" class="smallBlock"/>
+            <input type="text" name="phone" placeholder="Телефон" class="smallBlock"/>
+            <input type="email" name="email" placeholder="Электронная почта" class="smallBlock"/>
+            <div class="select">
+                <span>База отгрузки:</span>
+                <select name="load" class="bigBlock">
+                    <option value="krasnodar" selected>Краснодар</option>
+                    <option value="moscov">Москва</option>
+                </select>
+            </div>
+        </div>
+        <textarea placeholder="Введите ваш комментарий" name="message" cols="30" rows="10" class="bigBlock"></textarea>
+        <div class="submit">
+            <input type="file" name="file" placeholder="Загрузить файл" class="file"/>
+            <input type="submit" name="send" value="Продолжить"/>
+        </div>
+        <div class="icons">
+            <a href="#" class="tg"></a>
+            <a href="#" class="wapp"></a>
+        </div>
+    </form>
 
     <div class="product_page_block">
         <div class="row">
@@ -471,6 +498,16 @@
 <script defer type="text/javascript" src="../../js/slick.min.js"></script>
 
 <script defer type="text/javascript">
+    document.querySelectorAll(".price_cena").forEach(function (elem) {
+        elem.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(".callback__popup").classList.remove("displaynone");
+            window.scrollTo(0, 0);
+        });
+    });
+    document.querySelector(".callback__close").addEventListener("click", function (e) {
+        document.querySelector(".callback__popup").classList.add("displaynone");
+    });
     $(document).ready(function () {
         var $slickNav = $('#slickNav');
         var $navCount = $slickNav.find("img").length;
